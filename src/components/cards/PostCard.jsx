@@ -2,6 +2,7 @@ import { faBookmark, faComment, faEllipsis, faFaceSmile, faHeart, faShare } from
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import styled from 'styled-components'
+import userImage from '../../assets/images/header/profile.jpg'
 
 
 export default function PostCard({post}) {
@@ -28,8 +29,14 @@ export default function PostCard({post}) {
                 <FontAwesomeIcon icon={faShare} className="icon" />
                 <FontAwesomeIcon icon={faBookmark} className="icon share" />
             </PostFooter>
+            <Likers>
+                <LikedUser>
+                    <img src={userImage} alt='User' />
+                </LikedUser>
+                <p><b>junior_moosa </b> and <b> 72 others</b></p>
+            </Likers>
             <Caption>
-                <b>junior_moosa</b>White is pure and simple and matches with everything
+                <b>junior_moosa </b> White is pure and simple and matches with everything
             </Caption>
             <CommentDiv>
                 <FontAwesomeIcon icon={faFaceSmile} className="icon" />
@@ -82,6 +89,7 @@ const PostImage = styled.div`
 const PostFooter = styled.div`
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 
     & .icon{
         width: 25px;
@@ -95,6 +103,54 @@ const PostFooter = styled.div`
         }
     }
 `
-const Caption = styled.p``
-const CommentDiv = styled.div``
-const Post = styled.span``
+const Likers = styled.div`
+    display: flex;
+    margin-bottom: 20px;
+    
+    & p{
+        font-weight: 100;
+        font-size: 14px;
+        
+        & p{
+            font-weight: 700;
+        }
+    }
+`
+const LikedUser = styled.div`
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+`
+const Caption = styled.p`
+    margin-bottom: 20px;
+    font-weight: 100;
+    font-size: 14px;
+    color: #262626;
+
+    & b{
+        font-weight: 700;
+        color: #000;
+    }
+`
+const CommentDiv = styled.div`
+    border-top: 1px solid #efefef;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+
+    & .icon{
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+    }
+
+    & input{
+        width: 90%;
+    }
+`
+const Post = styled.span`
+    color: #0095f6;
+    font-size: 14px;
+`
