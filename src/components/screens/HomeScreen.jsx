@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PostCard from '../cards/PostCard'
 import storyImage from '../../assets/images/header/profile.jpg'
+import SuggestionCard from '../cards/SuggestionCard'
 
 
 export default function HomeScreen() {
@@ -9,37 +10,44 @@ export default function HomeScreen() {
         {
             id:1,
             story : storyImage,
-            image: storyImage
+            image: storyImage,
+            username:'junior_moosa'
         },
         {
             id:1,
             story : storyImage,
-            image: storyImage
+            image: storyImage,
+            username:'junior_moosa'
         },
         {
             id:1,
             story : storyImage,
-            image: storyImage
+            image: storyImage,
+            username:'junior_moosa'
         },
         {
             id:1,
             story : storyImage,
-            image: storyImage
+            image: storyImage,
+            username:'junior_moosa'
         },
         {
             id:1,
             story : storyImage,
-            image: storyImage
+            image: storyImage,
+            username:'junior_moosa'
         },
         {
             id:1,
             story : storyImage,
-            image: storyImage
+            image: storyImage,
+            username:'junior_moosa'
         },
         {
             id:1,
             story : storyImage,
-            image: storyImage
+            image: storyImage,
+            username:'junior_moosa'
         },
     ])
     const [posts,setPosts] = useState([
@@ -55,6 +63,21 @@ export default function HomeScreen() {
         },
     ])
 
+    const [suggestions,setSuggestions] = useState([
+        {
+            id:1,
+            name:"ukmanikandan",
+            story : storyImage,
+            image: storyImage
+        },
+        {
+            id:1,
+            name:"ukmanikandan",
+            story : storyImage,
+            image: storyImage
+        },
+    ])
+
     return (
         <Container>
             <section className="wrapper">
@@ -63,9 +86,12 @@ export default function HomeScreen() {
                         {
                             stories.map(story=>(
                                 <StoryLi>
-                                    <StoryDiv>
-                                        <img src={story.image} alt='Story' />
-                                    </StoryDiv>
+                                    <BgDiv>
+                                        <StoryDiv>
+                                            <img src={story.image} alt='Story' />
+                                        </StoryDiv>
+                                    </BgDiv>
+                                    <h5>{story.username.slice(0, 12)}</h5>
                                 </StoryLi>
                             ))
                         }
@@ -79,7 +105,25 @@ export default function HomeScreen() {
                     </PostUl>
                 </HomeLeft>
                 <HomeRight>
-
+                    <MyHeader>
+                        <Avatar>
+                            <img src={storyImage} alt='Avatar' />
+                        </Avatar>
+                        <NameDiv>
+                            <H5>junior_moosa</H5>
+                            <p>Swalih Moosa</p>
+                        </NameDiv>
+                        <Switch>Switch</Switch>
+                    </MyHeader>
+                    <See>
+                        <Suggestion>Suggestions for you</Suggestion>
+                        <View>See All</View>
+                    </See>
+                    {
+                        suggestions.map(suggestion=>(
+                            <SuggestionCard suggestion={suggestion} />
+                        ))
+                    }
                 </HomeRight>
             </section>
         </Container>
@@ -87,14 +131,16 @@ export default function HomeScreen() {
 }
 
 const Container = styled.section`
+    background-color: #fafafa;
     & .wrapper{
-        padding: 25px 50px;
+        padding: 115px 50px;
         display: flex;
         justify-content: space-between;
+        position: relative;
     }
 `
 const HomeLeft = styled.div`
-    width: 74%;
+    width: 58%;
 `
 const StoryUl = styled.div`
     border: 1px solid #dbdbdb;
@@ -105,16 +151,26 @@ const StoryUl = styled.div`
     padding: 15px;
     border-radius: 7px;
     margin-bottom: 20px;
+    background-color: #fff;
 `
 const StoryLi = styled.div`
+    margin-right: 10px;
+
+    & h5{
+        font-size: 10px;
+        color: #262626;
+    }
+`
+const BgDiv = styled.div`
     min-width: 65px;
     max-width: 65px;
     height: 65px;
     border-radius: 50%;
-    margin-right: 10px;
     overflow: hidden;
     background-image: linear-gradient(to right top, #fea700 , #7c13f8);
     padding: 2px;
+    margin: 0 auto;
+    margin-bottom: 5px;
 `
 const StoryDiv = styled.div`
     width: 100%;
@@ -125,5 +181,52 @@ const StoryDiv = styled.div`
 `
 const PostUl = styled.div``
 const HomeRight = styled.div`
-    width: 34%;
+    width: 38%;
+    padding: 15px 0 0 0;
+    position: sticky;
+    top: 115px;
+    height: 100%;
+`
+const MyHeader = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+`
+const Avatar = styled.div`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+`
+const NameDiv = styled.div`
+    & p{
+        color: #8e8e8e;
+        font-size: 12px;
+    }
+`
+const H5 = styled.h5`
+    color: #262626;
+    font-size: 14px;
+    margin-bottom: 3px;
+`
+const Switch = styled.p`
+    color: #0095f6;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: 0;
+`
+const See = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+`
+const Suggestion = styled.p`
+    color: #8e8e8e;
+    font-size: 14px;
+`
+const View = styled.p`
+    font-size: 14px;
+    color: #262626;
 `

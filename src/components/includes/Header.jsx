@@ -35,8 +35,15 @@ export default function Header() {
 
 const Container = styled.header`
     border-bottom: 1px solid #dbdbdb;
-    padding: 25px 0;
-
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    height: 90px;
+    display: flex;
+    align-items: center;
 `
 const HeaderSection = styled.div`
     display: flex;
@@ -48,9 +55,9 @@ const InstaText = styled.div`
 `
 const InputDiv = styled.div`
     background-color: #efefef;
-    padding: 10px 20px;
     border-radius: 8px;
     width: 270px;
+    padding: 8px 20px;
 
     & .icon{
         width: 16px;
@@ -72,7 +79,11 @@ const Nav = styled.nav`
         width: 22px;
         height: 22px;
         color: #8e8e8e;
-        margin-right: 10px;
+        margin-right: 15px;
+
+        &:last-child{
+            margin-right: 0;
+        }
     }
     & .active-link{
         color: #000;

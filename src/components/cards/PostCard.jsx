@@ -52,6 +52,11 @@ const Container = styled.div`
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
+    background-color: #fff;
+
+    &:last-child{
+        margin-bottom: 0;
+    }
 `
 const PostHead = styled.div`
     display: flex;
