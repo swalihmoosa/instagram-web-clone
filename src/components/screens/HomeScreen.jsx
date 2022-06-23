@@ -72,8 +72,8 @@ export default function HomeScreen() {
                     </StoryUl>
                     <PostUl>
                         {
-                            stories.map(story=>(
-                                <PostCard posts={posts} />
+                            posts.map(post=>(
+                                <PostCard post={post} />
                             ))
                         }
                     </PostUl>
