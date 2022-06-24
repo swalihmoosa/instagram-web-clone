@@ -7,6 +7,7 @@ import stories from "../../assets/json/stories";
 import { Link } from "react-router-dom";
 
 export default function HomeScreen() {
+    const[clickedStoryId,setClickedStoryId]= useState(0)
     const [posts] = useState([
         {
             id: 1,
@@ -30,7 +31,7 @@ export default function HomeScreen() {
                 <HomeLeft>
                     <StoryUl>
                         {stories.map((story) => (
-                            <StoryLi key={story.id} to="/stories" >
+                            <StoryLi key={story.id} to="/stories" onClick={()=>setClickedStoryId(story.id)} >
                                 <BgDiv>
                                     <StoryDiv>
                                         <img

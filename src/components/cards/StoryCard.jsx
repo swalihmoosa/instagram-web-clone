@@ -8,6 +8,9 @@ export default function StoryCard({story }) {
     return (
         <Container>
             <StoryHead>
+                <Timing>
+                    <Bg></Bg>
+                </Timing>
                 <Avatar>
                     <img src={story.profile_image} alt="Avatar" />
                 </Avatar>
@@ -18,8 +21,8 @@ export default function StoryCard({story }) {
             </StoryImage>
             <StoryFooter>
                 <input type="text" placeholder="Send message" />
-                <FontAwesomeIcon icon={faHeart} className="icon" />
-                <FontAwesomeIcon icon={faShare} className="icon" />
+                <FontAwesomeIcon icon={faHeart} className="icon heart" />
+                <FontAwesomeIcon icon={faShare} className="icon share" />
             </StoryFooter>
         </Container>
     );
@@ -28,13 +31,35 @@ export default function StoryCard({story }) {
 const Container = styled.div`
     background-color: #fafafa;
     width: 500px;
+    position: relative;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 const StoryHead = styled.div`
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     padding: 10px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
 `;
+const Timing = styled.div`
+    background-color: #ffffff59;
+    width: 100%;
+    height: 3px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+`
+const Bg = styled.div`
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    width: 50%;
+`
 const Avatar = styled.div`
     width: 40px;
     height: 40px;
@@ -46,6 +71,34 @@ const Avatar = styled.div`
     align-items: center;
     background-color: #fff;
 `;
-const H5 = styled.h5``;
+const H5 = styled.h5`
+    color: #000;
+    font-size: 12px;
+`;
 const StoryImage = styled.div``;
-const StoryFooter = styled.div``;
+const StoryFooter = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    & input {
+        border: 2px solid #dbdbdb !important;
+        border-radius: 100vh;
+        padding: 10px;
+        width: 100%;
+    }
+    & .icon{
+        position: absolute;
+        
+        &.heart{
+            right: 55px;
+        }
+        &.share{
+            right: 25px;
+        }
+    }
+`;
