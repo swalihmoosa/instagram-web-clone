@@ -2,6 +2,7 @@ import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons'
 import { faHouse, faMagnifyingGlass, faSquarePlus,faHeart,faCompass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -18,10 +19,19 @@ export default function Header() {
                         <input type="text" placeholder='Search' />
                     </InputDiv>
                     <Nav>
-                        <FontAwesomeIcon icon={faHouse} className="icon active-link" />
-                        <FontAwesomeIcon icon={faFacebookMessenger} className="icon" />
-                        <FontAwesomeIcon icon={faSquarePlus} className="icon" />
-                        <FontAwesomeIcon icon={faCompass} className="icon" />
+                        <IconLink to="/" >
+                            <FontAwesomeIcon icon={faHouse} className="icon active-link" />
+                        </IconLink>
+                        <IconLink to="/inbox" >
+                            <FontAwesomeIcon icon={faFacebookMessenger} className="icon" />
+                        </IconLink>
+                        <IconLink to="/new-post" >
+                            <FontAwesomeIcon icon={faSquarePlus} className="icon" />
+                        </IconLink>
+                        <IconLink to="/explore" >
+                            <FontAwesomeIcon icon={faCompass} className="icon" />
+                        </IconLink>
+
                         <FontAwesomeIcon icon={faHeart} className="icon" />
                     </Nav>
                     <UserDiv>
@@ -79,16 +89,19 @@ const Nav = styled.nav`
         width: 22px;
         height: 22px;
         color: #8e8e8e;
-        margin-right: 15px;
-
-        &:last-child{
-            margin-right: 0;
-        }
-    }
-    & .active-link{
-        color: #000;
     }
 `
+const IconLink = styled(NavLink)`
+    margin-right: 15px;
+
+    &:last-child{
+        margin-right: 0;
+    }
+
+    &.active .icon{
+        color: #000;
+    }
+` 
 const UserDiv = styled.div`
     width: 30px;
     height: 30px;
