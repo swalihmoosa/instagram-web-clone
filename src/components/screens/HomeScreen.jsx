@@ -124,6 +124,18 @@ export default function HomeScreen() {
                             <SuggestionCard suggestion={suggestion} />
                         ))
                     }
+                    <AboutUl>
+                        <AboutLi>About</AboutLi>
+                        <AboutLi>Help</AboutLi>
+                        <AboutLi>Press</AboutLi>
+                        <AboutLi>API</AboutLi>
+                        <AboutLi>Jobs</AboutLi>
+                        <AboutLi>Privacy</AboutLi>
+                        <AboutLi>Terms</AboutLi>
+                        <AboutLi>Locations</AboutLi>
+                        <AboutLi>Language</AboutLi>
+                    </AboutUl>
+                    <From>&copy; 2022 INSTAGRAM FROM META</From>
                 </HomeRight>
             </section>
         </Container>
@@ -229,4 +241,22 @@ const Suggestion = styled.p`
 const View = styled.p`
     font-size: 14px;
     color: #262626;
+`
+const AboutUl = styled.div`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+`
+const AboutLi = styled.span`
+    font-size: 11px;
+    margin-right: 7px;
+    color: #c7c7c7;
+    line-height: 1rem;
+`
+const From = styled.p`
+    font-size: 11px;
+    margin-right: 7px;
+    color: #c7c7c7;
+    line-height: 1rem;
 `
