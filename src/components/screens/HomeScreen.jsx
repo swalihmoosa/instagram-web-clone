@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import PostCard from "../cards/PostCard";
 import storyImage from "../../assets/images/header/profile.jpg";
 import SuggestionCard from "../cards/SuggestionCard";
 import stories from "../../assets/json/stories";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 
 export default function HomeScreen() {
-    const[clickedStoryId,setClickedStoryId]= useState(0)
+    const { userActions, setUserActions } = useContext(UserContext);
+
     const [posts] = useState([
         {
             id: 1,
@@ -31,7 +33,16 @@ export default function HomeScreen() {
                 <HomeLeft>
                     <StoryUl>
                         {stories.map((story) => (
-                            <StoryLi key={story.id} to="/stories" onClick={()=>setClickedStoryId(story.id)} >
+                            <StoryLi
+                                key={story.id}
+                                to="/stories"
+                                onClick={() =>
+                                    setUserActions({
+                                        ...userActions,
+                                        clickedStory: story.id,
+                                    })
+                                }
+                            >
                                 <BgDiv>
                                     <StoryDiv>
                                         <img

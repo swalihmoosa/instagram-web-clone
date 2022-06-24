@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import StoryCard from "../cards/StoryCard";
 import stories from "../../assets/json/stories";
@@ -7,14 +7,17 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import instagramLogo from "../../assets/images/insta-text-black.png";
 import useWindowDimensions from "../hooks/UseWindowDimensions";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../App";
 
 export default function StoryScreen() {
     const { height } = useWindowDimensions();
-    const [currentStoryNumber, setCurrentStoryNumber] = useState(0);
+    const { userActions } = useContext(UserContext);
+    const [currentStoryNumber, setCurrentStoryNumber] = useState(
+        userActions.clickedStory - 1
+    );
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("#############################", currentStoryNumber);
         if (currentStoryNumber < stories.length - 1) {
             const story = setInterval(
                 () => setCurrentStoryNumber((oldCount) => oldCount + 1),
@@ -24,8 +27,9 @@ export default function StoryScreen() {
             return () => {
                 clearInterval(story);
             };
-        } else {
-            navigate("/");
+        }
+        if (currentStoryNumber === stories.length) {
+            const story = setInterval(() => navigate("/"), 5000);
         }
     }, [currentStoryNumber]);
 
@@ -35,7 +39,7 @@ export default function StoryScreen() {
                 <img src={instagramLogo} alt="Instagram" />
             </Logo>
             <StoryCard story={stories[currentStoryNumber]} />
-            <Close to="/" >
+            <Close to="/">
                 <FontAwesomeIcon icon={faXmark} className="icon" />
             </Close>
         </Container>
