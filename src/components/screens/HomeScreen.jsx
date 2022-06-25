@@ -5,19 +5,12 @@ import storyImage from "../../assets/images/header/profile.jpg";
 import lalluImage from "../../assets/images/lallu.jpeg";
 import SuggestionCard from "../cards/SuggestionCard";
 import stories from "../../assets/json/stories";
+import posts from "../../assets/json/posts";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
 
 export default function HomeScreen() {
     const { userActions, setUserActions } = useContext(UserContext);
-
-    const [posts] = useState([
-        {
-            id: 1,
-            story: lalluImage,
-            image: lalluImage,
-        },
-    ]);
 
     const [suggestions] = useState([
         {
