@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import Header from "./components/includes/Header";
+import './assets/css/style.css'
 import AppRouter from "./components/routing/AppRouter";
 import AuthRouter from "./components/routing/AuthRouter";
-import HomeScreen from "./components/screens/HomeScreen";
 
 export const UserContext = React.createContext();
 

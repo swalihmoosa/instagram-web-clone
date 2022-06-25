@@ -9,7 +9,7 @@ export default function StoryCard({story }) {
         <Container>
             <StoryHead>
                 <Timing>
-                    <Bg></Bg>
+                    <Bg id="story-bg" ></Bg>
                 </Timing>
                 <Avatar>
                     <img src={story.profile_image} alt="Avatar" />
@@ -55,10 +55,11 @@ const Timing = styled.div`
     border-radius: 5px;
 `
 const Bg = styled.div`
-    background-color: #fff;
+    background-color: #464646;
     width: 100%;
     height: 100%;
     width: 50%;
+    border-radius: 5px;
 `
 const Avatar = styled.div`
     width: 40px;

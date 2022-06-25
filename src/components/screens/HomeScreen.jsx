@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import PostCard from "../cards/PostCard";
 import storyImage from "../../assets/images/header/profile.jpg";
+import lalluImage from "../../assets/images/lallu.jpeg";
 import SuggestionCard from "../cards/SuggestionCard";
 import stories from "../../assets/json/stories";
 import { Link } from "react-router-dom";
@@ -13,8 +14,8 @@ export default function HomeScreen() {
     const [posts] = useState([
         {
             id: 1,
-            story: storyImage,
-            image: storyImage,
+            story: lalluImage,
+            image: lalluImage,
         },
     ]);
 
@@ -57,7 +58,7 @@ export default function HomeScreen() {
                     </StoryUl>
                     <PostUl>
                         {posts.map((post) => (
-                            <PostCard post={post} />
+                            <PostCard post={post} key={post.id} />
                         ))}
                     </PostUl>
                 </HomeLeft>
@@ -130,6 +131,7 @@ const StoryLi = styled(Link)`
     & h5 {
         font-size: 10px;
         color: #262626;
+        text-align: center;
     }
 `;
 const BgDiv = styled.div`

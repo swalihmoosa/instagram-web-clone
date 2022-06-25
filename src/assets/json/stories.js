@@ -15,8 +15,8 @@ const stories = [
     },
     {
         "id": 3,
-        "username" : "albin_royson",
-        "name" : "Swalih Moosa",
+        "username" : "lallu",
+        "name" : "Naveen",
         "story" : "https://thumbs.dreamstime.com/z/woman-praying-free-birds-to-nature-sunset-background-woman-praying-free-birds-enjoying-nature-sunset-99680945.jpg",
         "profile_image" : "https://thumbs.dreamstime.com/z/woman-praying-free-birds-to-nature-sunset-background-woman-praying-free-birds-enjoying-nature-sunset-99680945.jpg"
     },
@@ -68,7 +68,14 @@ const stories = [
         "name" : "Swalih Moosa",
         "story" : "https://thumbs.dreamstime.com/b/free-as-wind-5565107.jpg",
         "profile_image" : "https://thumbs.dreamstime.com/b/free-as-wind-5565107.jpg"
-    }
+    },
+    {
+        "id": 11,
+        "username" : "albin_royson",
+        "name" : "Swalih Moosa",
+        "story" : "https://thumbs.dreamstime.com/z/woman-praying-free-birds-to-nature-sunset-background-woman-praying-free-birds-enjoying-nature-sunset-99680945.jpg",
+        "profile_image" : "https://thumbs.dreamstime.com/z/woman-praying-free-birds-to-nature-sunset-background-woman-praying-free-birds-enjoying-nature-sunset-99680945.jpg"
+    },
 ]
 
 export default stories

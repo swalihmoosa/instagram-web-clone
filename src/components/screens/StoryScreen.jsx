@@ -28,10 +28,10 @@ export default function StoryScreen() {
                 clearInterval(story);
             };
         }
-        if (currentStoryNumber === stories.length) {
-            const story = setInterval(() => navigate("/"), 5000);
+        if (currentStoryNumber === stories.length - 1) {
+            setInterval(() => navigate("/"), 5000);
         }
-    }, [currentStoryNumber]);
+    }, [currentStoryNumber,navigate]);
 
     return (
         <Container style={{ height: height }}>
@@ -72,3 +72,4 @@ const Close = styled(Link)`
         font-size: 30px;
     }
 `;
+

@@ -71,6 +71,9 @@ const Avatar = styled.div`
     margin-right: 15px;
     border-radius: 50%;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 const NameDiv = styled.div``
 const H4 = styled.h4`
