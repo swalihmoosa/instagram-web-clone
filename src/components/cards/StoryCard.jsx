@@ -5,8 +5,6 @@ import React from "react";
 import styled from "styled-components";
 
 export default function StoryCard({ story, isfutured, currentStoryNumber }) {
-    console.log("########################## isisfutured", isfutured);
-
     return (
         <Container
             className={
@@ -40,6 +38,18 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
                     <FontAwesomeIcon icon={faShare} className="icon share" />
                 </StoryFooter>
             )}
+            {isfutured ? (
+                <Overlay>
+                    <StoryLi>
+                        <BgDiv>
+                            <StoryDiv>
+                                <img src={story.profile_image} alt="Story" />
+                            </StoryDiv>
+                        </BgDiv>
+                        <h5>{story.username.slice(0, 12)}</h5>
+                    </StoryLi>
+                </Overlay>
+            ) : null}
         </Container>
     );
 }
@@ -108,7 +118,7 @@ const StoryHead = styled.div`
 const Timing = styled.div`
     background-color: #ffffff59;
     width: 100%;
-    height: 3px;
+    height: 5px;
     margin-bottom: 10px;
     border-radius: 5px;
 `;
@@ -160,4 +170,46 @@ const StoryFooter = styled.div`
             right: 25px;
         }
     }
+`;
+const Overlay = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+`;
+const StoryLi = styled.div`
+    transform: scale(1.4);
+    & h5 {
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        transform: scale(1.4);
+    }
+`;
+const BgDiv = styled.div`
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: linear-gradient(to right top, #fea700, #7c13f8);
+    padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+`;
+const StoryDiv = styled.div`
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

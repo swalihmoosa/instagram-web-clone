@@ -32,7 +32,6 @@ export default function StoryScreen() {
             setInterval(() => navigate("/"), 5000);
         }
     }, [currentStoryNumber, navigate]);
-    console.log("@@@@@@@@@@@@@@@@@@ currentStoryNumber", currentStoryNumber);
 
     return (
         <Container style={{ height: height }}>
