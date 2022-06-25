@@ -1,10 +1,15 @@
-import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons'
-import { faHouse, faMagnifyingGlass, faSquarePlus,faHeart,faCompass } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
-
+import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
+import {
+    faHouse,
+    faMagnifyingGlass,
+    faSquarePlus,
+    faHeart,
+    faCompass,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 export default function Header() {
     return (
@@ -12,35 +17,58 @@ export default function Header() {
             <section className="wrapper">
                 <HeaderSection>
                     <InstaText>
-                        <img src={require('../../assets/images/insta-text.png')} alt='Instagram' />
+                        <Link to="/">
+                            <img
+                                src={require("../../assets/images/insta-text.png")}
+                                alt="Instagram"
+                            />
+                        </Link>
                     </InstaText>
                     <InputDiv>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
-                        <input type="text" placeholder='Search' />
+                        <FontAwesomeIcon
+                            icon={faMagnifyingGlass}
+                            className="icon"
+                        />
+                        <input type="text" placeholder="Search" />
                     </InputDiv>
                     <Nav>
-                        <IconLink to="/" >
-                            <FontAwesomeIcon icon={faHouse} className="icon active-link" />
+                        <IconLink to="/">
+                            <FontAwesomeIcon
+                                icon={faHouse}
+                                className="icon active-link"
+                            />
                         </IconLink>
-                        <IconLink to="/inbox" >
-                            <FontAwesomeIcon icon={faFacebookMessenger} className="icon" />
+                        <IconLink to="/inbox">
+                            <FontAwesomeIcon
+                                icon={faFacebookMessenger}
+                                className="icon"
+                            />
                         </IconLink>
-                        <IconLink to="/new-post" >
-                            <FontAwesomeIcon icon={faSquarePlus} className="icon" />
+                        <IconLink to="/new-post">
+                            <FontAwesomeIcon
+                                icon={faSquarePlus}
+                                className="icon"
+                            />
                         </IconLink>
-                        <IconLink to="/explore" >
-                            <FontAwesomeIcon icon={faCompass} className="icon" />
+                        <IconLink to="/explore">
+                            <FontAwesomeIcon
+                                icon={faCompass}
+                                className="icon"
+                            />
                         </IconLink>
 
                         <FontAwesomeIcon icon={faHeart} className="icon" />
                     </Nav>
                     <UserDiv>
-                        <img src={require('../../assets/images/header/profile.jpg')} alt="User" />
+                        <img
+                            src={require("../../assets/images/header/profile.jpg")}
+                            alt="User"
+                        />
                     </UserDiv>
                 </HeaderSection>
             </section>
         </Container>
-    )
+    );
 }
 
 const Container = styled.header`
@@ -54,60 +82,60 @@ const Container = styled.header`
     height: 90px;
     display: flex;
     align-items: center;
-`
+`;
 const HeaderSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`
-const InstaText = styled.div`
+`;
+const InstaText = styled.h1`
     width: 100px;
-`
+`;
 const InputDiv = styled.div`
     background-color: #efefef;
     border-radius: 8px;
     width: 270px;
     padding: 8px 20px;
 
-    & .icon{
+    & .icon {
         width: 16px;
         height: 16px;
         color: #8e8e8e;
         margin-right: 10px;
     }
-    & input{
+    & input {
         height: 100%;
         font-size: 13px;
         font-weight: 100;
     }
-`
+`;
 const Nav = styled.nav`
     display: flex;
     align-items: center;
 
-    & .icon{
+    & .icon {
         width: 22px;
         height: 22px;
         color: #8e8e8e;
     }
-`
+`;
 const IconLink = styled(NavLink)`
     margin-right: 15px;
 
-    &:last-child{
+    &:last-child {
         margin-right: 0;
     }
 
-    &.active .icon{
+    &.active .icon {
         color: #000;
     }
-` 
+`;
 const UserDiv = styled.div`
     width: 30px;
     height: 30px;
     overflow: hidden;
     border-radius: 50%;
 
-    & img{
+    & img {
     }
-`
+`;

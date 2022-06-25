@@ -9,7 +9,7 @@ export default function ChatCard({ chat }) {
             </Avatar>
             <NameDiv>
                 <h5>{chat.name}</h5>
-                <Activity>
+                <Activity className={chat.is_seen ? "" : "active" } >
                     {chat.activity} <b>{chat.time}</b>
                 </Activity>
             </NameDiv>
@@ -41,7 +41,11 @@ const NameDiv = styled.div`
 `;
 const Activity = styled.p`
     font-size: 13px;
-    color: rgb(38, 38, 38);
+    color: #8e8e8e;
+    
+    &.active{
+        color: rgb(38, 38, 38);
+    }
 
     & b {
         color: #8e8e8e;
