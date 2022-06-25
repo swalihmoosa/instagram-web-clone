@@ -22,7 +22,7 @@ export default function ChatScreen() {
                         />
                     </ChatHead>
                     <PrimaryDiv>
-                        <PrimaryText>PRIMARY</PrimaryText>
+                        <PrimaryText className="active" >PRIMARY</PrimaryText>
                         <PrimaryText>GENERAL</PrimaryText>
                     </PrimaryDiv>
                     {chats.map((chat) => (
@@ -89,7 +89,6 @@ const PrimaryDiv = styled.div`
     display: flex;
     align-items: center;
     border-bottom: 1px solid #dbdbdb;
-    padding: 0 20px;
     height: 43px;
     position: sticky;
     top: 50px;
@@ -97,8 +96,13 @@ const PrimaryDiv = styled.div`
 `;
 const PrimaryText = styled.p`
     font-size: 14px;
-    margin-right: 15px;
-    padding: 10px 0;
+    padding: 10px 20px;
+    color: #8e8e8e;
+
+    &.active{
+        color: #262626;
+        border-bottom: 1px solid #262626;
+    }
 `;
 const Right = styled.div`
     width: calc(100% - 400px);
