@@ -16,29 +16,61 @@ export default function StoryScreen() {
         userActions.clickedStory - 1
     );
     const navigate = useNavigate();
+    const isfutured = true;
 
     useEffect(() => {
-        if (currentStoryNumber < stories.length - 1) {
-            const story = setInterval(
-                () => setCurrentStoryNumber((oldCount) => oldCount + 1),
-                5000
-            );
-
-            return () => {
-                clearInterval(story);
-            };
-        }
-        if (currentStoryNumber === stories.length - 1) {
-            setInterval(() => navigate("/"), 5000);
-        }
-    }, [currentStoryNumber,navigate]);
+        // if (currentStoryNumber < stories.length - 1) {
+        //     const story = setInterval(
+        //         () => setCurrentStoryNumber((oldCount) => oldCount + 1),
+        //         5000
+        //     );
+        //     return () => {
+        //         clearInterval(story);
+        //     };
+        // }
+        // if (currentStoryNumber === stories.length - 1) {
+        //     setInterval(() => navigate("/"), 5000);
+        // }
+    }, [currentStoryNumber, navigate]);
+    console.log("@@@@@@@@@@@@@@@@@@ currentStoryNumber", currentStoryNumber);
 
     return (
         <Container style={{ height: height }}>
             <Logo>
                 <img src={instagramLogo} alt="Instagram" />
             </Logo>
-            <StoryCard story={stories[currentStoryNumber]} />
+            {currentStoryNumber - 2 >= 0 ? (
+                <StoryCard
+                    story={stories[currentStoryNumber - 2]}
+                    isfutured={isfutured}
+                    currentStoryNumber={currentStoryNumber}
+                />
+            ) : null}
+            {currentStoryNumber - 1 >= 0 ? (
+                <StoryCard
+                    story={stories[currentStoryNumber - 1]}
+                    isfutured={isfutured}
+                    currentStoryNumber={currentStoryNumber}
+                />
+            ) : null}
+            <StoryCard
+                story={stories[currentStoryNumber]}
+                currentStoryNumber={currentStoryNumber}
+            />
+            {currentStoryNumber < stories.length - 1 ? (
+                <StoryCard
+                    story={stories[currentStoryNumber + 1]}
+                    isfutured={isfutured}
+                    currentStoryNumber={currentStoryNumber}
+                />
+            ) : null}
+            {currentStoryNumber <= stories.length - 3 ? (
+                <StoryCard
+                    story={stories[currentStoryNumber + 2]}
+                    isfutured={isfutured}
+                    currentStoryNumber={currentStoryNumber}
+                />
+            ) : null}
             <Close to="/">
                 <FontAwesomeIcon icon={faXmark} className="icon" />
             </Close>
@@ -72,4 +104,3 @@ const Close = styled(Link)`
         font-size: 30px;
     }
 `;
-
