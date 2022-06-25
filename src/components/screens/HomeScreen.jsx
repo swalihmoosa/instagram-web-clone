@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import PostCard from "../cards/PostCard";
 import storyImage from "../../assets/images/header/profile.jpg";
-import lalluImage from "../../assets/images/lallu.jpeg";
 import SuggestionCard from "../cards/SuggestionCard";
 import stories from "../../assets/json/stories";
 import posts from "../../assets/json/posts";
