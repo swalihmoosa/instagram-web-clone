@@ -19,18 +19,18 @@ export default function StoryScreen() {
     const isfutured = true;
 
     useEffect(() => {
-        // if (currentStoryNumber < stories.length - 1) {
-        //     const story = setInterval(
-        //         () => setCurrentStoryNumber((oldCount) => oldCount + 1),
-        //         5000
-        //     );
-        //     return () => {
-        //         clearInterval(story);
-        //     };
-        // }
-        // if (currentStoryNumber === stories.length - 1) {
-        //     setInterval(() => navigate("/"), 5000);
-        // }
+        if (currentStoryNumber < stories.length - 1) {
+            const story = setInterval(
+                () => setCurrentStoryNumber((oldCount) => oldCount + 1),
+                5000
+            );
+            return () => {
+                clearInterval(story);
+            };
+        }
+        if (currentStoryNumber === stories.length - 1) {
+            setInterval(() => navigate("/"), 5000);
+        }
     }, [currentStoryNumber, navigate]);
     console.log("@@@@@@@@@@@@@@@@@@ currentStoryNumber", currentStoryNumber);
 

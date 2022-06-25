@@ -6,11 +6,19 @@ import styled from "styled-components";
 
 export default function StoryCard({ story, isfutured, currentStoryNumber }) {
     console.log("########################## isisfutured", isfutured);
-    const nextStory = {
 
-    }
     return (
-        <Container className={isfutured ? "isfutured" : ""} style={currentStoryNumber === 0 ? nextStory : null} >
+        <Container
+            className={
+                isfutured === true && currentStoryNumber === 0
+                    ? "isfutured next"
+                    : isfutured === true && currentStoryNumber === 1
+                    ? "isfutured next prev-one"
+                    : isfutured === true && currentStoryNumber > 1
+                    ? "isfutured next prev"
+                    : ""
+            }
+        >
             <StoryHead>
                 {isfutured ? null : (
                     <Timing>
@@ -25,11 +33,13 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
             <StoryImage>
                 <img src={story.story} alt="Story" />
             </StoryImage>
-            <StoryFooter>
-                <input type="text" placeholder="Send message" />
-                <FontAwesomeIcon icon={faHeart} className="icon heart" />
-                <FontAwesomeIcon icon={faShare} className="icon share" />
-            </StoryFooter>
+            {isfutured ? null : (
+                <StoryFooter>
+                    <input type="text" placeholder="Send message" />
+                    <FontAwesomeIcon icon={faHeart} className="icon heart" />
+                    <FontAwesomeIcon icon={faShare} className="icon share" />
+                </StoryFooter>
+            )}
         </Container>
     );
 }
@@ -48,18 +58,40 @@ const Container = styled.div`
     transform: translateX(-50%);
 
     &.isfutured {
-        transform: scale(0.3);
-        &:nth-child(2) {
-            left: 8%;
+        transform: scale(0.4);
+
+        &.next {
+            &:nth-child(3) {
+                left: 57%;
+            }
+            &:nth-child(4) {
+                left: 69%;
+            }
         }
-        &:nth-child(3) {
-            left: 18%;
+        &.next.prev-one {
+            &:nth-child(2) {
+                left: 16%;
+            }
+            &:nth-child(4) {
+                left: 57%;
+            }
+            &:nth-child(5) {
+                left: 69%;
+            }
         }
-        &:nth-child(5) {
-            left: 56%;
-        }
-        &:nth-child(6) {
-            left: 66%;
+        &.next.prev {
+            &:nth-child(2) {
+                left: 4%;
+            }
+            &:nth-child(3) {
+                left: 16%;
+            }
+            &:nth-child(5) {
+                left: 57%;
+            }
+            &:nth-child(6) {
+                left: 69%;
+            }
         }
     }
 `;
