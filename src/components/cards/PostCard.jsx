@@ -31,7 +31,7 @@ export default function PostCard({ post }) {
                 </Menu>
             </PostHead>
             <PostImage>
-                <img src={post.post} alt="Posted Image" />
+                <img src={post.post} alt="Posted pIC" />
             </PostImage>
             <PostFooter>
                 <FontAwesomeIcon

@@ -1,7 +1,7 @@
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faAngleDown, faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import ChatCard from "../cards/ChatCard";
 import useWindowDimensions from "../hooks/UseWindowDimensions";

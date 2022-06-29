@@ -7,7 +7,7 @@ import AuthRouter from "./components/routing/AuthRouter";
 export const UserContext = React.createContext();
 
 function App() {
-    const [isLoggedIn, setLoggedIn] = useState(true);
+    const [isLoggedIn,] = useState(true);
     const [userActions, setUserActions] = useState({ clickedStory: 1 });
     return (
         <UserContext.Provider value={{ userActions, setUserActions }}>
