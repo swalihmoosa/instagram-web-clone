@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from '../includes/Header'
 import ChatScreen from '../screens/ChatScreen'
 import ExploreScreen from '../screens/ExploreScreen'
+import ExploreSingleScreen from '../screens/ExploreSingleScreen'
 import HomeScreen from '../screens/HomeScreen'
 import NewPost from '../screens/NewPost'
 import StoryScreen from '../screens/StoryScreen'
@@ -18,6 +19,7 @@ export default function AppRouter() {
                 <Route path="/explore" element={<ExploreScreen />} />
                 <Route path="/new-post" element={<NewPost />} />
                 <Route path="/stories" element={<StoryScreen />} />
+                <Route path="/explore/single/:id" element={<ExploreSingleScreen />} />
             </Routes>
         </BrowserRouter>
     )

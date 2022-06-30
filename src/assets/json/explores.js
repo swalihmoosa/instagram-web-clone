@@ -48,7 +48,7 @@ const explores = [
                 data : "https://youtu.be/ZQsI6m66Xdo"
             },
             {
-                id:1,
+                id:2,
                 data : "https://youtu.be/x0MwXUNhXKc"
             },
         ],
@@ -182,6 +182,7 @@ const explores = [
             },
         ],
     },
+    
 ]
 
 export default explores
