@@ -19,7 +19,7 @@ export default function AppRouter() {
                 <Route path="/explore" element={<ExploreScreen />} />
                 <Route path="/new-post" element={<NewPost />} />
                 <Route path="/stories" element={<StoryScreen />} />
-                <Route path="/explore/single/:id" element={<ExploreSingleScreen />} />
+                <Route path="/explore/single/:name/:id" element={<ExploreSingleScreen />} />
             </Routes>
         </BrowserRouter>
     )

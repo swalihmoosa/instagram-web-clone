@@ -1,13 +1,11 @@
 import { faClone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { UserContext } from "../../App";
 import explores from "../../assets/json/explores";
 
 export default function ExploreScreen() {
-    const { userActions, setUserActions } = useContext(UserContext);
     return (
         <Container>
             <section className="wrapper">
@@ -15,13 +13,7 @@ export default function ExploreScreen() {
                     {explores.map((explore) => (
                         <ExploreLi
                             key={explore.id}
-                            to={`/explore/single/${explore.username}`}
-                            onClick={() =>
-                                setUserActions({
-                                    ...userActions,
-                                    clickedExplore: explore.id,
-                                })
-                            }
+                            to={`/explore/single/${explore.username}/${explore.id}`}
                         >
                             <img src={explore.thumbnail_image} alt="Explore" />
                             {typeof explore.explore_data === "object" ? (

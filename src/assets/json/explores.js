@@ -5,20 +5,21 @@ const explores = [
         "name": "Anshab Ansh",
         "profile_image": "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
         "thumbnail_image": "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "explore_data" : [
-            {
-                id:1,
-                data : "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            },
-            {
-                id:1,
-                data : "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            },
-            {
-                id:1,
-                data : "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            },
-        ],
+        // "explore_data" : [
+        //     {
+        //         id:1,
+        //         data : "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        //     },
+        //     {
+        //         id:1,
+        //         data : "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        //     },
+        //     {
+        //         id:1,
+        //         data : "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        //     },
+        // ],
+        "explore_data" : "https://youtu.be/ZQsI6m66Xdo",
     },
     {
         "id": 2,
@@ -26,7 +27,8 @@ const explores = [
         "name": "Anshab Ansh",
         "profile_image": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
         "thumbnail_image": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "explore_data" : "https://www.youtube.com/watch?v=ysz5S6PUM-U",
+        // "explore_data" : "https://www.youtube.com/watch?v=ysz5S6PUM-U",
+        "explore_data" : "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
     },
     {
         "id": 3,
@@ -34,7 +36,9 @@ const explores = [
         "name": "Anshab Ansh",
         "profile_image": "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=1600",
         "thumbnail_image": "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        "explore_data" : "https://youtu.be/oQjdSf0tlAc",
+        // "explore_data" : "https://youtu.be/oQjdSf0tlAc",
+        "explore_data" : "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
     },
     {
         "id": 4,
@@ -67,7 +71,8 @@ const explores = [
         "name": "Anshab Ansh",
         "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuXK9aErkNasw27BhsCRQwa1LurjFCwNjwnQ&usqp=CAU",
         "thumbnail_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuXK9aErkNasw27BhsCRQwa1LurjFCwNjwnQ&usqp=CAU",
-        "explore_data" : "https://youtu.be/ek2XsdApXQc",
+        // "explore_data" : "https://youtu.be/ek2XsdApXQc",
+        "explore_data" : "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
     },
     {
         "id": 7,
@@ -75,7 +80,8 @@ const explores = [
         "name": "Anshab Ansh",
         "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkspTGDaYI0SloxfqGWTJMZYniyE8q9oqahw&usqp=CAU",
         "thumbnail_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkspTGDaYI0SloxfqGWTJMZYniyE8q9oqahw&usqp=CAU",
-        "explore_data" : "https://youtu.be/VCvwy4dFUmw",
+        // "explore_data" : "https://youtu.be/VCvwy4dFUmw",
+        "explore_data" : "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
     },
     {
         "id": 8,
