@@ -17,7 +17,7 @@ export default function ExploreScreen() {
             ) {
                 return <img src={explore.explore_data} alt="Post" />;
             } else {
-                return <img src={explore.thumbnail_image} />;
+                return <img src={explore.thumbnail_image} alt="Explore" />;
             }
         }
         if (typeof explore.explore_data === "object") {
@@ -36,7 +36,7 @@ export default function ExploreScreen() {
                 );
             } else {
                 return (
-                    <img src={explore.thumbnail_image} />
+                    <img src={explore.thumbnail_image} alt="Thumbnail" />
                 );
             }
         }

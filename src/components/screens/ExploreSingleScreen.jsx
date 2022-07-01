@@ -6,6 +6,8 @@ import {
     faShare,
     faHeart,
     faClose,
+    faAngleLeft,
+    faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
@@ -21,6 +23,7 @@ export default function ExploreSingleScreen() {
     const [likedComments, setLikedComments] = useState([]);
     const [isLiked, setIsLiked] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
+    const [explorePostCount, setExplorePostCount] = useState(0);
 
     const exploreRender = () => {
         if (typeof explores[id - 1].explore_data === "string") {
@@ -38,30 +41,45 @@ export default function ExploreSingleScreen() {
         }
         if (typeof explores[id - 1].explore_data === "object") {
             if (
-                (explores[id - 1].explore_data[0].data.includes("jpeg") ||
-                    explores[id - 1].explore_data[0].data.includes("jpg") ||
-                    explores[id - 1].explore_data[0].data.includes("png") ||
-                    explores[id - 1].explore_data[0].data.includes("photo") ||
-                    explores[id - 1].explore_data[0].data.includes("gif")) ===
-                true
+                (explores[id - 1].explore_data[explorePostCount].data.includes(
+                    "jpeg"
+                ) ||
+                    explores[id - 1].explore_data[
+                        explorePostCount
+                    ].data.includes("jpg") ||
+                    explores[id - 1].explore_data[
+                        explorePostCount
+                    ].data.includes("png") ||
+                    explores[id - 1].explore_data[
+                        explorePostCount
+                    ].data.includes("photo") ||
+                    explores[id - 1].explore_data[
+                        explorePostCount
+                    ].data.includes("gif")) === true
             ) {
                 return (
                     <img
-                        src={explores[id - 1].explore_data[0].data}
+                        src={
+                            explores[id - 1].explore_data[explorePostCount].data
+                        }
                         alt="Post"
                     />
                 );
             } else {
                 return (
-                    <ReactPlayer url={explores[id - 1].explore_data[0].data} />
+                    <ReactPlayer
+                        url={
+                            explores[id - 1].explore_data[explorePostCount].data
+                        }
+                    />
                 );
             }
         }
     };
     return (
-        <Container miin >
+        <Container style={{ minHeight: height }}>
             <section className="wrapper">
-                <Left style={{ maxHeight: height - 60 }}>
+                <Left style={{ maxHeight: height - 60, height: height }}>
                     {exploreRender()}
                 </Left>
                 <Right style={{ maxHeight: height - 60 }}>
@@ -129,6 +147,33 @@ export default function ExploreSingleScreen() {
             <Close to="/explore">
                 <FontAwesomeIcon icon={faClose} className="icon" />
             </Close>
+            {typeof explores[id - 1].explore_data === "object" ? (
+                <>
+                    <Prev
+                        onClick={() => {
+                            explorePostCount === 0
+                                ? setExplorePostCount(
+                                      explores[id - 1].explore_data.length - 1
+                                  )
+                                : setExplorePostCount(explorePostCount - 1);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faAngleLeft} className="icon" />
+                    </Prev>
+                    <Next
+                        onClick={() => {
+                            explorePostCount ===
+                            explores[id - 1].explore_data.length - 1
+                                ? setExplorePostCount(0)
+                                : setExplorePostCount(explorePostCount + 1);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faAngleRight} className="icon" />
+                    </Next>
+                </>
+            ) : (
+                ""
+            )}
         </Container>
     );
 }
@@ -165,7 +210,6 @@ const Head = styled.div`
     border-bottom: 1px solid #dbdbdb;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     padding: 15px;
 
     & .icon {
@@ -181,6 +225,9 @@ const Avatar = styled.div`
     overflow: hidden;
     border-radius: 50%;
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 const Name = styled.h5`
     font-size: 13px;
@@ -229,6 +276,13 @@ const CommentDiv = styled.div`
     border-top: 1px solid #efefef;
     padding: 10px 0;
     display: flex;
+    position: absolute;
+    width: 90%;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #fff;
+    height: 50px;
 
     & .icon {
         width: 25px;
@@ -248,7 +302,12 @@ const ExploreFooter = styled.div`
     display: flex;
     align-items: center;
     padding: 10px 0;
-    margin-bottom: 5px;
+    position: absolute;
+    width: 90%;
+    bottom: 73px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #fff;
 
     & .icon {
         width: 25px;
@@ -272,7 +331,13 @@ const ExploreFooter = styled.div`
 const Likes = styled.p`
     font-size: 14px;
     color: #262626;
-    margin-bottom: 5px;
+    position: absolute;
+    width: 90%;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #fff;
+    height: 23px;
 `;
 const Close = styled(Link)`
     font-size: 20px;
@@ -280,4 +345,43 @@ const Close = styled(Link)`
     top: 20px;
     right: 20px;
     color: #fff;
+`;
+const Prev = styled.div`
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    & .icon {
+        font-size: 17px;
+    }
+`;
+const Next = styled.div`
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    & .icon {
+        font-size: 17px;
+    }
 `;
