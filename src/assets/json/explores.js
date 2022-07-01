@@ -11,7 +11,7 @@ const explores = [
         explore_data: [
             {
                 id: 1,
-                data: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                data: "https://images.pexels.com/photos/1223649/pexels-photo-1223649.jpeg?auto=compress&cs=tinysrgb&w=1600",
             },
             {
                 id: 1,
@@ -71,7 +71,7 @@ const explores = [
         profile_image:
             "https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif",
         thumbnail_image:
-            "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&w=1600",
         explore_data: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
         comments: [
             {
@@ -122,13 +122,13 @@ const explores = [
         profile_image:
             "https://www.whatsappimages.in/wp-content/uploads/2021/07/Very-Sad-Alone-Image-Wallpaper-Download.jpg",
         thumbnail_image:
-            "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg?auto=compress&cs=tinysrgb&w=1600",
         explore_data: "https://youtu.be/oQjdSf0tlAc",
         comments: [
             {
                 id: 1,
                 user: "_usman",
-                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                avatar: "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg?auto=compress&cs=tinysrgb&w=1600",
                 comment: "Great work!🙌🏻 Enjoy your holiday🍃☀️",
             },
             {
@@ -173,7 +173,7 @@ const explores = [
         profile_image:
             "https://www.whatsappimages.in/wp-content/uploads/2021/07/Very-Sad-Alone-Image.jpg",
         thumbnail_image:
-            "https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg?auto=compress&cs=tinysrgb&w=1600",
         explore_data: [
             {
                 id: 1,
@@ -311,7 +311,7 @@ const explores = [
         thumbnail_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU4g8xUnnDU4kVOp8_-3f3aPDusw_D2AlyXw&usqp=CAU",
         explore_data:
-            "https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif",
+            "https://images.pexels.com/photos/1019771/pexels-photo-1019771.jpeg?auto=compress&cs=tinysrgb&w=1600",
         comments: [
             {
                 id: 1,
@@ -367,7 +367,7 @@ const explores = [
             {
                 id: 1,
                 user: "_usman",
-                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                avatar: "https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=1600",
                 comment: "Great work!🙌🏻 Enjoy your holiday🍃☀️",
             },
             {
@@ -410,15 +410,15 @@ const explores = [
         name: "Anshab Ansh",
         likes : "121",
         profile_image:
-            "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2018/09/flickr_ex.png?q=50&fit=crop&w=1500&dpr=1.5",
+            "https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?auto=compress&cs=tinysrgb&w=1600",
         thumbnail_image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkspTGDaYI0SloxfqGWTJMZYniyE8q9oqahw&usqp=CAU",
+            "https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?auto=compress&cs=tinysrgb&w=1600",
         explore_data: "https://youtu.be/VCvwy4dFUmw",
         comments: [
             {
                 id: 1,
                 user: "_usman",
-                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                avatar: "https://images.pexels.com/photos/610293/pexels-photo-610293.jpeg?auto=compress&cs=tinysrgb&w=1600",
                 comment: "Great work!🙌🏻 Enjoy your holiday🍃☀️",
             },
             {
@@ -589,13 +589,13 @@ const explores = [
         name: "Anshab Ansh",
         likes : "874",
         profile_image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPgQ3BUZPAQeJgWbu88weHk4X7rNTrcWgBSw&usqp=CAU",
+            "https://images.pexels.com/photos/1516036/pexels-photo-1516036.jpeg?auto=compress&cs=tinysrgb&w=1600",
         thumbnail_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPgQ3BUZPAQeJgWbu88weHk4X7rNTrcWgBSw&usqp=CAU",
         explore_data: [
             {
                 id: 1,
-                data: "https://www.whatsappimages.in/wp-content/uploads/2021/07/Very-Sad-Alone-Image.jpg",
+                data: "https://images.pexels.com/photos/1516036/pexels-photo-1516036.jpeg?auto=compress&cs=tinysrgb&w=1600",
             },
             {
                 id: 2,
@@ -653,13 +653,13 @@ const explores = [
         name: "Anshab Ansh",
         likes : "102",
         profile_image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7njl1_cq_4eXYQlyaSvQM7eiionn-35yupg&usqp=CAU",
+            "https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&w=1600",
         thumbnail_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7njl1_cq_4eXYQlyaSvQM7eiionn-35yupg&usqp=CAU",
         explore_data: [
             {
                 id: 1,
-                data: "https://www.whatsappimages.in/wp-content/uploads/2021/07/Very-Sad-Alone-Image-Wallpaper-Download.jpg",
+                data: "https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&w=1600",
             },
             {
                 id: 2,
@@ -717,17 +717,17 @@ const explores = [
         name: "Anshab Ansh",
         likes : "900",
         profile_image:
-            "https://cdn.mos.cms.futurecdn.net/CAZ6JXi6huSuN4QGE627NR-970-80.jpg.webp",
+            "https://images.pexels.com/photos/1020016/pexels-photo-1020016.jpeg?auto=compress&cs=tinysrgb&w=1600",
         thumbnail_image:
             "https://cdn.mos.cms.futurecdn.net/CAZ6JXi6huSuN4QGE627NR-970-80.jpg.webp",
         explore_data: [
             {
                 id: 1,
-                data: "https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif",
+                data: "https://images.pexels.com/photos/1020016/pexels-photo-1020016.jpeg?auto=compress&cs=tinysrgb&w=1600",
             },
             {
                 id: 2,
-                data: "https://www.whatsappimages.in/wp-content/uploads/2021/07/Very-Sad-Alone-Image-Wallpaper-Download.jpg",
+                data: "https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif",
             },
             {
                 id: 3,

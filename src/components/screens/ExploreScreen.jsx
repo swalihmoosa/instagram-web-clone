@@ -6,24 +6,60 @@ import styled from "styled-components";
 import explores from "../../assets/json/explores";
 
 export default function ExploreScreen() {
+    const renderExploreThumbs = (explore) => {
+        if (typeof explore.explore_data === "string") {
+            if (
+                (explore.explore_data.includes("jpeg") ||
+                    explore.explore_data.includes("jpg") ||
+                    explore.explore_data.includes("png") ||
+                    explore.explore_data.includes("photo") ||
+                    explore.explore_data.includes("gif")) === true
+            ) {
+                return <img src={explore.explore_data} alt="Post" />;
+            } else {
+                return <img src={explore.thumbnail_image} />;
+            }
+        }
+        if (typeof explore.explore_data === "object") {
+            if (
+                (explore.explore_data[0].data.includes("jpeg") ||
+                    explore.explore_data[0].data.includes("jpg") ||
+                    explore.explore_data[0].data.includes("png") ||
+                    explore.explore_data[0].data.includes("photo") ||
+                    explore.explore_data[0].data.includes("gif")) === true
+            ) {
+                return (
+                    <img
+                        src={explore.explore_data[0].data}
+                        alt="Post"
+                    />
+                );
+            } else {
+                return (
+                    <img src={explore.thumbnail_image} />
+                );
+            }
+        }
+    };
     return (
         <Container>
             <section className="wrapper">
                 <ExploreUl>
-                    {explores.map((explore) => (
+                    {explores.map((explore) =>
                         <ExploreLi
-                            key={explore.id}
-                            to={`/explore/single/${explore.username}/${explore.id}`}
+                        key={explore.id}
+                        to={`/explore/single/${explore.username}/${explore.id}`}
                         >
-                            <img src={explore.thumbnail_image} alt="Explore" />
+                            {/* <img src={explore.thumbnail_image} alt="Explore" /> */}
                             {typeof explore.explore_data === "object" ? (
                                 <FontAwesomeIcon
-                                    icon={faClone}
-                                    className="icon"
+                                icon={faClone}
+                                className="icon"
                                 />
                             ) : null}
+                            {renderExploreThumbs(explore)}
                         </ExploreLi>
-                    ))}
+                    )}
                 </ExploreUl>
             </section>
         </Container>
@@ -32,7 +68,7 @@ export default function ExploreScreen() {
 const Container = styled.section`
     background-color: #fafafa;
     & .wrapper {
-        padding: 115px 50px;
+        padding: 115px 20px;
         display: flex;
         justify-content: space-between;
         position: relative;

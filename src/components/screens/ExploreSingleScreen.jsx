@@ -59,7 +59,7 @@ export default function ExploreSingleScreen() {
         }
     };
     return (
-        <Container>
+        <Container miin >
             <section className="wrapper">
                 <Left style={{ maxHeight: height - 60 }}>
                     {exploreRender()}
