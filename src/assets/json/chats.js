@@ -1,8 +1,8 @@
 const chats = [
     {
         id: 1,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "rocky_bhai",
+        name: "Rocky",
         profile_image:
             "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
         activity: "Sent a post",
@@ -11,8 +11,8 @@ const chats = [
     },
     {
         id: 2,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "aswathy_achu",
+        name: "Aswathy",
         profile_image:
             "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600",
         activity: "Mentioned you in a story",
@@ -21,8 +21,8 @@ const chats = [
     },
     {
         id: 3,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "g_one",
+        name: "G One",
         profile_image:
             "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=1600",
         activity: "Mentioned you in a story",
@@ -31,8 +31,8 @@ const chats = [
     },
     {
         id: 4,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "ra_one",
+        name: "Ra One",
         profile_image:
             "https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=1600",
         activity: "Liked you message",
@@ -51,8 +51,8 @@ const chats = [
     },
     {
         id: 6,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "great_racer",
+        name: "Racer",
         profile_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuXK9aErkNasw27BhsCRQwa1LurjFCwNjwnQ&usqp=CAU",
         activity: "Tagged you a post",
@@ -61,8 +61,8 @@ const chats = [
     },
     {
         id: 7,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "lucky_racer",
+        name: "Lucky",
         profile_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkspTGDaYI0SloxfqGWTJMZYniyE8q9oqahw&usqp=CAU",
         activity: "Mentioned you in a story",
@@ -71,8 +71,8 @@ const chats = [
     },
     {
         id: 8,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "caption_america",
+        name: "Caption",
         profile_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNeAcbGLYtVaSSR9SaiRBAmxr94SxDIkHKeQ&usqp=CAU",
         activity: "Mentioned you in a story",
@@ -81,8 +81,8 @@ const chats = [
     },
     {
         id: 9,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "ant_man",
+        name: "Ant Man",
         profile_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQAMSOmvBpTbwTM2oDxWfeW1KXqpsSzlOKxQ&usqp=CAU   ",
         activity: "Sent a post",
@@ -91,8 +91,8 @@ const chats = [
     },
     {
         id: 10,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "explorer",
+        name: "Hamsa",
         profile_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPgQ3BUZPAQeJgWbu88weHk4X7rNTrcWgBSw&usqp=CAU",
         activity: "Liked your story",
@@ -101,8 +101,8 @@ const chats = [
     },
     {
         id: 11,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "ultimate_loki",
+        name: "Loki",
         profile_image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7njl1_cq_4eXYQlyaSvQM7eiionn-35yupg&usqp=CAU",
         activity: "Sent a story",
@@ -111,8 +111,8 @@ const chats = [
     },
     {
         id: 12,
-        username: "exploring_soul",
-        name: "Anshab Ansh",
+        username: "the_master_one",
+        name: "Master",
         profile_image:
             "https://cdn.mos.cms.futurecdn.net/CAZ6JXi6huSuN4QGE627NR-970-80.jpg.webp",
         activity: "Sent a message",

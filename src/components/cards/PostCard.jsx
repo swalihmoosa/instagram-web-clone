@@ -33,7 +33,7 @@ export default function PostCard({ post }) {
                 </Menu>
             </PostHead>
             <PostImage>
-                <img src={post.post} alt="Posted pIC" />
+                <img src={post.post} alt="Posted Pic" />
             </PostImage>
             <PostFooter>
                 <FontAwesomeIcon
@@ -78,11 +78,11 @@ export default function PostCard({ post }) {
                     <img src={userImage} alt="User" />
                 </LikedUser>
                 <p>
-                    <b>junior_moosa </b> and <b> 72 others</b>
+                    <b>loki </b> and <b> { likedPosts.includes(post.id) ? post.likes + 1 : post.likes } others</b>
                 </p>
             </Likers>
             <Caption>
-                <b>junior_moosa </b> White is pure and simple and matches with
+                <b>{post.username}</b> White is pure and simple and matches with
                 everything
             </Caption>
             <CommentDiv>

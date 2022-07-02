@@ -1,4 +1,4 @@
-import { faClone } from "@fortawesome/free-solid-svg-icons";
+import { faClone, faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -28,16 +28,9 @@ export default function ExploreScreen() {
                     explore.explore_data[0].data.includes("photo") ||
                     explore.explore_data[0].data.includes("gif")) === true
             ) {
-                return (
-                    <img
-                        src={explore.explore_data[0].data}
-                        alt="Post"
-                    />
-                );
+                return <img src={explore.explore_data[0].data} alt="Post" />;
             } else {
-                return (
-                    <img src={explore.thumbnail_image} alt="Thumbnail" />
-                );
+                return <img src={explore.thumbnail_image} alt="Thumbnail" />;
             }
         }
     };
@@ -45,21 +38,40 @@ export default function ExploreScreen() {
         <Container>
             <section className="wrapper">
                 <ExploreUl>
-                    {explores.map((explore) =>
+                    {explores.map((explore) => (
                         <ExploreLi
-                        key={explore.id}
-                        to={`/explore/single/${explore.username}/${explore.id}`}
+                            key={explore.id}
+                            to={`/explore/single/${explore.username}/${explore.id}`}
                         >
-                            {/* <img src={explore.thumbnail_image} alt="Explore" /> */}
                             {typeof explore.explore_data === "object" ? (
                                 <FontAwesomeIcon
-                                icon={faClone}
-                                className="icon"
+                                    icon={faClone}
+                                    className="icon"
                                 />
                             ) : null}
                             {renderExploreThumbs(explore)}
+                            <Overlay>
+                                <CountDiv>
+                                    {" "}
+                                    <LikeCount>
+                                        <FontAwesomeIcon
+                                            icon={faHeart}
+                                            className="icon"
+                                        />
+                                        11.7 k
+                                    </LikeCount>
+                                    <CommentCount>
+                                        <FontAwesomeIcon
+                                            icon={faComment}
+                                            className="icon"
+                                        />
+                                        7 k
+                                    </CommentCount>
+                                    u
+                               </CountDiv>
+                            </Overlay>
                         </ExploreLi>
-                    )}
+                    ))}
                 </ExploreUl>
             </section>
         </Container>
@@ -144,5 +156,33 @@ const ExploreLi = styled(Link)`
     }
     &:nth-child(12) {
         grid-area: twelve;
+    }
+`;
+const Overlay = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+const CountDiv = styled.div`
+    display: flex;
+    align-items: center;
+`;
+const LikeCount = styled.div`
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    & .icon {
+        color: #fff;
+        font-size: 15px;
+    }
+`;
+const CommentCount = styled.div`
+    & .icon {
+        color: #fff;
+        font-size: 15px;
     }
 `;
