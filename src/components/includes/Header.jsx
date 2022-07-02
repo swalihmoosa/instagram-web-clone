@@ -11,12 +11,14 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
+import ActivitiesModal from "../modals/ActivitiesModal";
 
 export default function Header() {
-    const { userActions } = useContext(UserContext);
+    const { userActions, setUserActions } = useContext(UserContext);
     return (
         <Container>
             <section className="wrapper">
+                <ActivitiesModal />
                 <HeaderSection>
                     <InstaText>
                         <Link to="/">
@@ -58,14 +60,34 @@ export default function Header() {
                                 className="icon"
                             />
                         </IconLink>
-
-                        <FontAwesomeIcon icon={faHeart} className="icon" />
+                        <ActivityLink
+                            onClick={() => {
+                                userActions.isActivityModal
+                                    ? setUserActions({
+                                          ...userActions,
+                                          isActivityModal: false,
+                                      })
+                                    : setUserActions({
+                                          ...userActions,
+                                          isActivityModal: true,
+                                      });
+                            }}
+                        >
+                            <ArrowUp
+                                className={
+                                    userActions.isActivityModal
+                                        ? "activity-modal-true"
+                                        : ""
+                                }
+                            ></ArrowUp>
+                            <FontAwesomeIcon
+                                icon={faHeart}
+                                className="icon activity"
+                            />
+                        </ActivityLink>
                     </Nav>
                     <UserDiv>
-                        <img
-                            src={userActions.user.avatar.myImage}
-                            alt="User"
-                        />
+                        <img src={userActions.user.avatar.myImage} alt="User" />
                     </UserDiv>
                 </HeaderSection>
             </section>
@@ -84,6 +106,10 @@ const Container = styled.header`
     height: 90px;
     display: flex;
     align-items: center;
+
+    & .wrapper {
+        position: relative;
+    }
 `;
 const HeaderSection = styled.div`
     display: flex;
@@ -119,6 +145,34 @@ const Nav = styled.nav`
         width: 22px;
         height: 22px;
         color: #8e8e8e;
+
+        &.activity {
+            cursor: pointer;
+        }
+    }
+`;
+const ActivityLink = styled.div`
+    cursor: pointer;
+    & .icon {
+        width: 22px;
+        height: 22px;
+        color: #8e8e8e;
+    }
+`;
+const ArrowUp = styled.div`
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid #dddddd;
+    position: absolute;
+    bottom: -26px;
+    background-color: transparent;
+    display: none;
+    transition: all 0.6s ease 0s;
+
+    &.activity-modal-true {
+        display: block;
     }
 `;
 const IconLink = styled(NavLink)`

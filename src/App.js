@@ -17,6 +17,7 @@ function App() {
             avatar: { myImage },
         },
         clickedStory: 1,
+        isActivityModal : false,
     });
     return (
         <UserContext.Provider value={{ userActions, setUserActions }}>
