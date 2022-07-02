@@ -7,11 +7,13 @@ import {
     faCompass,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { UserContext } from "../../App";
 
 export default function Header() {
+    const { userActions } = useContext(UserContext);
     return (
         <Container>
             <section className="wrapper">
@@ -61,7 +63,7 @@ export default function Header() {
                     </Nav>
                     <UserDiv>
                         <img
-                            src={require("../../assets/images/header/profile.jpg")}
+                            src={userActions.user.avatar.myImage}
                             alt="User"
                         />
                     </UserDiv>
@@ -135,6 +137,9 @@ const UserDiv = styled.div`
     height: 30px;
     overflow: hidden;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & img {
     }

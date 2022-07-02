@@ -57,11 +57,11 @@ export default function HomeScreen() {
                 <HomeRight>
                     <MyHeader>
                         <Avatar>
-                            <img src={storyImage} alt="Avatar" />
+                            <img src={userActions.user.avatar.myImage} alt="Avatar" />
                         </Avatar>
                         <NameDiv>
-                            <H5>junior_moosa</H5>
-                            <p>Swalih Moosa</p>
+                            <H5>{userActions.user.username}</H5>
+                            <p>{userActions.user.name}</p>
                         </NameDiv>
                         <Switch>Switch</Switch>
                     </MyHeader>
@@ -167,6 +167,9 @@ const Avatar = styled.div`
     border-radius: 50%;
     overflow: hidden;
     margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 const NameDiv = styled.div`
     & p {

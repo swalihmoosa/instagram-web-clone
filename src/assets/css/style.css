@@ -36,7 +36,8 @@
     100% {
         width: 100%;
     }
-    /* 100% {
-        width: 100%;
-    } */
+}
+
+button{
+    display: none !important;
 }

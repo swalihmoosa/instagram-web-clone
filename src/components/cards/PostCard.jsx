@@ -7,11 +7,13 @@ import {
     faShare,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import userImage from "../../assets/images/header/profile.jpg";
 
 export default function PostCard({ post }) {
+    const [likedPosts, setLikedPosts] = useState([1, 5, 7]);
+    const [savedPosts, setSavedPosts] = useState([1, 4, 5, 9]);
     return (
         <Container>
             <PostHead>
@@ -36,15 +38,39 @@ export default function PostCard({ post }) {
             <PostFooter>
                 <FontAwesomeIcon
                     icon={faHeart}
-                    className={post.isLiked ? "icon clicked" : "icon"}
+                    className={
+                        likedPosts.includes(post.id) ? "icon clicked" : "icon"
+                    }
+                    onClick={() => {
+                        if (likedPosts.includes(post.id)) {
+                            let filteredArray = likedPosts.filter(
+                                (likedPost) => likedPost !== post.id
+                            );
+                            setLikedPosts(filteredArray);
+                        } else {
+                            setLikedPosts([...likedPosts, post.id]);
+                        }
+                    }}
                 />
                 <FontAwesomeIcon icon={faComment} className="icon" />
                 <FontAwesomeIcon icon={faShare} className="icon" />
                 <FontAwesomeIcon
                     icon={faBookmark}
                     className={
-                        post.isLiked ? "icon share clicked" : "icon share"
+                        savedPosts.includes(post.id)
+                            ? "icon share clicked"
+                            : "icon share"
                     }
+                    onClick={() => {
+                        if (savedPosts.includes(post.id)) {
+                            let filteredArray = savedPosts.filter(
+                                (savedPost) => savedPost !== post.id
+                            );
+                            setSavedPosts(filteredArray);
+                        } else {
+                            setSavedPosts([...savedPosts, post.id]);
+                        }
+                    }}
                 />
             </PostFooter>
             <Likers>

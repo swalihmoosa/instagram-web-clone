@@ -10,20 +10,25 @@ import {
     faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ReactPlayer from "react-player";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { UserContext } from "../../App";
 import explores from "../../assets/json/explores";
 import useWindowDimensions from "../hooks/UseWindowDimensions";
 
 export default function ExploreSingleScreen() {
     const { id } = useParams();
     const { height } = useWindowDimensions();
+    const { userActions } = useContext(UserContext);
     const [likedComments, setLikedComments] = useState([]);
+    const [newlikedComments, setNewLikedComments] = useState([]);
     const [isLiked, setIsLiked] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
     const [explorePostCount, setExplorePostCount] = useState(0);
+    const [newComment, setNewComment] = useState("");
+    const [newComments, setNewComments] = useState([]);
 
     const exploreRender = () => {
         if (typeof explores[id - 1].explore_data === "string") {
@@ -36,7 +41,13 @@ export default function ExploreSingleScreen() {
             ) {
                 return <img src={explores[id - 1].explore_data} alt="Post" />;
             } else {
-                return <ReactPlayer url={explores[id - 1].explore_data} />;
+                return (
+                    <ReactPlayer
+                        url={explores[id - 1].explore_data}
+                        playing={true}
+                        loop={true}
+                    />
+                );
             }
         }
         if (typeof explores[id - 1].explore_data === "object") {
@@ -71,11 +82,29 @@ export default function ExploreSingleScreen() {
                         url={
                             explores[id - 1].explore_data[explorePostCount].data
                         }
+                        playing={true}
+                        loop={true}
                     />
                 );
             }
         }
     };
+
+    const newCommentPost = () => {
+        setNewComments([
+            ...newComments,
+            {
+                id: newComments.length + 1,
+                comment: newComment,
+                user: userActions.user.username,
+                avatar: userActions.user.avatar.myImage,
+                time: "now",
+                likes: 0,
+            },
+        ]);
+        setNewComment("");
+    };
+
     return (
         <Container style={{ minHeight: height }}>
             <section className="wrapper">
@@ -95,22 +124,92 @@ export default function ExploreSingleScreen() {
                         <FontAwesomeIcon icon={faEllipsis} className="icon" />
                     </Head>
                     <CommentsUl>
+                        {newComments.length > 0
+                            ? newComments.map((newcomment) => (
+                                  <CommentLi key={newcomment.id}>
+                                      <Avatar>
+                                          <img
+                                              src={newcomment.avatar}
+                                              alt="Avatar"
+                                          />
+                                      </Avatar>
+                                      <NameComment>
+                                          <p>
+                                              <b>{newcomment.user}</b>{" "}
+                                              {newcomment.comment}
+                                          </p>
+                                          <LikeContainer>
+                                              <Time>{newcomment.time}</Time>
+                                              <Like>
+                                                  {newlikedComments.includes(
+                                                      newcomment.id
+                                                  )
+                                                      ? newcomment.likes + 1
+                                                      : newcomment.likes}{" "}
+                                                  likes
+                                              </Like>
+                                              <Reply>Reply</Reply>
+                                          </LikeContainer>
+                                      </NameComment>
+                                      <FontAwesomeIcon
+                                          icon={faHeart}
+                                          onClick={() =>
+                                              setNewLikedComments([
+                                                  ...newlikedComments,
+                                                  newcomment.id,
+                                              ])
+                                          }
+                                          className={
+                                              newlikedComments.includes(
+                                                  newcomment.id
+                                              )
+                                                  ? "icon liked"
+                                                  : "icon"
+                                          }
+                                      />
+                                  </CommentLi>
+                              ))
+                            : ""}
                         {explores[id - 1].comments.map((comment) => (
-                            <CommentLi>
+                            <CommentLi key={comment.id}>
                                 <Avatar>
                                     <img src={comment.avatar} alt="Avatar" />
                                 </Avatar>
                                 <NameComment>
-                                    <b>{comment.user}</b> {comment.comment}
+                                    <p>
+                                        <b>{comment.user}</b> {comment.comment}
+                                    </p>
+                                    <LikeContainer>
+                                        <Time>{comment.time}</Time>
+                                        <Like>
+                                            {likedComments.includes(comment.id)
+                                                ? comment.likes + 1
+                                                : comment.likes}{" "}
+                                            likes
+                                        </Like>
+                                        <Reply>Reply</Reply>
+                                    </LikeContainer>
                                 </NameComment>
                                 <FontAwesomeIcon
                                     icon={faHeart}
-                                    onClick={() =>
-                                        setLikedComments([
-                                            ...likedComments,
-                                            comment.id,
-                                        ])
-                                    }
+                                    onClick={() => {
+                                        if (
+                                            likedComments.includes(comment.id)
+                                        ) {
+                                            let filteredArray =
+                                                likedComments.filter(
+                                                    (likedComment) =>
+                                                        likedComment !==
+                                                        comment.id
+                                                );
+                                            setLikedComments(filteredArray);
+                                        } else {
+                                            setLikedComments([
+                                                ...likedComments,
+                                                comment.id,
+                                            ]);
+                                        }
+                                    }}
                                     className={
                                         likedComments.includes(comment.id)
                                             ? "icon liked"
@@ -136,11 +235,21 @@ export default function ExploreSingleScreen() {
                             onClick={() => setIsSaved(!isSaved)}
                         />
                     </ExploreFooter>
-                    <Likes>{explores[id - 1].likes} likes</Likes>
+                    <Likes>
+                        {isLiked
+                            ? explores[id - 1].likes + 1
+                            : explores[id - 1].likes}{" "}
+                        likes
+                    </Likes>
                     <CommentDiv>
                         <FontAwesomeIcon icon={faFaceSmile} className="icon" />
-                        <input type="text" placeholder="Add a comment..." />
-                        <Post>Post</Post>
+                        <input
+                            type="text"
+                            placeholder="Add a comment..."
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                        />
+                        <Post onClick={newCommentPost}>Post</Post>
                     </CommentDiv>
                 </Right>
             </section>
@@ -235,16 +344,19 @@ const Name = styled.h5`
     margin-right: 5px;
     color: #262626;
 `;
-const NameComment = styled.p`
-    color: #262626;
-    font-weight: 100;
-    font-size: 13px;
+const NameComment = styled.div`
     margin-right: 10px;
-    & b {
-        font-size: 14px;
-        font-weight: 600;
-        margin-right: 5px;
+    & p {
         color: #262626;
+        font-weight: 100;
+        font-size: 13px;
+        margin-bottom: 5px;
+        & b {
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 5px;
+            color: #262626;
+        }
     }
 `;
 const Follow = styled.p`
@@ -258,7 +370,7 @@ const CommentsUl = styled.div`
 `;
 const CommentLi = styled.div`
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding: 15px;
 
     & .icon {
@@ -297,6 +409,7 @@ const CommentDiv = styled.div`
 const Post = styled.span`
     color: #0095f6;
     font-size: 14px;
+    cursor: pointer;
 `;
 const ExploreFooter = styled.div`
     display: flex;
@@ -332,7 +445,8 @@ const Likes = styled.p`
     font-size: 14px;
     color: #262626;
     position: absolute;
-    width: 90%;
+    width: 100%;
+    padding-left: 5%;
     bottom: 50px;
     left: 50%;
     transform: translate(-50%);
@@ -384,4 +498,26 @@ const Next = styled.div`
     & .icon {
         font-size: 17px;
     }
+`;
+const LikeContainer = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+`;
+const Time = styled.p`
+    color: #8e8e8e !important;
+    font-size: 11px;
+    margin-right: 10px;
+`;
+const Like = styled.p`
+    color: #8e8e8e !important;
+    font-size: 11px;
+    margin-right: 10px;
+    cursor: pointer;
+`;
+const Reply = styled.p`
+    color: #8e8e8e !important;
+    font-size: 11px;
+    cursor: pointer;
 `;
