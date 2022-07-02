@@ -28,7 +28,7 @@ export default function HomeScreen() {
                         {stories.map((story) => (
                             <StoryLi
                                 key={story.id}
-                                to="/stories"
+                                to="/stories/"
                                 onClick={() =>
                                     setUserActions({
                                         ...userActions,
