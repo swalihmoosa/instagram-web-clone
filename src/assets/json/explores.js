@@ -3,7 +3,7 @@ const explores = [
         id: 1,
         username: "rocky_bhai",
         name: "Rocky",
-        likes : 1002,
+        likes : 972,
         profile_image:
             "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2016/10/camera-photo-lens-stock-images.jpg?q=50&fit=contain&w=1500&h=750&dpr=1.5",
         thumbnail_image:
@@ -73,13 +73,55 @@ const explores = [
                 time : "7 d",
                 comment: "The only kinda child developers have",
             },
+            {
+                id: 7,
+                user: "grid",
+                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                likes : 4,
+                time : "5 w",
+                comment: "Great work!🙌🏻 Enjoy your holiday🍃☀️",
+            },
+            {
+                id: 8,
+                user: "_usman",
+                avatar: "https://images.unsplash.com/photo-1500099817043-86d46000d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                likes : 4,
+                time : "5 w",
+                comment: "Awesome work 🔥",
+            },
+            {
+                id: 9,
+                user: "_usman",
+                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                likes : 4,
+                time : "5 w",
+                comment: "Great share🙌, Have a nice trip ✨",
+            },
+            {
+                id: 10,
+                user: "_usman",
+                avatar: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                likes : 4,
+                time : "5 w",
+                comment:
+                    "This is an amazing review of the Dom, great part 2 🙌🔥",
+            },
+            {
+                id: 11,
+                user: "_usman",
+                avatar: "https://images.unsplash.com/photo-1535890696255-dd5bcd79e6df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                likes : 4,
+                time : "5 w",
+                comment:
+                    "Good one 🔥 best of luck for your break 😍 enjoy your time 🔥",
+            },
         ],
     },
     {
         id: 2,
         username: "the_master_one",
         name: "Master",
-        likes : 1002,
+        likes : 1234,
         profile_image:
             "https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif",
         thumbnail_image:
@@ -136,13 +178,21 @@ const explores = [
                 time : "7 d",
                 comment: "nice",
             },
+            {
+                id: 7,
+                user: "grid",
+                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                likes : 4,
+                time : "5 w",
+                comment: "Great work!🙌🏻 Enjoy your holiday🍃☀️",
+            },
         ],
     },
     {
         id: 3,
         username: "g_one",
         name: "G One",
-        likes : 1002,
+        likes : 7458,
         profile_image:
             "https://www.whatsappimages.in/wp-content/uploads/2021/07/Very-Sad-Alone-Image-Wallpaper-Download.jpg",
         thumbnail_image:
@@ -199,13 +249,29 @@ const explores = [
                 time : "7 d",
                 comment: "best of the best",
             },
+            {
+                id: 7,
+                user: "grid",
+                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                likes : 4,
+                time : "5 w",
+                comment: "Great work!🙌🏻 Enjoy your holiday🍃☀️",
+            },
+            {
+                id: 8,
+                user: "_usman",
+                avatar: "https://images.unsplash.com/photo-1500099817043-86d46000d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                likes : 4,
+                time : "5 w",
+                comment: "Awesome work 🔥",
+            },
         ],
     },
     {
         id: 4,
         username: "ra_one",
         name: "Ra One",
-        likes : 456,
+        likes : 1002,
         profile_image:
             "https://www.whatsappimages.in/wp-content/uploads/2021/07/Very-Sad-Alone-Image.jpg",
         thumbnail_image:
@@ -439,6 +505,48 @@ const explores = [
                 time : "7 d",
                 comment: "The only kinda child developers have",
             },
+            {
+                id: 7,
+                user: "grid",
+                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                likes : 4,
+                time : "5 w",
+                comment: "Great work!🙌🏻 Enjoy your holiday🍃☀️",
+            },
+            {
+                id: 8,
+                user: "_usman",
+                avatar: "https://images.unsplash.com/photo-1500099817043-86d46000d58f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                likes : 4,
+                time : "5 w",
+                comment: "Awesome work 🔥",
+            },
+            {
+                id: 9,
+                user: "_usman",
+                avatar: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                likes : 4,
+                time : "5 w",
+                comment: "Great share🙌, Have a nice trip ✨",
+            },
+            {
+                id: 10,
+                user: "_usman",
+                avatar: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                likes : 4,
+                time : "5 w",
+                comment:
+                    "This is an amazing review of the Dom, great part 2 🙌🔥",
+            },
+            {
+                id: 11,
+                user: "_usman",
+                avatar: "https://images.unsplash.com/photo-1535890696255-dd5bcd79e6df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                likes : 4,
+                time : "5 w",
+                comment:
+                    "Good one 🔥 best of luck for your break 😍 enjoy your time 🔥",
+            },
         ],
     },
     {
@@ -449,7 +557,7 @@ const explores = [
         profile_image:
             "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2018/09/pexels_ex.png?q=50&fit=crop&w=1500&dpr=1.5",
         thumbnail_image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuXK9aErkNasw27BhsCRQwa1LurjFCwNjwnQ&usqp=CAU",
+            "https://images.unsplash.com/photo-1607688387751-c1e95ae09a42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
         explore_data: "https://youtu.be/ek2XsdApXQc",
         comments: [
             {

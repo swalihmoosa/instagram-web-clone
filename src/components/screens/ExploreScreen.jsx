@@ -50,7 +50,7 @@ export default function ExploreScreen() {
                                 />
                             ) : null}
                             {renderExploreThumbs(explore)}
-                            <Overlay>
+                            <Overlay className="overlay" >
                                 <CountDiv>
                                     {" "}
                                     <LikeCount>
@@ -58,16 +58,15 @@ export default function ExploreScreen() {
                                             icon={faHeart}
                                             className="icon"
                                         />
-                                        11.7 k
+                                        {explore.likes}
                                     </LikeCount>
                                     <CommentCount>
                                         <FontAwesomeIcon
                                             icon={faComment}
                                             className="icon"
                                         />
-                                        7 k
+                                        {explore.comments.length}
                                     </CommentCount>
-                                    u
                                </CountDiv>
                             </Overlay>
                         </ExploreLi>
@@ -104,6 +103,10 @@ const ExploreLi = styled(Link)`
     justify-content: center;
     align-items: center;
     position: relative;
+
+    &:hover .overlay{
+        opacity: 1;
+    }
 
     & img {
         min-block-size: -webkit-fill-available;
@@ -162,27 +165,40 @@ const Overlay = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: red;
+    background-color: rgba(0,0,0,.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: all 0.6s ease 0s;
 `;
 const CountDiv = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
 `;
 const LikeCount = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 15px;
+    margin-right: 20px;
+    color: #fff;
+    font-size: 15px;
     & .icon {
         color: #fff;
-        font-size: 15px;
+        position: unset;
+        margin-right: 7px;
+        font-size: 18px;
     }
 `;
 const CommentCount = styled.div`
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
     & .icon {
         color: #fff;
-        font-size: 15px;
+        position: unset;
+        margin-right: 7px;
+        font-size: 18px;
     }
 `;

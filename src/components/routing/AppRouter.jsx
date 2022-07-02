@@ -1,17 +1,19 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Header from '../includes/Header'
-import ChatScreen from '../screens/ChatScreen'
-import ExploreScreen from '../screens/ExploreScreen'
-import ExploreSingleScreen from '../screens/ExploreSingleScreen'
-import HomeScreen from '../screens/HomeScreen'
-import NewPost from '../screens/NewPost'
-import StoryScreen from '../screens/StoryScreen'
-
+import React, { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import PageLoader from "../loaders/PageLoader";
+const Header = lazy(() => import("../includes/Header"));
+const ChatScreen = lazy(() => import("../screens/ChatScreen"));
+const ExploreScreen = lazy(() => import("../screens/ExploreScreen"));
+const ExploreSingleScreen = lazy(() =>
+    import("../screens/ExploreSingleScreen")
+);
+const HomeScreen = lazy(() => import("../screens/HomeScreen"));
+const NewPost = lazy(() => import("../screens/NewPost"));
+const StoryScreen = lazy(() => import("../screens/StoryScreen"));
 
 export default function AppRouter() {
     return (
-        <BrowserRouter>
+        <Suspense fallback={<PageLoader />} >
             <Header />
             <Routes>
                 <Route path="/" element={<HomeScreen />} />
@@ -19,8 +21,11 @@ export default function AppRouter() {
                 <Route path="/explore" element={<ExploreScreen />} />
                 <Route path="/new-post" element={<NewPost />} />
                 <Route path="/stories" element={<StoryScreen />} />
-                <Route path="/explore/single/:name/:id" element={<ExploreSingleScreen />} />
+                <Route
+                    path="/explore/single/:name/:id"
+                    element={<ExploreSingleScreen />}
+                />
             </Routes>
-        </BrowserRouter>
-    )
+        </Suspense>
+    );
 }
