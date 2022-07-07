@@ -12,6 +12,7 @@ import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 import ActivitiesModal from "../modals/ActivitiesModal";
+import ProfileModal from "../modals/ProfileModal";
 
 export default function Header() {
     const { userActions, setUserActions } = useContext(UserContext);
@@ -19,6 +20,7 @@ export default function Header() {
         <Container>
             <section className="wrapper">
                 <ActivitiesModal />
+                <ProfileModal />
                 <HeaderSection>
                     <InstaText>
                         <Link to="/">
@@ -86,8 +88,27 @@ export default function Header() {
                             />
                         </ActivityLink>
                     </Nav>
-                    <UserDiv>
+                    <UserDiv
+                        onClick={() => {
+                            userActions.isProfileModal
+                                ? setUserActions({
+                                      ...userActions,
+                                      isProfileModal: false,
+                                  })
+                                : setUserActions({
+                                      ...userActions,
+                                      isProfileModal: true,
+                                  });
+                        }}
+                    >
                         <img src={userActions.user.avatar.myImage} alt="User" />
+                        <ArrowUp
+                            className={
+                                userActions.isProfileModal
+                                    ? "activity-modal-true"
+                                    : ""
+                            }
+                        ></ArrowUp>
                     </UserDiv>
                 </HeaderSection>
             </section>
@@ -194,7 +215,5 @@ const UserDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    & img {
-    }
+    cursor: pointer;
 `;

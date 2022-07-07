@@ -18,6 +18,7 @@ function App() {
         },
         clickedStory: 1,
         isActivityModal : false,
+        isProfileModal : false,
     });
     return (
         <UserContext.Provider value={{ userActions, setUserActions }}>
