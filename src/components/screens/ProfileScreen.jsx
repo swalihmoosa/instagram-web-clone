@@ -41,7 +41,7 @@ export default function ProfileScreen() {
                 </ProfileDiv>
                 <HighlightsUl>
                     {userActions.user.highlights.map((highlight) => (
-                        <HighlightsLi key={highlight.id} to="/">
+                        <HighlightsLi key={highlight.id} to="/stories/highlights/">
                             <BgDiv>
                                 <StoryDiv>
                                     <img

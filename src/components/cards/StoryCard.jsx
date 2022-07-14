@@ -1,10 +1,13 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../../App";
 
 export default function StoryCard({ story, isfutured, currentStoryNumber }) {
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", story);
+    const { userActions } = useContext(UserContext);
     return (
         <Container
             className={
@@ -24,12 +27,25 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
                     </Timing>
                 )}
                 <Avatar>
-                    <img src={story.profile_image} alt="Avatar" />
+                    {story.profile_image !== undefined ? (
+                        <img src={story.profile_image} alt="Avatar" />
+                    ) : (
+                        <img src={userActions.user.avatar} alt="Avatar" />
+                    )}
                 </Avatar>
-                <H5>{story.username}</H5>
+                <H5>
+                    {" "}
+                    {story.username !== undefined
+                        ? story.username
+                        : userActions.user.username}
+                </H5>
             </StoryHead>
             <StoryImage>
-                <img src={story.story} alt="Story" />
+                {story.story !== undefined ? (
+                    <img src={story.story} alt="Story" />
+                ) : (
+                    <img src={story.stories[0].story} alt="Story" />
+                )}
             </StoryImage>
             {isfutured ? null : (
                 <StoryFooter>
@@ -43,10 +59,24 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
                     <StoryLi>
                         <BgDiv>
                             <StoryDiv>
-                                <img src={story.profile_image} alt="Story" />
+                                {story.profile_image !== undefined ? (
+                                    <img
+                                        src={story.profile_image}
+                                        alt="Story"
+                                    />
+                                ) : (
+                                    <img
+                                        src={story.stories[0].story}
+                                        alt="Story"
+                                    />
+                                )}
                             </StoryDiv>
                         </BgDiv>
-                        <h5>{story.username.slice(0, 12)}</h5>
+                        <h5>
+                            {story.username !== undefined
+                                ? story.username.slice(0, 12)
+                                : story.title}
+                        </h5>
                     </StoryLi>
                 </Overlay>
             ) : null}
