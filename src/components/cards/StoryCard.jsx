@@ -5,8 +5,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
-export default function StoryCard({ story, isfutured, currentStoryNumber }) {
-    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", story);
+export default function StoryCard({ story, isfutured, currentStoryNumber,currentStorySubNumber }) {
     const { userActions } = useContext(UserContext);
     return (
         <Container
@@ -44,7 +43,7 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
                 {story.story !== undefined ? (
                     <img src={story.story} alt="Story" />
                 ) : (
-                    <img src={story.stories[0].story} alt="Story" />
+                    <img src={story.stories[currentStorySubNumber].story} alt="Story" />
                 )}
             </StoryImage>
             {isfutured ? null : (

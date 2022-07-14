@@ -1,4 +1,9 @@
-import { faBookmark, faGear, faRepeat, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+    faBookmark,
+    faGear,
+    faRepeat,
+    faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -6,29 +11,94 @@ import styled from "styled-components";
 import { UserContext } from "../../App";
 
 export default function ProfileModal() {
-    const { userActions } = useContext(UserContext);
+    const { userActions, setUserActions } = useContext(UserContext);
     return (
         <Container
             className={userActions.isProfileModal ? "activity-modal-true" : ""}
         >
-            <ActivityCard to={`/${userActions.user.username}`}>
+            <ActivityCard
+                onClick={() => {
+                    userActions.isProfileModal
+                        ? setUserActions({
+                              ...userActions,
+                              isProfileModal: false,
+                          })
+                        : setUserActions({
+                              ...userActions,
+                              isProfileModal: true,
+                          });
+                }}
+                to={`/${userActions.user.username}`}
+            >
                 <FontAwesomeIcon icon={faUser} className="icon" />
                 <Details>Profile</Details>
             </ActivityCard>
-            <ActivityCard to="/">
+            <ActivityCard
+                onClick={() => {
+                    userActions.isProfileModal
+                        ? setUserActions({
+                              ...userActions,
+                              isProfileModal: false,
+                          })
+                        : setUserActions({
+                              ...userActions,
+                              isProfileModal: true,
+                          });
+                }}
+                to="/"
+            >
                 <FontAwesomeIcon icon={faBookmark} className="icon" />
                 <Details>Saved</Details>
             </ActivityCard>
-            <ActivityCard to="/">
+            <ActivityCard
+                onClick={() => {
+                    userActions.isProfileModal
+                        ? setUserActions({
+                              ...userActions,
+                              isProfileModal: false,
+                          })
+                        : setUserActions({
+                              ...userActions,
+                              isProfileModal: true,
+                          });
+                }}
+                to="/"
+            >
                 <FontAwesomeIcon icon={faGear} className="icon" />
                 <Details>Settings</Details>
             </ActivityCard>
-            <ActivityCard to="/">
+            <ActivityCard
+                onClick={() => {
+                    userActions.isProfileModal
+                        ? setUserActions({
+                              ...userActions,
+                              isProfileModal: false,
+                          })
+                        : setUserActions({
+                              ...userActions,
+                              isProfileModal: true,
+                          });
+                }}
+                to="/"
+            >
                 <FontAwesomeIcon icon={faRepeat} className="icon" />
                 <Details>Switch accounts</Details>
             </ActivityCard>
             <Hr />
-            <ActivityCard to="/">
+            <ActivityCard
+                onClick={() => {
+                    userActions.isProfileModal
+                        ? setUserActions({
+                              ...userActions,
+                              isProfileModal: false,
+                          })
+                        : setUserActions({
+                              ...userActions,
+                              isProfileModal: true,
+                          });
+                }}
+                to="/"
+            >
                 <Details>Log out</Details>
             </ActivityCard>
         </Container>
@@ -63,7 +133,7 @@ const ActivityCard = styled(Link)`
         margin-bottom: 0;
     }
 
-    & .icon{
+    & .icon {
         font-size: 15px;
         margin-right: 15px;
     }
@@ -81,5 +151,5 @@ const Details = styled.p`
 const Hr = styled.div`
     width: 100%;
     height: 2px;
-    background-color: rgb(219,219,219);
-`
+    background-color: rgb(219, 219, 219);
+`;

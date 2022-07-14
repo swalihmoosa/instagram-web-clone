@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { UserContext } from "../../App";
 
 export default function ProfileScreen() {
-    const { userActions } = useContext(UserContext);
+    const { userActions, setUserActions } = useContext(UserContext);
 
     return (
         <Container>
@@ -41,7 +41,16 @@ export default function ProfileScreen() {
                 </ProfileDiv>
                 <HighlightsUl>
                     {userActions.user.highlights.map((highlight) => (
-                        <HighlightsLi key={highlight.id} to="/stories/highlights/">
+                        <HighlightsLi
+                            key={highlight.id}
+                            to="/stories/highlights/"
+                            onClick={() =>
+                                setUserActions({
+                                    ...userActions,
+                                    clickedStory: highlight.id,
+                                })
+                            }
+                        >
                             <BgDiv>
                                 <StoryDiv>
                                     <img
@@ -147,7 +156,7 @@ const HighlightsLi = styled(Link)`
 
     & h5 {
         font-size: 13px;
-        color: rgb(38,38,38);
+        color: rgb(38, 38, 38);
         text-align: center;
     }
 `;
