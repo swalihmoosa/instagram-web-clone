@@ -1,6 +1,7 @@
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
@@ -38,6 +39,21 @@ export default function ProfileScreen() {
                         </Bio>
                     </Right>
                 </ProfileDiv>
+                <HighlightsUl>
+                    {userActions.user.highlights.map((highlight) => (
+                        <HighlightsLi key={highlight.id} to="/">
+                            <BgDiv>
+                                <StoryDiv>
+                                    <img
+                                        src={highlight.stories[0].story}
+                                        alt={highlight.title}
+                                    />
+                                </StoryDiv>
+                            </BgDiv>
+                            <h5>{highlight.title.slice(0, 12)}</h5>
+                        </HighlightsLi>
+                    ))}
+                </HighlightsUl>
             </section>
         </Container>
     );
@@ -46,9 +62,6 @@ const Container = styled.section`
     background-color: #fafafa;
     & .wrapper {
         padding: 115px 20px;
-        display: flex;
-        justify-content: space-between;
-        position: relative;
     }
 `;
 const ProfileDiv = styled.div`
@@ -56,6 +69,7 @@ const ProfileDiv = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     width: 75%;
+    margin-bottom: 30px;
 `;
 const Left = styled.div`
     max-width: 150px;
@@ -115,4 +129,47 @@ const Type = styled.p`
 const Description = styled.p`
     white-space: pre-line;
     font-size: 14px;
+    &::first-line {
+        color: rgb(0, 55, 107);
+    }
+`;
+const HighlightsUl = styled.div`
+    max-width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+`;
+const HighlightsLi = styled(Link)`
+    margin-right: 10px;
+
+    & h5 {
+        font-size: 13px;
+        color: rgb(38,38,38);
+        text-align: center;
+    }
+`;
+const BgDiv = styled.div`
+    min-width: 75px;
+    max-width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #d7d7d7;
+    padding: 2px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+`;
+const StoryDiv = styled.div`
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

@@ -4,8 +4,8 @@ import postOne from "../images/my-posts/junior-moosa.jpg";
 const userData = {
     username: "junior_moosa",
     name: "Swalih Moosa",
-    type : "Personal blog",
-    avatar : myImage,
+    type: "Personal blog",
+    avatar: myImage,
     followers: [
         {
             username: "abu",
@@ -40,7 +40,7 @@ const userData = {
             avatar: "",
         },
     ],
-    bio: "Software Engineer @Steyp\nEveryone Who Starts has a Dream about the End 💫\nPeacefull Life\nJunior Moosa ✌️\nMuziC 🎧",
+    bio: "Software Engineer @Steyp\nEveryone Who Starts has a Dream about the End 💫\nKarma ✡️\nPeacefull Life\nJunior Moosa ✌️\nMuziC 🎧",
     highlights: [
         {
             id: 1,
@@ -142,32 +142,24 @@ const userData = {
             stories: [
                 {
                     id: 1,
-                    story: "https://www.itsallbee.com/wp-content/uploads/2020/09/life-is-a-waterfall.jpg",
-                },
-                {
-                    id: 2,
-                    story: "https://www.itsallbee.com/wp-content/uploads/2020/09/waterfalls-quotes-love-640x960.jpg",
-                },
-                {
-                    id: 3,
                     story: "https://assets.traveltriangle.com/blog/wp-content/uploads/2018/06/a-women-doing-yoga-in-front-of-a-waterfall-ss11052018.jpg",
                 },
                 {
-                    id: 4,
+                    id: 2,
                     story: "https://assets.traveltriangle.com/blog/wp-content/uploads/2018/06/a-women-walking-along-a-rainbow-waterfall-ss11052018.jpg",
                 },
                 {
-                    id: 5,
+                    id: 3,
                     story: "https://img.traveltriangle.com/blog/wp-content/uploads/2018/06/Tegenungan-Waterfall-cover.jpg",
                 },
                 {
-                    id: 6,
+                    id: 4,
                     story: "https://assets.traveltriangle.com/blog/wp-content/uploads/2018/06/a-rainbow-waterfall-amid-forests-ss11052018.jpg",
                 },
             ],
         },
         {
-            id: 1,
+            id: 5,
             title: "Food",
             stories: [
                 {
