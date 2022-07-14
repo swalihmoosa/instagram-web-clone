@@ -1,6 +1,7 @@
 import { faBookmark, faGear, faRepeat, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
@@ -10,24 +11,24 @@ export default function ProfileModal() {
         <Container
             className={userActions.isProfileModal ? "activity-modal-true" : ""}
         >
-            <ActivityCard>
+            <ActivityCard to={`/${userActions.user.username}`}>
                 <FontAwesomeIcon icon={faUser} className="icon" />
                 <Details>Profile</Details>
             </ActivityCard>
-            <ActivityCard>
+            <ActivityCard to="/">
                 <FontAwesomeIcon icon={faBookmark} className="icon" />
                 <Details>Saved</Details>
             </ActivityCard>
-            <ActivityCard>
+            <ActivityCard to="/">
                 <FontAwesomeIcon icon={faGear} className="icon" />
                 <Details>Settings</Details>
             </ActivityCard>
-            <ActivityCard>
+            <ActivityCard to="/">
                 <FontAwesomeIcon icon={faRepeat} className="icon" />
                 <Details>Switch accounts</Details>
             </ActivityCard>
             <Hr />
-            <ActivityCard>
+            <ActivityCard to="/">
                 <Details>Log out</Details>
             </ActivityCard>
         </Container>
@@ -52,7 +53,7 @@ const Container = styled.div`
         display: block;
     }
 `;
-const ActivityCard = styled.div`
+const ActivityCard = styled(Link)`
     display: flex;
     align-items: center;
     padding: 10px 20px 10px 20px;

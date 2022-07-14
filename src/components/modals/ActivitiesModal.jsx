@@ -10,7 +10,7 @@ export default function ActivitiesModal() {
             className={userActions.isActivityModal ? "activity-modal-true" : ""}
         >
             {activities.map((activity) => (
-                <ActivityCard>
+                <ActivityCard key={activity.id} >
                     <Avatar>
                         <img src={activity.profile_image} alt="Avatar" />
                     </Avatar>

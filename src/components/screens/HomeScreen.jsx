@@ -57,7 +57,7 @@ export default function HomeScreen() {
                 <HomeRight>
                     <MyHeader>
                         <Avatar>
-                            <img src={userActions.user.avatar.myImage} alt="Avatar" />
+                            <img src={userActions.user.avatar} alt="Avatar" />
                         </Avatar>
                         <NameDiv>
                             <H5>{userActions.user.username}</H5>

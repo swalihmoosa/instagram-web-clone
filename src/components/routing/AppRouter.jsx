@@ -10,10 +10,11 @@ const ExploreSingleScreen = lazy(() =>
 const HomeScreen = lazy(() => import("../screens/HomeScreen"));
 const NewPost = lazy(() => import("../screens/NewPost"));
 const StoryScreen = lazy(() => import("../screens/StoryScreen"));
+const ProfileScreen = lazy(() => import("../screens/ProfileScreen"));
 
 export default function AppRouter() {
     return (
-        <Suspense fallback={<PageLoader />} >
+        <Suspense fallback={<PageLoader />}>
             <Header />
             <Routes>
                 <Route path="/" element={<HomeScreen />} />
@@ -24,6 +25,10 @@ export default function AppRouter() {
                 <Route
                     path="/explore/single/:name/:id"
                     element={<ExploreSingleScreen />}
+                />
+                <Route
+                    path="/:name"
+                    element={<ProfileScreen />}
                 />
             </Routes>
         </Suspense>

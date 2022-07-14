@@ -101,7 +101,7 @@ export default function Header() {
                                   });
                         }}
                     >
-                        <img src={userActions.user.avatar.myImage} alt="User" />
+                        <img src={userActions.user.avatar} alt="User" />
                         <ArrowUp
                             className={
                                 userActions.isProfileModal

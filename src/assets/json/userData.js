@@ -1,8 +1,11 @@
+import myImage from "../images/junior-moosa.jpg";
 import postOne from "../images/my-posts/junior-moosa.jpg";
 
 const userData = {
     username: "junior_moosa",
     name: "Swalih Moosa",
+    type : "Personal blog",
+    avatar : myImage,
     followers: [
         {
             username: "abu",
@@ -37,9 +40,7 @@ const userData = {
             avatar: "",
         },
     ],
-    company: "Steyp",
-    bio: `Software Engineer @${company} \\n Peacefull Life \\n Everyone Who Starts has a Dream about the End 💫 \\n Junior Moosa ✌️ \\n MuziC 🎧
-    `,
+    bio: "Software Engineer @Steyp\nEveryone Who Starts has a Dream about the End 💫\nPeacefull Life\nJunior Moosa ✌️\nMuziC 🎧",
     highlights: [
         {
             id: 1,

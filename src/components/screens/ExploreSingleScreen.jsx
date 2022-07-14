@@ -97,7 +97,7 @@ export default function ExploreSingleScreen() {
                 id: newComments.length + 1,
                 comment: newComment,
                 user: userActions.user.username,
-                avatar: userActions.user.avatar.myImage,
+                avatar: userActions.user.avatar,
                 time: "now",
                 likes: 0,
             },
