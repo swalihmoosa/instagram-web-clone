@@ -52,7 +52,7 @@ const userData = {
                 },
                 {
                     id: 2,
-                    story: "https://images.unsplash.com/photo-1535000367458-13b83fad46f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    story: "https://images.assettype.com/fortuneindia%2F2020-06%2Fef53f9be-f257-4aa3-9af5-6ca1a9f33a86%2Fclose_up_photography_of_leaves_with_droplets_807598.jpg?rect=0,607,4128,2322&w=1250&q=60",
                 },
                 {
                     id: 3,
@@ -65,6 +65,10 @@ const userData = {
                 {
                     id: 5,
                     story: "https://media.istockphoto.com/photos/flower-in-mist-picture-id180478956?b=1&k=20&m=180478956&s=170667a&w=0&h=ZbcE-bkXJnQDt2Eyd1xy-PXt9lrV81SPi3khKv_5MRM=",
+                },
+                {
+                    id: 6,
+                    story: "https://images.unsplash.com/photo-1535000367458-13b83fad46f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
                 },
             ],
         },
@@ -112,26 +116,18 @@ const userData = {
                 },
                 {
                     id: 3,
-                    story: "https://images.pexels.com/photos/803105/pexels-photo-803105.jpeg?auto=compress&cs=tinysrgb&w=1600",
-                },
-                {
-                    id: 4,
                     story: "https://images.pexels.com/photos/1587699/pexels-photo-1587699.jpeg?auto=compress&cs=tinysrgb&w=1600",
                 },
                 {
-                    id: 5,
+                    id: 4,
                     story: "https://images.pexels.com/photos/119342/pexels-photo-119342.jpeg?auto=compress&cs=tinysrgb&w=1600",
                 },
                 {
-                    id: 6,
-                    story: "https://images.pexels.com/photos/1087735/pexels-photo-1087735.jpeg?auto=compress&cs=tinysrgb&w=1600",
-                },
-                {
-                    id: 7,
+                    id: 5,
                     story: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&w=1600",
                 },
                 {
-                    id: 8,
+                    id: 6,
                     story: "https://images.pexels.com/photos/746386/pexels-photo-746386.jpeg?auto=compress&cs=tinysrgb&w=1600",
                 },
             ],
@@ -146,7 +142,7 @@ const userData = {
                 },
                 {
                     id: 2,
-                    story: "https://assets.traveltriangle.com/blog/wp-content/uploads/2018/06/a-women-walking-along-a-rainbow-waterfall-ss11052018.jpg",
+                    story: "https://www.exodustravels.com/sites/exod/files/styles/exo_1168_0_scale/public/node/expert-blog-entry/images/kaieteur.jpg?t=1KDzcG&itok=Lwp8WJhh",
                 },
                 {
                     id: 3,
@@ -156,6 +152,15 @@ const userData = {
                     id: 4,
                     story: "https://assets.traveltriangle.com/blog/wp-content/uploads/2018/06/a-rainbow-waterfall-amid-forests-ss11052018.jpg",
                 },
+                {
+                    id: 5,
+                    story: "https://assets.traveltriangle.com/blog/wp-content/uploads/2018/06/a-women-walking-along-a-rainbow-waterfall-ss11052018.jpg",
+                },
+                {
+                    id: 6,
+                    story: "https://cdn.pixabay.com/photo/2021/09/12/20/05/waterfall-6619377__340.jpg",
+                },
+                
             ],
         },
         {
@@ -185,14 +190,6 @@ const userData = {
                 {
                     id: 6,
                     story: "https://img.freepik.com/free-photo/top-view-colorful-hummus_23-2149447785.jpg?size=338&ext=jpg",
-                },
-                {
-                    id: 7,
-                    story: "https://img.freepik.com/free-photo/aloo-paratha-gobi-paratha-also-known-as-potato-cauliflower-stuffed-flatbread-dish-originating-from-indian-subcontinent_466689-76173.jpg?size=626&ext=jpg",
-                },
-                {
-                    id: 8,
-                    story: "https://img.freepik.com/free-photo/misal-pav-is-popular-maharashtrian-street-food-usal-sprouts-curry-topped-with-onions-tomatoes-farsan-chutney_466689-74294.jpg?size=626&ext=jpg",
                 },
             ],
         },

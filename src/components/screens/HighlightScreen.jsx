@@ -24,7 +24,6 @@ export default function HighlightScreen() {
             userActions.user.highlights[currentStoryNumber].stories.length - 1
         ) {
             setHighlightNumber(highlightNumber + 1);
-            console.log("<##############", highlightNumber);
         }
         if (
             highlightNumber ===
@@ -33,7 +32,6 @@ export default function HighlightScreen() {
             setHighlightNumber(0);
             if (currentStoryNumber < userActions.user.highlights.length - 1) {
                 setCurrentStoryNumber(currentStoryNumber + 1);
-                console.log("===<##############", highlightNumber);
             }
             if (currentStoryNumber === userActions.user.highlights.length - 1) {
                 navigate("/");
@@ -41,12 +39,12 @@ export default function HighlightScreen() {
         }
     };
 
-    // useEffect(() => {
-    //     const timerID = setTimeout(() => renderHighlight(), 5000);
-    //     return () => {
-    //         clearTimeout(timerID);
-    //     };
-    // }, [highlightNumber, currentStoryNumber]);
+    useEffect(() => {
+        const timerID = setTimeout(() => renderHighlight(), 5000);
+        return () => {
+            clearTimeout(timerID);
+        };
+    }, [highlightNumber, currentStoryNumber]);
 
     return (
         <Container style={{ height: height }}>

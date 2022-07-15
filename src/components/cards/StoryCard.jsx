@@ -14,10 +14,6 @@ export default function StoryCard({
     const { userActions } = useContext(UserContext);
     const length = story.stories.length;
 
-    const style = {
-        animation: `story-background-color ${length * 5}s infinite`,
-        animationTimingFunction: "linear",
-    };
     return (
         <Container
             className={
@@ -38,9 +34,10 @@ export default function StoryCard({
                                 style={{
                                     width: `calc((100% - ${length * 2}px) / ${length})`,
                                 }}
+                                key={item.id}
                             ></div>
                         ))}
-                        <Bg id="story-bg" style={isfutured ? null : style}></Bg>
+                        <Bg id="story-bg"></Bg>
                     </Timing>
                 )}
                 {story.profile_image !== undefined ? (
@@ -182,7 +179,7 @@ const Timing = styled.div`
     display: flex;
     justify-content: space-between;
     & div {
-        background-color: #fff;
+        background-color: #d1d1d1;
         height: 100%;
         border-radius: 5px;
         padding: 0.5px 0;
@@ -201,8 +198,8 @@ const Bg = styled.div`
     left: 0;
 
     &#story-bg {
-        /* animation: story-background-color 5s infinite; */
-        /* animation-timing-function: linear; */
+        animation: story-background-color 30s infinite;
+        animation-timing-function: linear;
     }
 `;
 const Avatar = styled.div`
