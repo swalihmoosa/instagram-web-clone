@@ -44,37 +44,67 @@ const userData = {
     highlights: [
         {
             id: 1,
-            title: "Nature",
+            title: "Minions 🤞",
             stories: [
                 {
                     id: 1,
-                    story: "https://images.unsplash.com/photo-1611782712936-6247d9711816?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dWVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                    story: "https://www.superiorwallpapers.com/images/lthumbs/2015-07/10216_The-hitman-minion-Cartoon-wallpaper.jpg",
                 },
                 {
                     id: 2,
-                    story: "https://images.assettype.com/fortuneindia%2F2020-06%2Fef53f9be-f257-4aa3-9af5-6ca1a9f33a86%2Fclose_up_photography_of_leaves_with_droplets_807598.jpg?rect=0,607,4128,2322&w=1250&q=60",
+                    story: "https://wallpaperaccess.com/full/27838.jpg",
                 },
                 {
                     id: 3,
-                    story: "https://images.unsplash.com/photo-1654543876625-d923eff049eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    story: "https://wallpaperaccess.com/full/27840.jpg",
                 },
                 {
                     id: 4,
-                    story: "https://images.unsplash.com/photo-1651945515343-2b23ccfbfce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    story: "https://wallpaperaccess.com/full/27850.jpg",
                 },
                 {
                     id: 5,
-                    story: "https://media.istockphoto.com/photos/flower-in-mist-picture-id180478956?b=1&k=20&m=180478956&s=170667a&w=0&h=ZbcE-bkXJnQDt2Eyd1xy-PXt9lrV81SPi3khKv_5MRM=",
+                    story: "https://wallpaperaccess.com/full/27847.jpg",
                 },
                 {
                     id: 6,
-                    story: "https://images.unsplash.com/photo-1535000367458-13b83fad46f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    story: "https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
                 },
             ],
         },
         {
-            id: 2,
-            title: "Friends",
+            id: 1,
+            title: "Cartoons",
+            stories: [
+                {
+                    id: 1,
+                    story: "https://i.pinimg.com/564x/db/4b/35/db4b358dd2b700d8ea9837d78213ff04.jpg",
+                },
+                {
+                    id: 2,
+                    story: "https://3.bp.blogspot.com/-y1BF8rtMwqw/WukrOGogj8I/AAAAAAAAFHo/gRL4IeGxwkAOmRbhH95dduKmExgwL168QCLcBGAs/s320/jagadeesh3.jpg",
+                },
+                {
+                    id: 3,
+                    story: "https://i.pinimg.com/564x/67/23/f0/6723f0abd8e7644a0834b3590b328d3f.jpg",
+                },
+                {
+                    id: 4,
+                    story: "https://i.pinimg.com/564x/a6/31/dd/a631dd841fdb93cb3c70ad5ef3444839.jpg",
+                },
+                {
+                    id: 5,
+                    story: "https://i.pinimg.com/564x/10/e0/09/10e00937cb7ba147a36aef756817bfa3.jpg",
+                },
+                {
+                    id: 6,
+                    story: "https://i.pinimg.com/564x/63/f8/72/63f872292d8973716c967fba7abaec27.jpg",
+                },
+            ],
+        },
+        {
+            id: 3,
+            title: "Friends 👥",
             stories: [
                 {
                     id: 1,
@@ -103,7 +133,67 @@ const userData = {
             ],
         },
         {
-            id: 3,
+            id: 2,
+            title: "Time ⌛",
+            stories: [
+                {
+                    id: 1,
+                    story: "https://images.unsplash.com/photo-1501139083538-0139583c060f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGltZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                },
+                {
+                    id: 2,
+                    story: "https://media.istockphoto.com/photos/spiral-clock-the-flow-of-time-dark-blue-turquoise-picture-id1341635109?b=1&k=20&m=1341635109&s=170667a&w=0&h=G3VCioaHHV-CdEWZIHqcGaGcJEFHkq2wSsYzDGC7wSc=",
+                },
+                {
+                    id: 3,
+                    story: "https://media.istockphoto.com/photos/clock-dispersing-in-hand-picture-id1325525862?b=1&k=20&m=1325525862&s=170667a&w=0&h=UpUt2C-hzHwXxHnkylsNSU73JrYxoVW2eneaVhjJPOQ=",
+                },
+                {
+                    id: 4,
+                    story: "https://img.etimg.com/thumb/msid-90931503,width-650,imgsize-124244,,resizemode-4,quality-100/time-relativity.jpg",
+                },
+                {
+                    id: 5,
+                    story: "https://i0.wp.com/purposefocuscommitment.com/wp-content/uploads/2016/10/Happines-story-The-Value-Of-Time-1.jpg?w=1920&ssl=1",
+                },
+                {
+                    id: 6,
+                    story: "https://cdn.pixabay.com/photo/2017/11/27/07/02/time-2980690__340.jpg",
+                },
+            ],
+        },
+        {
+            id: 2,
+            title: "Nature 🌈",
+            stories: [
+                {
+                    id: 1,
+                    story: "https://images.unsplash.com/photo-1611782712936-6247d9711816?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dWVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+                },
+                {
+                    id: 2,
+                    story: "https://images.assettype.com/fortuneindia%2F2020-06%2Fef53f9be-f257-4aa3-9af5-6ca1a9f33a86%2Fclose_up_photography_of_leaves_with_droplets_807598.jpg?rect=0,607,4128,2322&w=1250&q=60",
+                },
+                {
+                    id: 3,
+                    story: "https://images.unsplash.com/photo-1654543876625-d923eff049eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                },
+                {
+                    id: 4,
+                    story: "https://images.unsplash.com/photo-1651945515343-2b23ccfbfce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                },
+                {
+                    id: 5,
+                    story: "https://media.istockphoto.com/photos/flower-in-mist-picture-id180478956?b=1&k=20&m=180478956&s=170667a&w=0&h=ZbcE-bkXJnQDt2Eyd1xy-PXt9lrV81SPi3khKv_5MRM=",
+                },
+                {
+                    id: 6,
+                    story: "https://images.unsplash.com/photo-1535000367458-13b83fad46f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                },
+            ],
+        },
+        {
+            id: 4,
             title: "Hills",
             stories: [
                 {
@@ -133,8 +223,8 @@ const userData = {
             ],
         },
         {
-            id: 4,
-            title: "Water",
+            id: 5,
+            title: "Water 🥶",
             stories: [
                 {
                     id: 1,
@@ -164,8 +254,8 @@ const userData = {
             ],
         },
         {
-            id: 5,
-            title: "Food",
+            id: 6,
+            title: "Food 😋",
             stories: [
                 {
                     id: 1,
