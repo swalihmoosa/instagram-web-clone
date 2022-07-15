@@ -138,27 +138,27 @@ const userData = {
             stories: [
                 {
                     id: 1,
-                    story: "https://www.whatsappimages.in/wp-content/uploads/2021/06/Free-Friends-Group-Images-Pics-Download-for-Whatsapp.jpg",
+                    story: "https://media.wired.com/photos/5cc244c9af643e2f373ebb28/master/pass/Coding-Becomes-Criminal.jpg",
                 },
                 {
                     id: 2,
-                    story: "https://images.pexels.com/photos/745045/pexels-photo-745045.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                    story: "https://images.unsplash.com/photo-1594904351111-a072f80b1a71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29kZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
                 },
                 {
                     id: 3,
-                    story: "https://images.pexels.com/photos/1255062/pexels-photo-1255062.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                    story: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y29kZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
                 },
                 {
                     id: 4,
-                    story: "https://images.pexels.com/photos/1036804/pexels-photo-1036804.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                    story: "https://images.unsplash.com/photo-1603468620905-8de7d86b781e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvZGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
                 },
                 {
                     id: 5,
-                    story: "https://images.pexels.com/photos/1524105/pexels-photo-1524105.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                    story: "https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y29kZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
                 },
                 {
                     id: 6,
-                    story: "https://images.pexels.com/photos/708440/pexels-photo-708440.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                    story: "https://www.epl.ca/wp-content/uploads/sites/18/2020/12/CodingSnowflakes_Dec2020_BlogCard_890x445.png",
                 },
             ],
         },
@@ -280,7 +280,6 @@ const userData = {
                     id: 6,
                     story: "https://cdn.pixabay.com/photo/2021/09/12/20/05/waterfall-6619377__340.jpg",
                 },
-                
             ],
         },
         {
