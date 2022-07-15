@@ -152,7 +152,7 @@ const HighlightsUl = styled.div`
     margin-bottom: 20px;
 `;
 const HighlightsLi = styled(Link)`
-    margin-right: 10px;
+    margin-right: 25px;
 
     & h5 {
         font-size: 13px;

@@ -73,7 +73,7 @@ const userData = {
             ],
         },
         {
-            id: 1,
+            id: 2,
             title: "Cartoons",
             stories: [
                 {
@@ -133,7 +133,37 @@ const userData = {
             ],
         },
         {
-            id: 2,
+            id: 4,
+            title: "Coding 🤖",
+            stories: [
+                {
+                    id: 1,
+                    story: "https://www.whatsappimages.in/wp-content/uploads/2021/06/Free-Friends-Group-Images-Pics-Download-for-Whatsapp.jpg",
+                },
+                {
+                    id: 2,
+                    story: "https://images.pexels.com/photos/745045/pexels-photo-745045.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                },
+                {
+                    id: 3,
+                    story: "https://images.pexels.com/photos/1255062/pexels-photo-1255062.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                },
+                {
+                    id: 4,
+                    story: "https://images.pexels.com/photos/1036804/pexels-photo-1036804.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                },
+                {
+                    id: 5,
+                    story: "https://images.pexels.com/photos/1524105/pexels-photo-1524105.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                },
+                {
+                    id: 6,
+                    story: "https://images.pexels.com/photos/708440/pexels-photo-708440.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                },
+            ],
+        },
+        {
+            id: 5,
             title: "Time ⌛",
             stories: [
                 {
@@ -163,7 +193,7 @@ const userData = {
             ],
         },
         {
-            id: 2,
+            id: 6,
             title: "Nature 🌈",
             stories: [
                 {
@@ -193,7 +223,7 @@ const userData = {
             ],
         },
         {
-            id: 4,
+            id: 7,
             title: "Hills",
             stories: [
                 {
@@ -223,7 +253,7 @@ const userData = {
             ],
         },
         {
-            id: 5,
+            id: 8,
             title: "Water 🥶",
             stories: [
                 {
@@ -254,7 +284,7 @@ const userData = {
             ],
         },
         {
-            id: 6,
+            id: 9,
             title: "Food 😋",
             stories: [
                 {
