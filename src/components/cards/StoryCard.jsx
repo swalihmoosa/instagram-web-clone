@@ -5,8 +5,19 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
-export default function StoryCard({ story, isfutured, currentStoryNumber,currentStorySubNumber }) {
+export default function StoryCard({
+    story,
+    isfutured,
+    currentStoryNumber,
+    highlightNumber,
+}) {
     const { userActions } = useContext(UserContext);
+    const length = story.stories.length;
+
+    const style = {
+        animation: `story-background-color ${length * 5}s infinite`,
+        animationTimingFunction: "linear",
+    };
     return (
         <Container
             className={
@@ -22,28 +33,44 @@ export default function StoryCard({ story, isfutured, currentStoryNumber,current
             <StoryHead>
                 {isfutured ? null : (
                     <Timing>
-                        <Bg id="story-bg"></Bg>
+                        {story.stories.map((item) => (
+                            <div
+                                style={{
+                                    width: `calc((100% - ${length * 2}px) / ${length})`,
+                                }}
+                            ></div>
+                        ))}
+                        <Bg id="story-bg" style={isfutured ? null : style}></Bg>
                     </Timing>
                 )}
-                <Avatar>
-                    {story.profile_image !== undefined ? (
+                {story.profile_image !== undefined ? (
+                    <Avatar>
                         <img src={story.profile_image} alt="Avatar" />
-                    ) : (
+                    </Avatar>
+                ) : isfutured ? null : (
+                    <Avatar>
                         <img src={userActions.user.avatar} alt="Avatar" />
-                    )}
-                </Avatar>
+                    </Avatar>
+                )}
                 <H5>
                     {" "}
                     {story.username !== undefined
                         ? story.username
-                        : userActions.user.username}
+                        : isfutured
+                        ? null
+                        : story.title}
                 </H5>
             </StoryHead>
             <StoryImage>
                 {story.story !== undefined ? (
                     <img src={story.story} alt="Story" />
+                ) : isfutured ? (
+                    <img src={story.stories[0].story} alt="Story" />
                 ) : (
-                    <img src={story.stories[currentStorySubNumber].story} alt="Story" />
+                    <img
+                        src={story.stories[highlightNumber].story}
+                        alt="Story"
+                    />
                 )}
             </StoryImage>
             {isfutured ? null : (
@@ -145,18 +172,38 @@ const StoryHead = styled.div`
     left: 0;
 `;
 const Timing = styled.div`
-    background-color: #ffffff59;
+    /* background-color: #ffffff59; */
+    background-color: transparent;
     width: 100%;
     height: 5px;
     margin-bottom: 10px;
     border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    & div {
+        background-color: #fff;
+        height: 100%;
+        border-radius: 5px;
+        padding: 0.5px 0;
+    }
 `;
 const Bg = styled.div`
-    background-color: #464646;
+    background-color: #464646 !important;
     width: 100%;
     height: 100%;
     width: 50%;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &#story-bg {
+        /* animation: story-background-color 5s infinite; */
+        /* animation-timing-function: linear; */
+    }
 `;
 const Avatar = styled.div`
     width: 40px;

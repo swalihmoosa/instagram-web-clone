@@ -54,18 +54,18 @@ const userData = {
                     id: 2,
                     story: "https://images.unsplash.com/photo-1535000367458-13b83fad46f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
                 },
-                // {
-                //     id: 3,
-                //     story: "https://images.unsplash.com/photo-1654543876625-d923eff049eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-                // },
-                // {
-                //     id: 4,
-                //     story: "https://images.unsplash.com/photo-1651945515343-2b23ccfbfce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-                // },
-                // {
-                //     id: 5,
-                //     story: "https://media.istockphoto.com/photos/flower-in-mist-picture-id180478956?b=1&k=20&m=180478956&s=170667a&w=0&h=ZbcE-bkXJnQDt2Eyd1xy-PXt9lrV81SPi3khKv_5MRM=",
-                // },
+                {
+                    id: 3,
+                    story: "https://images.unsplash.com/photo-1654543876625-d923eff049eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                },
+                {
+                    id: 4,
+                    story: "https://images.unsplash.com/photo-1651945515343-2b23ccfbfce0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                },
+                {
+                    id: 5,
+                    story: "https://media.istockphoto.com/photos/flower-in-mist-picture-id180478956?b=1&k=20&m=180478956&s=170667a&w=0&h=ZbcE-bkXJnQDt2Eyd1xy-PXt9lrV81SPi3khKv_5MRM=",
+                },
             ],
         },
         {

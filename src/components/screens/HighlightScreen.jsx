@@ -14,43 +14,40 @@ export default function HighlightScreen() {
     const [currentStoryNumber, setCurrentStoryNumber] = useState(
         userActions.clickedStory - 1
     );
-    const [currentStorySubNumber, setCurrentStorySubNumber] = useState(0);
+    const [highlightNumber, setHighlightNumber] = useState(0);
     const navigate = useNavigate();
     const isfutured = true;
 
-    useEffect(() => {
-        // if (currentStoryNumber < userActions.user.highlights.length - 1) {
-        //     const story = setInterval(
-        //         () => setCurrentStoryNumber((oldCount) => oldCount + 1),
-        //         5000
-        //     );
-        //     return () => {
-        //         clearInterval(story);
-        //     };
-        // }
-        // if (currentStoryNumber === userActions.user.highlights.length - 1) {
-        //     setInterval(() => navigate("/"), 5000);
-        // }
+    const renderHighlight = () => {
+        if (
+            highlightNumber <
+            userActions.user.highlights[currentStoryNumber].stories.length - 1
+        ) {
+            setHighlightNumber(highlightNumber + 1);
+            console.log("<##############", highlightNumber);
+        }
+        if (
+            highlightNumber ===
+            userActions.user.highlights[currentStoryNumber].stories.length - 1
+        ) {
+            setHighlightNumber(0);
+            if (currentStoryNumber < userActions.user.highlights.length - 1) {
+                setCurrentStoryNumber(currentStoryNumber + 1);
+                console.log("===<##############", highlightNumber);
+            }
+            if (currentStoryNumber === userActions.user.highlights.length - 1) {
+                navigate("/");
+            }
+        }
+    };
 
-        if (
-            currentStorySubNumber <
-            userActions.user.highlights[currentStoryNumber].stories.length - 1
-        ) {
-            const story = setInterval(
-                () => setCurrentStorySubNumber((oldCount) => oldCount + 1),
-                5000
-            );
-            return () => {
-                clearInterval(story);
-            };
-        }
-        if (
-            currentStorySubNumber ===
-            userActions.user.highlights[currentStoryNumber].stories.length - 1
-        ) {
-            setInterval(() => navigate("/"), 5000);
-        }
-    }, [currentStoryNumber, navigate, userActions.user.highlights.length]);
+    // useEffect(() => {
+    //     const timerID = setTimeout(() => renderHighlight(), 5000);
+    //     return () => {
+    //         clearTimeout(timerID);
+    //     };
+    // }, [highlightNumber, currentStoryNumber]);
+
     return (
         <Container style={{ height: height }}>
             <Logo>
@@ -58,7 +55,7 @@ export default function HighlightScreen() {
             </Logo>
             {currentStoryNumber - 2 >= 0 ? (
                 <StoryCard
-                    currentStorySubNumber={currentStorySubNumber}
+                    highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber - 2]}
                     isfutured={isfutured}
                     currentStoryNumber={currentStoryNumber}
@@ -66,20 +63,20 @@ export default function HighlightScreen() {
             ) : null}
             {currentStoryNumber - 1 >= 0 ? (
                 <StoryCard
-                    currentStorySubNumber={currentStorySubNumber}
+                    highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber - 1]}
                     isfutured={isfutured}
                     currentStoryNumber={currentStoryNumber}
                 />
             ) : null}
             <StoryCard
-                currentStorySubNumber={currentStorySubNumber}
+                highlightNumber={highlightNumber}
                 story={userActions.user.highlights[currentStoryNumber]}
                 currentStoryNumber={currentStoryNumber}
             />
             {currentStoryNumber < userActions.user.highlights.length - 1 ? (
                 <StoryCard
-                    currentStorySubNumber={currentStorySubNumber}
+                    highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber + 1]}
                     isfutured={isfutured}
                     currentStoryNumber={currentStoryNumber}
@@ -87,7 +84,7 @@ export default function HighlightScreen() {
             ) : null}
             {currentStoryNumber <= userActions.user.highlights.length - 3 ? (
                 <StoryCard
-                    currentStorySubNumber={currentStorySubNumber}
+                    highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber + 2]}
                     isfutured={isfutured}
                     currentStoryNumber={currentStoryNumber}
