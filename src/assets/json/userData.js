@@ -4,7 +4,6 @@ import postTwo from "../images/my-posts/post-two.jpg";
 import postThree from "../images/my-posts/post-three.jpg";
 import postFour from "../images/my-posts/post-four.jpg";
 import postFive from "../images/my-posts/post-five.jpg";
-import postSix from "../images/my-posts/post-six.jpg";
 import postSeven from "../images/my-posts/post-seven.jpg";
 import postEight from "../images/my-posts/post-eight.jpg";
 import postNine from "../images/my-posts/post-nine.jpg";
@@ -17,8 +16,10 @@ import postFifteen from "../images/my-posts/post-15.jpg";
 import postSixteen from "../images/my-posts/post-16.jpg";
 import postSeventeen from "../images/my-posts/post-17.jpg";
 import postEighteen from "../images/my-posts/post-18.jpg";
-import postNineteen from "../images/my-posts/post-19.jpg";
-import postTwenty from "../images/my-posts/post-20.jpg";
+import postTwentyOne from "../images/my-posts/post-21.jpg";
+import postTwentyFour from "../images/my-posts/post-24.jpg";
+import postTwentySix from "../images/my-posts/post-26.jpg";
+import postTwentySeven from "../images/my-posts/post-27.jpg";
 
 const userData = {
     username: "junior_moosa",
@@ -439,7 +440,7 @@ const userData = {
             isLiked: true,
             isArchived: false,
             isSaved: true,
-            post : postTwo,
+            post : postSeven,
         },
         {
             id: 3,
@@ -466,7 +467,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postTen,
+            post : postTwentyOne,
         },
         {
             id: 6,
@@ -484,7 +485,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postThirteen,
+            post : postFifteen,
         },
         {
             id: 8,
@@ -493,7 +494,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postSeven,
+            post : postTwentySeven,
         },
         {
             id: 9,
@@ -502,7 +503,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postTwelve,
+            post : postTwo,
         },
         {
             id: 10,
@@ -511,7 +512,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postTen,
+            post : postSixteen,
         },
         {
             id: 11,
@@ -520,7 +521,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postEleven,
+            post : postEight,
         },
         {
             id: 12,
@@ -529,7 +530,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postTwelve,
+            post : postSeventeen,
         },
         {
             id: 13,
@@ -538,7 +539,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postThirteen,
+            post : postThree,
         },
         {
             id: 14,
@@ -547,7 +548,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postFourteen,
+            post : postEleven,
         },
         {
             id: 15,
@@ -556,7 +557,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postFifteen,
+            post : postFourteen,
         },
         {
             id: 16,
@@ -565,7 +566,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postSixteen,
+            post : postThirteen,
         },
         {
             id: 17,
@@ -574,7 +575,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postEighteen,
+            post : postTwentySix,
         },
         {
             id: 18,
@@ -583,7 +584,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postSeventeen,
+            post : postTwelve,
         },
         {
             id: 19,
@@ -592,7 +593,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postNineteen,
+            post : postTen,
         },
         {
             id: 20,
@@ -601,7 +602,16 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post : postTwenty,
+            post : postTwentyFour,
+        },
+        {
+            id: 20,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postEighteen,
         },
     ],
 };

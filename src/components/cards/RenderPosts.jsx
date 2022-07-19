@@ -28,4 +28,5 @@ const Post = styled.div`
     overflow: hidden;
     min-height: 300px;
     max-height: 300px;
+    margin-bottom: 10px;
 `;
