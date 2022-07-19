@@ -1,5 +1,24 @@
 import myImage from "../images/junior-moosa.jpg";
-import postOne from "../images/my-posts/junior-moosa.jpg";
+import postOne from "../images/my-posts/post-one.jpg";
+import postTwo from "../images/my-posts/post-two.jpg";
+import postThree from "../images/my-posts/post-three.jpg";
+import postFour from "../images/my-posts/post-four.jpg";
+import postFive from "../images/my-posts/post-five.jpg";
+import postSix from "../images/my-posts/post-six.jpg";
+import postSeven from "../images/my-posts/post-seven.jpg";
+import postEight from "../images/my-posts/post-eight.jpg";
+import postNine from "../images/my-posts/post-nine.jpg";
+import postTen from "../images/my-posts/post-ten.jpg";
+import postEleven from "../images/my-posts/post-eleven.jpg";
+import postTwelve from "../images/my-posts/post-twelve.jpg";
+import postThirteen from "../images/my-posts/post-13.jpg";
+import postFourteen from "../images/my-posts/post-14.jpg";
+import postFifteen from "../images/my-posts/post-15.jpg";
+import postSixteen from "../images/my-posts/post-16.jpg";
+import postSeventeen from "../images/my-posts/post-17.jpg";
+import postEighteen from "../images/my-posts/post-18.jpg";
+import postNineteen from "../images/my-posts/post-19.jpg";
+import postTwenty from "../images/my-posts/post-20.jpg";
 
 const userData = {
     username: "junior_moosa",
@@ -420,7 +439,7 @@ const userData = {
             isLiked: true,
             isArchived: false,
             isSaved: true,
-            post: "https://thumbs.dreamstime.com/b/web-166076793.jpg",
+            post : postTwo,
         },
         {
             id: 3,
@@ -429,7 +448,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/z/woman-praying-free-birds-to-nature-sunset-background-woman-praying-free-birds-enjoying-nature-sunset-99680945.jpg",
+            post :postFour ,
         },
         {
             id: 4,
@@ -438,7 +457,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/b/free-happy-woman-praising-freedom-beach-sunset-arms-up-young-adult-enjoying-breathing-freely-fresh-air-49157481.jpg",
+            post : postFive,
         },
         {
             id: 5,
@@ -447,7 +466,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/b/free-thinking-nourish-your-mind-positive-thoughts-good-intentions-brain-power-concept-woman-head-silhouette-sunset-inside-157807698.jpg",
+            post : postTen,
         },
         {
             id: 6,
@@ -456,7 +475,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/b/business-woman-relaxing-sitting-office-stress-free-time-management-concept-happy-young-her-65461487.jpg",
+            post : postNine,
         },
         {
             id: 7,
@@ -465,7 +484,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/b/free-range-chickens-farm-outdoor-91178223.jpg",
+            post : postThirteen,
         },
         {
             id: 8,
@@ -474,7 +493,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/b/freedom-people-living-free-happy-life-beach-carefree-silhouettes-couple-sunset-arms-raised-up-showing-happiness-52124196.jpg",
+            post : postSeven,
         },
         {
             id: 9,
@@ -483,7 +502,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/b/woman-feeling-free-beautiful-natural-setting-what-field-sunset-chains-175907923.jpg",
+            post : postTwelve,
         },
         {
             id: 10,
@@ -492,7 +511,7 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/b/free-as-wind-5565107.jpg",
+            post : postTen,
         },
         {
             id: 11,
@@ -501,7 +520,88 @@ const userData = {
             isLiked: false,
             isArchived: false,
             isSaved: false,
-            post: "https://thumbs.dreamstime.com/z/woman-praying-free-birds-to-nature-sunset-background-woman-praying-free-birds-enjoying-nature-sunset-99680945.jpg",
+            post : postEleven,
+        },
+        {
+            id: 12,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postTwelve,
+        },
+        {
+            id: 13,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postThirteen,
+        },
+        {
+            id: 14,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postFourteen,
+        },
+        {
+            id: 15,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postFifteen,
+        },
+        {
+            id: 16,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postSixteen,
+        },
+        {
+            id: 17,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postEighteen,
+        },
+        {
+            id: 18,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postSeventeen,
+        },
+        {
+            id: 19,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postNineteen,
+        },
+        {
+            id: 20,
+            location: "Unknown",
+            likes: 745,
+            isLiked: false,
+            isArchived: false,
+            isSaved: false,
+            post : postTwenty,
         },
     ],
 };
