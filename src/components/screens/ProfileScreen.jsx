@@ -1,12 +1,28 @@
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import {
+    faAngleLeft,
+    faAngleRight,
+    faBookmark,
+    faCirclePlay,
+    faGear,
+    faIdBadge,
+    faTableCells,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
 export default function ProfileScreen() {
     const { userActions, setUserActions } = useContext(UserContext);
+    const ref = useRef(null);
+    const [slideLeft, setSlideLeft] = useState(0);
+
+    const scroll = (scrollOffset) => {
+        ref.current.scrollLeft += scrollOffset;
+        setSlideLeft(ref.current.scrollLeft);
+        console.log("#################################", slideLeft);
+    };
 
     return (
         <Container>
@@ -39,30 +55,86 @@ export default function ProfileScreen() {
                         </Bio>
                     </Right>
                 </ProfileDiv>
-                <HighlightsUl>
-                    {userActions.user.highlights.map((highlight) => (
-                        <HighlightsLi
-                            key={highlight.id}
-                            to="/stories/highlights/"
-                            onClick={() =>
-                                setUserActions({
-                                    ...userActions,
-                                    clickedStory: highlight.id,
-                                })
-                            }
-                        >
-                            <BgDiv>
-                                <StoryDiv>
-                                    <img
-                                        src={highlight.stories[0].story}
-                                        alt={highlight.title}
-                                    />
-                                </StoryDiv>
-                            </BgDiv>
-                            <h5>{highlight.title.slice(0, 12)}</h5>
-                        </HighlightsLi>
-                    ))}
-                </HighlightsUl>
+                <HighlightsUlContainer>
+                    <HighlightsUl ref={ref}>
+                        {userActions.user.highlights.map((highlight) => (
+                            <HighlightsLi
+                                key={highlight.id}
+                                to="/stories/highlights/"
+                                onClick={() =>
+                                    setUserActions({
+                                        ...userActions,
+                                        clickedStory: highlight.id,
+                                    })
+                                }
+                            >
+                                <BgDiv>
+                                    <StoryDiv>
+                                        <img
+                                            src={highlight.stories[0].story}
+                                            alt={highlight.title}
+                                        />
+                                    </StoryDiv>
+                                </BgDiv>
+                                <h5>{highlight.title.slice(0, 9)}</h5>
+                            </HighlightsLi>
+                        ))}
+                        {slideLeft === 0 ? null : (
+                            <ArrowDiv
+                                onClick={() => scroll(-100)}
+                                className="left"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faAngleLeft}
+                                    className="icon"
+                                />
+                            </ArrowDiv>
+                        )}
+                        {slideLeft === 295 ? null : (
+                            <ArrowDiv
+                                onClick={() => scroll(100)}
+                                className="right"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faAngleRight}
+                                    className="icon"
+                                />
+                            </ArrowDiv>
+                        )}
+                    </HighlightsUl>
+                </HighlightsUlContainer>
+                <PostsDiv>
+                    <PostsHead>
+                        <PostsHeadLi>
+                            <FontAwesomeIcon
+                                icon={faTableCells}
+                                className="icon"
+                            />
+                            POSTS
+                        </PostsHeadLi>
+                        <PostsHeadLi>
+                            <FontAwesomeIcon
+                                icon={faCirclePlay}
+                                className="icon"
+                            />
+                            VIDEOS
+                        </PostsHeadLi>
+                        <PostsHeadLi>
+                            <FontAwesomeIcon
+                                icon={faBookmark}
+                                className="icon"
+                            />
+                            SAVED
+                        </PostsHeadLi>
+                        <PostsHeadLi>
+                            <FontAwesomeIcon
+                                icon={faIdBadge}
+                                className="icon"
+                            />
+                            TAGGED
+                        </PostsHeadLi>
+                    </PostsHead>
+                </PostsDiv>
             </section>
         </Container>
     );
@@ -142,17 +214,24 @@ const Description = styled.p`
         color: rgb(0, 55, 107);
     }
 `;
+const HighlightsUlContainer = styled.div`
+    position: relative;
+`;
 const HighlightsUl = styled.div`
     max-width: 100%;
     overflow-x: scroll;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 15px 0;
     border-radius: 7px;
     margin-bottom: 20px;
 `;
 const HighlightsLi = styled(Link)`
     margin-right: 25px;
+
+    &:nth-child(12n) {
+        margin-right: 0;
+    }
 
     & h5 {
         font-size: 13px;
@@ -161,9 +240,9 @@ const HighlightsLi = styled(Link)`
     }
 `;
 const BgDiv = styled.div`
-    min-width: 75px;
-    max-width: 75px;
-    height: 75px;
+    min-width: 80px;
+    max-width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden;
     background-color: #d7d7d7;
@@ -182,3 +261,34 @@ const StoryDiv = styled.div`
     justify-content: center;
     align-items: center;
 `;
+const ArrowDiv = styled.div`
+    background-color: #7d7d7d;
+    border-radius: 50%;
+    min-width: 23px;
+    min-height: 23px;
+    max-width: 23px;
+    max-height: 23px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    cursor: pointer;
+
+    &.right {
+        right: -10px;
+    }
+    &.left {
+        left: -10px;
+    }
+
+    & .icon {
+        color: #fff;
+        font-size: 15px;
+    }
+`;
+const PostsDiv = styled.div``;
+const PostsHead = styled.div``;
+const PostsHeadLi = styled.div``;

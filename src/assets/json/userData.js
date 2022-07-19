@@ -40,11 +40,11 @@ const userData = {
             avatar: "",
         },
     ],
-    bio: "Software Engineer @Steyp\nEveryone Who Starts has a Dream about the End 💫\nKarma ✡️\nPeacefull Life\nJunior Moosa ✌️\nMuziC 🎧",
+    bio: "Software Engineer @Steyp\nEveryone Who Starts has a Dream about the End 💫\nJunior Moosa ✌️\nPeacefull Life\nKarma ✡️\nMuziC 🎧",
     highlights: [
         {
             id: 1,
-            title: "Minions 🤞",
+            title: "🤞 Minion",
             stories: [
                 {
                     id: 1,
@@ -104,7 +104,7 @@ const userData = {
         },
         {
             id: 3,
-            title: "Friends 👥",
+            title: "👥 Friends",
             stories: [
                 {
                     id: 1,
@@ -134,7 +134,7 @@ const userData = {
         },
         {
             id: 4,
-            title: "Coding 🤖",
+            title: "🤖 Coding",
             stories: [
                 {
                     id: 1,
@@ -164,7 +164,7 @@ const userData = {
         },
         {
             id: 5,
-            title: "Time ⌛",
+            title: "⌛ Time",
             stories: [
                 {
                     id: 1,
@@ -194,7 +194,7 @@ const userData = {
         },
         {
             id: 6,
-            title: "Nature 🌈",
+            title: "🌈 Nature",
             stories: [
                 {
                     id: 1,
@@ -224,6 +224,96 @@ const userData = {
         },
         {
             id: 7,
+            title: "😻 Tom & Jerry",
+            stories: [
+                {
+                    id: 1,
+                    story: "https://i.pinimg.com/originals/24/fb/a8/24fba8681acf5793630c1bca9dd65f2e.jpg",
+                },
+                {
+                    id: 2,
+                    story: "https://w0.peakpx.com/wallpaper/667/692/HD-wallpaper-jerry-tom-light-bokeh-background-tom-jerry.jpg",
+                },
+                {
+                    id: 3,
+                    story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzoks34bc0lQBHsAYaax7Z_88e3GA2C-a1Ug&usqp=CAU",
+                },
+                {
+                    id: 4,
+                    story: "https://www.whatspaper.com/wp-content/uploads/2022/01/hd-tom-and-jerry-wallpaper-whatspaper-4.jpg",
+                },
+                {
+                    id: 5,
+                    story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRafuGJEUKdXyDm8UlPLA4zhZLyB7w5-RAZgw&usqp=CAU",
+                },
+                {
+                    id: 6,
+                    story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIZvBdXdSBal7X8Ykoo9xZsnrvT-qH4Dxb6Q&usqp=CAU",
+                },
+            ],
+        },
+        {
+            id: 8,
+            title: "Mickey 🐭",
+            stories: [
+                {
+                    id: 1,
+                    story: "https://www.whatspaper.com/wp-content/uploads/2022/03/hd-mickey-mouse-wallpaper-whatspaper-2.jpg",
+                },
+                {
+                    id: 2,
+                    story: "https://wallpaperaccess.com/full/1571652.jpg",
+                },
+                {
+                    id: 3,
+                    story: "https://iphoneswallpapers.com/wp-content/uploads/2019/12/Mickey-Mouse-iPhone-Wallpaper.jpg",
+                },
+                {
+                    id: 4,
+                    story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8VtpWecB820YV0bfgf7K_oYcH7X1eItU1QQ&usqp=CAU",
+                },
+                {
+                    id: 5,
+                    story: "https://wallpapercave.com/wp/wp5560494.jpg",
+                },
+                {
+                    id: 6,
+                    story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxOTpPPxPGh9IoH2h3sZNZ7F-naZ9FUaNQRg&usqp=CAU",
+                },
+            ],
+        },
+        {
+            id: 9,
+            title: "🐬 Beaches",
+            stories: [
+                {
+                    id: 1,
+                    story: "https://wallpaperaccess.com/full/1392332.jpg",
+                },
+                {
+                    id: 2,
+                    story: "https://i.pinimg.com/originals/37/a3/8f/37a38f5919cb66598a387a24d3e0f0fc.jpg",
+                },
+                {
+                    id: 3,
+                    story: "https://www.lifewire.com/thmb/wwxq7jp-2tjL6nq_2B0YxWKXw4E=/1920x1080/filters:fill(auto,1)/tropical-beach-wallpaper-beach-backgrounds-587fbb765f9b584db3241860.jpg",
+                },
+                {
+                    id: 4,
+                    story: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb",
+                },
+                {
+                    id: 5,
+                    story: "https://cdn.pixabay.com/photo/2016/10/18/21/22/beach-1751455__480.jpg",
+                },
+                {
+                    id: 6,
+                    story: "https://wallpaperaccess.com/full/191886.jpg",
+                },
+            ],
+        },
+        {
+            id: 10,
             title: "Hills",
             stories: [
                 {
@@ -253,7 +343,7 @@ const userData = {
             ],
         },
         {
-            id: 8,
+            id: 11,
             title: "Water 🥶",
             stories: [
                 {
@@ -283,7 +373,7 @@ const userData = {
             ],
         },
         {
-            id: 9,
+            id: 12,
             title: "Food 😋",
             stories: [
                 {
