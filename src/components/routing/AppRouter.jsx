@@ -28,6 +28,9 @@ export default function AppRouter() {
                     element={<ExploreSingleScreen />}
                 />
                 <Route path="/:name" element={<ProfileScreen />} />
+                <Route path="/:name/channel" element={<ProfileScreen />} />
+                <Route path="/:name/saved" element={<ProfileScreen />} />
+                <Route path="/:name/tagged" element={<ProfileScreen />} />
                 <Route path="/stories/highlights/" element={<HighlightScreen />} />
             </Routes>
         </Suspense>

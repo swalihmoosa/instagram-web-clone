@@ -8,23 +8,40 @@ import {
     faTableCells,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 import RenderPosts from "../cards/RenderPosts";
+import RenderSavedPosts from "../cards/RenderSavedPosts";
+import RenderTaggedPosts from "../cards/RenderTaggedPosts";
+import RenderVideoPosts from "../cards/RenderVideoPosts";
 
 export default function ProfileScreen() {
     const { userActions, setUserActions } = useContext(UserContext);
     const ref = useRef(null);
     const [slideLeft, setSlideLeft] = useState(0);
-    const [selectedCategory] = useState("posts");
+    const [selectedCategory, setSelectedCategory] = useState("posts");
 
     const scroll = (scrollOffset) => {
         ref.current.scrollLeft += scrollOffset;
         setSlideLeft(ref.current.scrollLeft);
     };
     console.log("#################################", window.location.pathname);
+
+    useEffect(() => {
+        window.location.pathname === `/${userActions.user.username}`
+            ? setSelectedCategory("posts")
+            : window.location.pathname ===
+              `/${userActions.user.username}/channel`
+            ? setSelectedCategory("videos")
+            : window.location.pathname === `/${userActions.user.username}/saved`
+            ? setSelectedCategory("saved")
+            : window.location.pathname ===
+              `/${userActions.user.username}/tagged`
+            ? setSelectedCategory("tagged")
+            : setSelectedCategory("");
+    }, [userActions.user.username]);
 
     return (
         <Container>
@@ -135,6 +152,15 @@ export default function ProfileScreen() {
                     {window.location.pathname ===
                     `/${userActions.user.username}` ? (
                         <RenderPosts />
+                    ) : window.location.pathname ===
+                      `/${userActions.user.username}/channel` ? (
+                        <RenderVideoPosts />
+                    ) : window.location.pathname ===
+                      `/${userActions.user.username}/saved` ? (
+                        <RenderSavedPosts />
+                    ) : window.location.pathname ===
+                      `/${userActions.user.username}/tagged` ? (
+                        <RenderTaggedPosts />
                     ) : null}
                 </PostsDiv>
             </section>
