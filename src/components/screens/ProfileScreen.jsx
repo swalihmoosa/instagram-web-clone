@@ -124,24 +124,28 @@ export default function ProfileScreen() {
                 </HighlightsUlContainer>
                 <PostsHead>
                     <PostsHeadLi
+                        to="/"
                         className={selectedCategory === "posts" && "active"}
                     >
                         <FontAwesomeIcon icon={faTableCells} className="icon" />
                         POSTS
                     </PostsHeadLi>
                     <PostsHeadLi
+                        to="/"
                         className={selectedCategory === "videos" && "active"}
                     >
                         <FontAwesomeIcon icon={faCirclePlay} className="icon" />
                         VIDEOS
                     </PostsHeadLi>
                     <PostsHeadLi
+                        to="/"
                         className={selectedCategory === "saved" && "active"}
                     >
                         <FontAwesomeIcon icon={faBookmark} className="icon" />
                         SAVED
                     </PostsHeadLi>
                     <PostsHeadLi
+                        to="/"
                         className={selectedCategory === "tagged" && "active"}
                     >
                         <FontAwesomeIcon icon={faIdBadge} className="icon" />
@@ -323,7 +327,7 @@ const PostsHead = styled.div`
     display: flex;
     justify-content: center;
 `;
-const PostsHeadLi = styled.div`
+const PostsHeadLi = styled(Link)`
     color: #7d7d7d;
     font-size: 12px;
     margin-right: 25px;
