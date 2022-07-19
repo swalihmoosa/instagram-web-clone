@@ -27,7 +27,6 @@ export default function ProfileScreen() {
         ref.current.scrollLeft += scrollOffset;
         setSlideLeft(ref.current.scrollLeft);
     };
-    console.log("#################################", window.location.pathname);
 
     useEffect(() => {
         window.location.pathname === `/${userActions.user.username}`
@@ -124,28 +123,28 @@ export default function ProfileScreen() {
                 </HighlightsUlContainer>
                 <PostsHead>
                     <PostsHeadLi
-                        to="/"
+                        to={`/${userActions.user.username}`}
                         className={selectedCategory === "posts" && "active"}
                     >
                         <FontAwesomeIcon icon={faTableCells} className="icon" />
                         POSTS
                     </PostsHeadLi>
                     <PostsHeadLi
-                        to="/"
+                        to={`/${userActions.user.username}/channel`}
                         className={selectedCategory === "videos" && "active"}
                     >
                         <FontAwesomeIcon icon={faCirclePlay} className="icon" />
                         VIDEOS
                     </PostsHeadLi>
                     <PostsHeadLi
-                        to="/"
+                        to={`/${userActions.user.username}/saved`}
                         className={selectedCategory === "saved" && "active"}
                     >
                         <FontAwesomeIcon icon={faBookmark} className="icon" />
                         SAVED
                     </PostsHeadLi>
                     <PostsHeadLi
-                        to="/"
+                        to={`/${userActions.user.username}/tagged`}
                         className={selectedCategory === "tagged" && "active"}
                     >
                         <FontAwesomeIcon icon={faIdBadge} className="icon" />
