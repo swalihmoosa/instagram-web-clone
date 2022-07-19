@@ -12,17 +12,19 @@ import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
+import RenderPosts from "../cards/RenderPosts";
 
 export default function ProfileScreen() {
     const { userActions, setUserActions } = useContext(UserContext);
     const ref = useRef(null);
     const [slideLeft, setSlideLeft] = useState(0);
+    const [selectedCategory] = useState("posts");
 
     const scroll = (scrollOffset) => {
         ref.current.scrollLeft += scrollOffset;
         setSlideLeft(ref.current.scrollLeft);
-        console.log("#################################", slideLeft);
     };
+    console.log("#################################", window.location.pathname);
 
     return (
         <Container>
@@ -103,37 +105,37 @@ export default function ProfileScreen() {
                         )}
                     </HighlightsUl>
                 </HighlightsUlContainer>
+                <PostsHead>
+                    <PostsHeadLi
+                        className={selectedCategory === "posts" && "active"}
+                    >
+                        <FontAwesomeIcon icon={faTableCells} className="icon" />
+                        POSTS
+                    </PostsHeadLi>
+                    <PostsHeadLi
+                        className={selectedCategory === "videos" && "active"}
+                    >
+                        <FontAwesomeIcon icon={faCirclePlay} className="icon" />
+                        VIDEOS
+                    </PostsHeadLi>
+                    <PostsHeadLi
+                        className={selectedCategory === "saved" && "active"}
+                    >
+                        <FontAwesomeIcon icon={faBookmark} className="icon" />
+                        SAVED
+                    </PostsHeadLi>
+                    <PostsHeadLi
+                        className={selectedCategory === "tagged" && "active"}
+                    >
+                        <FontAwesomeIcon icon={faIdBadge} className="icon" />
+                        TAGGED
+                    </PostsHeadLi>
+                </PostsHead>
                 <PostsDiv>
-                    <PostsHead>
-                        <PostsHeadLi>
-                            <FontAwesomeIcon
-                                icon={faTableCells}
-                                className="icon"
-                            />
-                            POSTS
-                        </PostsHeadLi>
-                        <PostsHeadLi>
-                            <FontAwesomeIcon
-                                icon={faCirclePlay}
-                                className="icon"
-                            />
-                            VIDEOS
-                        </PostsHeadLi>
-                        <PostsHeadLi>
-                            <FontAwesomeIcon
-                                icon={faBookmark}
-                                className="icon"
-                            />
-                            SAVED
-                        </PostsHeadLi>
-                        <PostsHeadLi>
-                            <FontAwesomeIcon
-                                icon={faIdBadge}
-                                className="icon"
-                            />
-                            TAGGED
-                        </PostsHeadLi>
-                    </PostsHead>
+                    {window.location.pathname ===
+                    `/${userActions.user.username}` ? (
+                        <RenderPosts />
+                    ) : null}
                 </PostsDiv>
             </section>
         </Container>
@@ -289,6 +291,33 @@ const ArrowDiv = styled.div`
         font-size: 15px;
     }
 `;
-const PostsDiv = styled.div``;
-const PostsHead = styled.div``;
-const PostsHeadLi = styled.div``;
+const PostsHead = styled.div`
+    border-top: 1px solid rgb(219, 219, 219);
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+`;
+const PostsHeadLi = styled.div`
+    color: #7d7d7d;
+    font-size: 12px;
+    margin-right: 25px;
+    position: relative;
+
+    & .icon {
+        margin-right: 7px;
+    }
+
+    &.active::before {
+        content: "";
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% + 10px);
+        top: -15px;
+    }
+`;
+const PostsDiv = styled.div`
+    font-size: 30px;
+`;
