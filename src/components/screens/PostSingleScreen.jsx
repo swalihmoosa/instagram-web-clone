@@ -11,7 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
-import ReactPlayer from "react-player";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
@@ -19,75 +18,15 @@ import useWindowDimensions from "../hooks/UseWindowDimensions";
 
 export default function PostSingleScreen() {
     const { id } = useParams();
+    const urlId = parseInt(id);
     const { height } = useWindowDimensions();
     const { userActions } = useContext(UserContext);
     const [likedComments, setLikedComments] = useState([]);
     const [newlikedComments, setNewLikedComments] = useState([]);
     const [isLiked, setIsLiked] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
-    const [explorePostCount, setExplorePostCount] = useState(0);
     const [newComment, setNewComment] = useState("");
     const [newComments, setNewComments] = useState([]);
-
-    const postRender = () => {
-        if (typeof userActions.user.posts[id - 1].post === "string") {
-            if (
-                (userActions.user.posts[id - 1].post.includes("jpeg") ||
-                    userActions.user.posts[id - 1].post.includes("jpg") ||
-                    userActions.user.posts[id - 1].post.includes("png") ||
-                    userActions.user.posts[id - 1].post.includes("photo") ||
-                    userActions.user.posts[id - 1].post.includes("gif")) === true
-            ) {
-                return <img src={userActions.user.posts[id - 1].post} alt="Post" />;
-            } else {
-                return (
-                    <ReactPlayer
-                        url={userActions.user.posts[id - 1].post}
-                        playing={true}
-                        loop={true}
-                    />
-                );
-            }
-        }
-        if (typeof userActions.user.posts[id - 1].post === "object") {
-            if (
-                (userActions.user.posts[id - 1].post[explorePostCount].data.includes(
-                    "jpeg"
-                ) ||
-                    userActions.user.posts[id - 1].post[
-                        explorePostCount
-                    ].data.includes("jpg") ||
-                    userActions.user.posts[id - 1].post[
-                        explorePostCount
-                    ].data.includes("png") ||
-                    userActions.user.posts[id - 1].post[
-                        explorePostCount
-                    ].data.includes("photo") ||
-                    userActions.user.posts[id - 1].post[
-                        explorePostCount
-                    ].data.includes("gif")) === true
-            ) {
-                return (
-                    <img
-                        src={
-                            userActions.user.posts[id - 1].post[explorePostCount].data
-                        }
-                        alt="Post"
-                    />
-                );
-            } else {
-                return (
-                    <ReactPlayer
-                        url={
-                            userActions.user.posts[id - 1].post[explorePostCount].data
-                        }
-                        playing={true}
-                        loop={true}
-                    />
-                );
-            }
-        }
-    };
 
     const newCommentPost = () => {
         setNewComments([
@@ -108,15 +47,12 @@ export default function PostSingleScreen() {
         <Container style={{ minHeight: height }}>
             <section className="wrapper">
                 <Left style={{ maxHeight: height - 60, height: height }}>
-                    {postRender()}
+                    <img src={userActions.user.posts[id - 1].post} alt="Post" />
                 </Left>
                 <Right style={{ maxHeight: height - 60 }}>
                     <Head>
                         <Avatar>
-                            <img
-                                src={userActions.user.avatar}
-                                alt="Avatar"
-                            />
+                            <img src={userActions.user.avatar} alt="Avatar" />
                         </Avatar>
                         <Name>{userActions.user.username} . </Name>
                         <Follow>Follow</Follow>
@@ -169,54 +105,62 @@ export default function PostSingleScreen() {
                                   </CommentLi>
                               ))
                             : ""}
-                        {userActions.user.posts[id - 1].comments.map((comment) => (
-                            <CommentLi key={comment.id}>
-                                <Avatar>
-                                    <img src={comment.avatar} alt="Avatar" />
-                                </Avatar>
-                                <NameComment>
-                                    <p>
-                                        <b>{comment.name}</b> {comment.body}
-                                    </p>
-                                    <LikeContainer>
-                                        {/* <Time>{comment.time}</Time> */}
-                                        <Like>
-                                            {likedComments.includes(comment.id)
-                                                ? comment.likes + 1
-                                                : comment.likes}{" "}
-                                            likes
-                                        </Like>
-                                        <Reply>Reply</Reply>
-                                    </LikeContainer>
-                                </NameComment>
-                                <FontAwesomeIcon
-                                    icon={faHeart}
-                                    onClick={() => {
-                                        if (
+                        {userActions.user.posts[id - 1].comments.map(
+                            (comment) => (
+                                <CommentLi key={comment.id}>
+                                    <Avatar>
+                                        <img
+                                            src={comment.avatar}
+                                            alt="Avatar"
+                                        />
+                                    </Avatar>
+                                    <NameComment>
+                                        <p>
+                                            <b>{comment.name}</b> {comment.body}
+                                        </p>
+                                        <LikeContainer>
+                                            <Like>
+                                                {likedComments.includes(
+                                                    comment.id
+                                                )
+                                                    ? comment.likes + 1
+                                                    : comment.likes}{" "}
+                                                likes
+                                            </Like>
+                                            <Reply>Reply</Reply>
+                                        </LikeContainer>
+                                    </NameComment>
+                                    <FontAwesomeIcon
+                                        icon={faHeart}
+                                        onClick={() => {
+                                            if (
+                                                likedComments.includes(
+                                                    comment.id
+                                                )
+                                            ) {
+                                                let filteredArray =
+                                                    likedComments.filter(
+                                                        (likedComment) =>
+                                                            likedComment !==
+                                                            comment.id
+                                                    );
+                                                setLikedComments(filteredArray);
+                                            } else {
+                                                setLikedComments([
+                                                    ...likedComments,
+                                                    comment.id,
+                                                ]);
+                                            }
+                                        }}
+                                        className={
                                             likedComments.includes(comment.id)
-                                        ) {
-                                            let filteredArray =
-                                                likedComments.filter(
-                                                    (likedComment) =>
-                                                        likedComment !==
-                                                        comment.id
-                                                );
-                                            setLikedComments(filteredArray);
-                                        } else {
-                                            setLikedComments([
-                                                ...likedComments,
-                                                comment.id,
-                                            ]);
+                                                ? "icon liked"
+                                                : "icon"
                                         }
-                                    }}
-                                    className={
-                                        likedComments.includes(comment.id)
-                                            ? "icon liked"
-                                            : "icon"
-                                    }
-                                />
-                            </CommentLi>
-                        ))}
+                                    />
+                                </CommentLi>
+                            )
+                        )}
                     </CommentsUl>
                     <ExploreFooter>
                         <FontAwesomeIcon
@@ -255,32 +199,23 @@ export default function PostSingleScreen() {
             <Close to={`/${userActions.user.username}`}>
                 <FontAwesomeIcon icon={faClose} className="icon" />
             </Close>
-            {typeof userActions.user.posts[id - 1].post === "object" ? (
-                <>
-                    <Prev
-                        onClick={() => {
-                            explorePostCount === 0
-                                ? setExplorePostCount(
-                                      userActions.user.posts[id - 1].post.length - 1
-                                  )
-                                : setExplorePostCount(explorePostCount - 1);
-                        }}
-                    >
-                        <FontAwesomeIcon icon={faAngleLeft} className="icon" />
-                    </Prev>
-                    <Next
-                        onClick={() => {
-                            explorePostCount ===
-                            userActions.user.posts[id - 1].post.length - 1
-                                ? setExplorePostCount(0)
-                                : setExplorePostCount(explorePostCount + 1);
-                        }}
-                    >
-                        <FontAwesomeIcon icon={faAngleRight} className="icon" />
-                    </Next>
-                </>
-            ) : (
-                ""
+            {id > 1 && (
+                <Prev
+                    to={`/${userActions.user.username}/posts/single/${
+                        urlId - 1
+                    }`}
+                >
+                    <FontAwesomeIcon icon={faAngleLeft} className="icon" />
+                </Prev>
+            )}
+            {id < userActions.user.posts.length && (
+                <Next
+                    to={`/${userActions.user.username}/posts/single/${
+                        urlId + 1
+                    }`}
+                >
+                    <FontAwesomeIcon icon={faAngleRight} className="icon" />
+                </Next>
             )}
         </Container>
     );
@@ -313,7 +248,7 @@ const Right = styled.div`
     background-color: #fff;
     padding: 15px;
     position: relative;
-    border-left: 1px solid rgb(239,239,239);
+    border-left: 1px solid rgb(239, 239, 239);
 `;
 const Head = styled.div`
     border-bottom: 1px solid #dbdbdb;
@@ -460,7 +395,7 @@ const Close = styled(Link)`
     right: 20px;
     color: #fff;
 `;
-const Prev = styled.div`
+const Prev = styled(Link)`
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
@@ -479,7 +414,7 @@ const Prev = styled.div`
         font-size: 17px;
     }
 `;
-const Next = styled.div`
+const Next = styled(Link)`
     position: fixed;
     top: 50%;
     transform: translateY(-50%);

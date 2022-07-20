@@ -11,7 +11,7 @@ export default function ChatScreen() {
     const { height } = useWindowDimensions();
     return (
         <Container style={{height:height}} >
-            <sectioon className="wrapper">
+            <section className="wrapper">
                 <Left>
                     <ChatHead>
                         <h5>junior_moosa</h5>
@@ -26,7 +26,7 @@ export default function ChatScreen() {
                         <PrimaryText>GENERAL</PrimaryText>
                     </PrimaryDiv>
                     {chats.map((chat) => (
-                        <ChatCard chat={chat} />
+                        <ChatCard chat={chat} key={chat.id} />
                     ))}
                 </Left>
                 <Right>
@@ -42,7 +42,7 @@ export default function ChatScreen() {
                         <Send>Send message</Send>
                     </Center>
                 </Right>
-            </sectioon>
+            </section>
         </Container>
     );
 }

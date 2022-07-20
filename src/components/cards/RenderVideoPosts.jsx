@@ -10,7 +10,7 @@ export default function RenderVideoPosts() {
     return (
         <Container>
             {userActions.user.videos.map((video) => (
-                <Post>
+                <Post key={video.id} >
                     <img src={video.cover} alt="Post" />
                     <Overlay className="overlay">
                         <CountDiv>
