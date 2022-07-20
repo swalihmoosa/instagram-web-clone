@@ -1,41 +1,12 @@
 import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { UserContext } from "../../App";
 import posts from "../../assets/json/posts";
 
 export default function RenderSavedPosts() {
-    const { userActions } = useContext(UserContext);
-
     return (
         <Container>
-            {userActions.user.tagged
-                .filter((post) => post.isSaved === true)
-                .map((post) => (
-                    <Post key={post.id}>
-                        <img src={post.post} alt="Post" />
-                        <Overlay className="overlay">
-                            <CountDiv>
-                                {" "}
-                                <LikeCount>
-                                    <FontAwesomeIcon
-                                        icon={faHeart}
-                                        className="icon"
-                                    />
-                                    {post.likes}
-                                </LikeCount>
-                                <CommentCount>
-                                    <FontAwesomeIcon
-                                        icon={faComment}
-                                        className="icon"
-                                    />
-                                    {post.comments.length}
-                                </CommentCount>
-                            </CountDiv>
-                        </Overlay>
-                    </Post>
-                ))}
             {posts
                 .filter((post) => post.isSaved === true)
                 .map((post) => (

@@ -10,7 +10,7 @@ export default function RenderPosts() {
     return (
         <Container>
             {userActions.user.posts.map((post) => (
-                <Post>
+                <Post key={post.id} >
                     <img src={post.post} alt="Post" />
                     <Overlay className="overlay">
                         <CountDiv>

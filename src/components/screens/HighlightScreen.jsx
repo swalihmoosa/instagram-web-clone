@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import StoryCard from "../cards/StoryCard";
+import HighlightStoryCard from "../cards/HighlightStoryCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import instagramLogo from "../../assets/images/insta-text-black.png";
@@ -52,7 +52,7 @@ export default function HighlightScreen() {
                 <img src={instagramLogo} alt="Instagram" />
             </Logo>
             {currentStoryNumber - 2 >= 0 ? (
-                <StoryCard
+                <HighlightStoryCard
                     highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber - 2]}
                     isfutured={isfutured}
@@ -60,20 +60,20 @@ export default function HighlightScreen() {
                 />
             ) : null}
             {currentStoryNumber - 1 >= 0 ? (
-                <StoryCard
+                <HighlightStoryCard
                     highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber - 1]}
                     isfutured={isfutured}
                     currentStoryNumber={currentStoryNumber}
                 />
             ) : null}
-            <StoryCard
+            <HighlightStoryCard
                 highlightNumber={highlightNumber}
                 story={userActions.user.highlights[currentStoryNumber]}
                 currentStoryNumber={currentStoryNumber}
             />
             {currentStoryNumber < userActions.user.highlights.length - 1 ? (
-                <StoryCard
+                <HighlightStoryCard
                     highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber + 1]}
                     isfutured={isfutured}
@@ -81,7 +81,7 @@ export default function HighlightScreen() {
                 />
             ) : null}
             {currentStoryNumber <= userActions.user.highlights.length - 3 ? (
-                <StoryCard
+                <HighlightStoryCard
                     highlightNumber={highlightNumber}
                     story={userActions.user.highlights[currentStoryNumber + 2]}
                     isfutured={isfutured}

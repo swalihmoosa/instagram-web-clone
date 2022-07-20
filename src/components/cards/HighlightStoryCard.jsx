@@ -1,10 +1,19 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../../App";
 
-export default function StoryCard({ story, isfutured, currentStoryNumber }) {
+export default function HighlightStoryCard({
+    story,
+    isfutured,
+    currentStoryNumber,
+    highlightNumber,
+}) {
+    const { userActions } = useContext(UserContext);
+    const length = story.stories.length;
+
     return (
         <Container
             className={
@@ -20,16 +29,48 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
             <StoryHead>
                 {isfutured ? null : (
                     <Timing>
+                        {story.stories.map((item) => (
+                            <div
+                                style={{
+                                    width: `calc((100% - ${
+                                        length * 2
+                                    }px) / ${length})`,
+                                }}
+                                key={item.id}
+                            ></div>
+                        ))}
                         <Bg id="story-bg"></Bg>
                     </Timing>
                 )}
-                <Avatar>
-                    <img src={story.profile_image} alt="Avatar" />
-                </Avatar>
-                <H5>{story.username}</H5>
+                {story.profile_image !== undefined ? (
+                    <Avatar>
+                        <img src={story.profile_image} alt="Avatar" />
+                    </Avatar>
+                ) : isfutured ? null : (
+                    <Avatar>
+                        <img src={userActions.user.avatar} alt="Avatar" />
+                    </Avatar>
+                )}
+                <H5>
+                    {" "}
+                    {story.username !== undefined
+                        ? story.username
+                        : isfutured
+                        ? null
+                        : story.title}
+                </H5>
             </StoryHead>
             <StoryImage>
-                <img src={story.story} alt="Story" />
+                {story.story !== undefined ? (
+                    <img src={story.story} alt="Story" />
+                ) : isfutured ? (
+                    <img src={story.stories[0].story} alt="Story" />
+                ) : (
+                    <img
+                        src={story.stories[highlightNumber].story}
+                        alt="Story"
+                    />
+                )}
             </StoryImage>
             {isfutured ? null : (
                 <StoryFooter>
@@ -43,10 +84,24 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
                     <StoryLi>
                         <BgDiv>
                             <StoryDiv>
-                                <img src={story.profile_image} alt="Story" />
+                                {story.profile_image !== undefined ? (
+                                    <img
+                                        src={story.profile_image}
+                                        alt="Story"
+                                    />
+                                ) : (
+                                    <img
+                                        src={story.stories[0].story}
+                                        alt="Story"
+                                    />
+                                )}
                             </StoryDiv>
                         </BgDiv>
-                        <h5>{story.username.slice(0, 12)}</h5>
+                        <h5>
+                            {story.username !== undefined
+                                ? story.username.slice(0, 12)
+                                : story.title}
+                        </h5>
                     </StoryLi>
                 </Overlay>
             ) : null}
@@ -66,8 +121,10 @@ const Container = styled.div`
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+
     &.isfutured {
         transform: scale(0.4);
+
         &.next {
             &:nth-child(3) {
                 left: 57%;
@@ -114,18 +171,38 @@ const StoryHead = styled.div`
     left: 0;
 `;
 const Timing = styled.div`
-    background-color: #ffffff59;
+    /* background-color: #ffffff59; */
+    background-color: transparent;
     width: 100%;
     height: 5px;
     margin-bottom: 10px;
     border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    & div {
+        background-color: #d1d1d1;
+        height: 100%;
+        border-radius: 5px;
+        padding: 0.5px 0;
+    }
 `;
 const Bg = styled.div`
-    background-color: #464646;
+    background-color: #464646 !important;
     width: 100%;
     height: 100%;
     width: 50%;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &#story-bg {
+        animation: story-background-color 30s infinite;
+        animation-timing-function: linear;
+    }
 `;
 const Avatar = styled.div`
     width: 40px;
@@ -151,6 +228,7 @@ const StoryFooter = styled.div`
     width: 100%;
     bottom: 0;
     left: 0;
+
     & input {
         border: 2px solid #dbdbdb !important;
         border-radius: 100vh;
@@ -159,6 +237,7 @@ const StoryFooter = styled.div`
     }
     & .icon {
         position: absolute;
+
         &.heart {
             right: 55px;
         }

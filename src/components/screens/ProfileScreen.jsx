@@ -125,12 +125,14 @@ export default function ProfileScreen() {
                     <PostsHeadLi
                         to={`/${userActions.user.username}`}
                         className={selectedCategory === "posts" && "active"}
+                        onClick={()=>setSelectedCategory("posts")}
                     >
                         <FontAwesomeIcon icon={faTableCells} className="icon" />
                         POSTS
                     </PostsHeadLi>
                     <PostsHeadLi
                         to={`/${userActions.user.username}/channel`}
+                        onClick={()=>setSelectedCategory("videos")}
                         className={selectedCategory === "videos" && "active"}
                     >
                         <FontAwesomeIcon icon={faCirclePlay} className="icon" />
@@ -138,6 +140,7 @@ export default function ProfileScreen() {
                     </PostsHeadLi>
                     <PostsHeadLi
                         to={`/${userActions.user.username}/saved`}
+                        onClick={()=>setSelectedCategory("saved")}
                         className={selectedCategory === "saved" && "active"}
                     >
                         <FontAwesomeIcon icon={faBookmark} className="icon" />
@@ -145,6 +148,7 @@ export default function ProfileScreen() {
                     </PostsHeadLi>
                     <PostsHeadLi
                         to={`/${userActions.user.username}/tagged`}
+                        onClick={()=>setSelectedCategory("tagged")}
                         className={selectedCategory === "tagged" && "active"}
                     >
                         <FontAwesomeIcon icon={faIdBadge} className="icon" />
