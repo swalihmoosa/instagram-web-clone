@@ -29,7 +29,7 @@ export default function StoryScreen() {
             };
         }
         if (currentStoryNumber === stories.length - 1) {
-            setInterval(() => navigate("/"), 5000);
+            setTimeout(() => navigate("/"), 5000);
         }
     }, [currentStoryNumber, navigate]);
 

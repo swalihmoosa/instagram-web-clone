@@ -45,7 +45,7 @@ export default function ProfileModal() {
                               isProfileModal: true,
                           });
                 }}
-                to="/"
+                to={`/${userActions.user.username}/saved`}
             >
                 <FontAwesomeIcon icon={faBookmark} className="icon" />
                 <Details>Saved</Details>
