@@ -20,6 +20,8 @@ import postTwentyOne from "../images/my-posts/post-21.jpg";
 import postTwentyFour from "../images/my-posts/post-24.jpg";
 import postTwentySix from "../images/my-posts/post-26.jpg";
 import postTwentySeven from "../images/my-posts/post-27.jpg";
+import reelOne from "../images/my-posts/videos/reel-1.mp4";
+import reelCoverOne from "../images/my-posts/videos/reel-cover-1.png";
 
 const userData = {
     username: "junior_moosa",
@@ -938,6 +940,92 @@ const userData = {
                     body: "fuga eos qui dolor rerum\ninventore corporis exercitationem\ncorporis cupiditate et deserunt recusandae est sed quis culpa\neum maiores corporis et",
                 },
             ],
+        },
+    ],
+    videos: [
+        {
+            id: 1,
+            likes: 650,
+            comments: [
+                {
+                    id: 1,
+                    user: "david",
+                    comment: "Wonderfull",
+                },
+            ],
+            isSaved: false,
+            isLiked: true,
+            views: 1234,
+            video : reelOne,
+            cover:reelCoverOne,
+        },
+    ],
+    tagged: [
+        {
+            id: 1,
+            username: "reji",
+            location: "Peaceful mind",
+            likes: 70,
+            isLiked: true,
+            isSaved: true,
+            name: "Reji Jacob",
+            post: "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
+            profile_image: "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
+        },
+        {
+            id: 2,
+            username: "rocky",
+            location: "Peaceful mind",
+            likes: 70,
+            isLiked: true,
+            isSaved: true,
+            name: "Rocky",
+            post: "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
+            profile_image: "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
+        },
+        {
+            id: 3,
+            username: "hamsa",
+            location: "Peaceful mind",
+            likes: 70,
+            isLiked: true,
+            isSaved: true,
+            name: "Hamsa",
+            post: "https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29vbCUyMGd1eXxlbnwwfHwwfHw%3D&w=1000&q=80",
+            profile_image: "https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29vbCUyMGd1eXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        },
+        {
+            id: 4,
+            username: "pavan",
+            location: "Peaceful mind",
+            likes: 70,
+            isLiked: true,
+            isSaved: true,
+            name: "Pavan",
+            post: "https://images.unsplash.com/photo-1595702419689-b64c73d36481?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80",
+            profile_image: "https://images.unsplash.com/photo-1595702419689-b64c73d36481?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80",
+        },
+        {
+            id: 5,
+            username: "appu",
+            location: "Peaceful mind",
+            likes: 70,
+            isLiked: true,
+            isSaved: true,
+            name: "Appu",
+            post: "https://images.unsplash.com/photo-1531945086322-64e2ffae14a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8OXx8fGVufDB8fHx8&w=1000&q=80",
+            profile_image: "https://images.unsplash.com/photo-1531945086322-64e2ffae14a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8OXx8fGVufDB8fHx8&w=1000&q=80",
+        },
+        {
+            id: 6,
+            username: "doppu",
+            location: "Peaceful mind",
+            likes: 70,
+            isLiked: true,
+            isSaved: true,
+            name: "Doppu",
+            post: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM8luwnXTuCd_eCP_NJkYfwPjCkGBkc8Y4SFoy9HiCl-oe5bAy4TDNRZO-7dNBq8q-Fi4&usqp=CAU",
+            profile_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM8luwnXTuCd_eCP_NJkYfwPjCkGBkc8Y4SFoy9HiCl-oe5bAy4TDNRZO-7dNBq8q-Fi4&usqp=CAU",
         },
     ],
 };

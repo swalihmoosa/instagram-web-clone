@@ -52,6 +52,7 @@ const Post = styled.div`
     margin-bottom: 10px;
     position: relative;
     cursor: pointer;
+    background-color: #fff;
 
     &:hover .overlay {
         opacity: 1;
