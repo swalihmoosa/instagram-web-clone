@@ -31,59 +31,68 @@ const userData = {
     followers: [
         {
             id: 1,
-            username: "varsha",
+            username: "varsha_varsha",
             name: "Varsha",
-            avatar: "",
+            profile_image:
+                "https://thumbs.dreamstime.com/b/woman-feeling-free-beautiful-natural-setting-what-field-sunset-chains-175907923.jpg",
         },
         {
             id: 2,
-            username: "albin_royson",
-            name: "Albin Royson",
-            avatar: "",
+            username: "abu_",
+            name: "Abhnash",
+            profile_image:
+                "https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29vbCUyMGd1eXxlbnwwfHwwfHw%3D&w=1000&q=80",
         },
         {
             id: 3,
-            username: "david_beckam",
-            name: "David Beckam",
-            avatar: "",
+            username: "rocky_bhai",
+            name: "Rocky",
+            profile_image:
+                "https://images.unsplash.com/photo-1595702419689-b64c73d36481?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80",
         },
         {
             id: 4,
-            username: "abu_",
-            name: "Abhnash",
-            avatar: "",
+            username: "albin_royson",
+            name: "Albin Royson",
+            profile_image:
+                "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
         },
         {
             id: 5,
-            username: "rocky_bhai",
-            name: "Rocky",
-            avatar: "",
+            username: "david_beckam",
+            name: "David Beckam",
+            profile_image:
+                "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
         },
         {
             id: 6,
             username: "jayam_ravi",
             name: "Jayam Ravi",
-            avatar: "",
+            profile_image:
+                "https://images.unsplash.com/photo-1531945086322-64e2ffae14a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8OXx8fGVufDB8fHx8&w=1000&q=80",
         },
     ],
     followings: [
         {
             id: 1,
-            username: "varsha",
+            username: "varsha_varsha",
             name: "Varsha",
-            avatar: "",
+            profile_image:
+                "https://thumbs.dreamstime.com/b/woman-feeling-free-beautiful-natural-setting-what-field-sunset-chains-175907923.jpg",
         },
         {
             id: 2,
             username: "albin_royson",
             name: "Albin Royson",
-            avatar: "",
+            profile_image:
+                "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
         },
         {
             id: 3,
             username: "david_beckam",
             name: "David Beckam",
-            avatar: "",
+            profile_image:
+                "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
         },
     ],
     bio: "Software Engineer @Steyp\nEveryone Who Starts has a Dream about the End 💫\nJunior Moosa ✌️\nPeacefull Life\nKarma ✡️\nMuziC 🎧",
