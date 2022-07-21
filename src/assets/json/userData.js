@@ -30,35 +30,59 @@ const userData = {
     avatar: myImage,
     followers: [
         {
-            username: "abu",
-            name: "Abu",
-            avatar: "",
-        },
-        {
-            username: "david",
-            name: "David",
-            avatar: "",
-        },
-        {
+            id: 1,
             username: "varsha",
             name: "Varsha",
+            avatar: "",
+        },
+        {
+            id: 2,
+            username: "albin_royson",
+            name: "Albin Royson",
+            avatar: "",
+        },
+        {
+            id: 3,
+            username: "david_beckam",
+            name: "David Beckam",
+            avatar: "",
+        },
+        {
+            id: 4,
+            username: "abu_",
+            name: "Abhnash",
+            avatar: "",
+        },
+        {
+            id: 5,
+            username: "rocky_bhai",
+            name: "Rocky",
+            avatar: "",
+        },
+        {
+            id: 6,
+            username: "jayam_ravi",
+            name: "Jayam Ravi",
             avatar: "",
         },
     ],
-    following: [
+    followings: [
         {
-            username: "abu",
-            name: "Abu",
-            avatar: "",
-        },
-        {
-            username: "david",
-            name: "David",
-            avatar: "",
-        },
-        {
+            id: 1,
             username: "varsha",
             name: "Varsha",
+            avatar: "",
+        },
+        {
+            id: 2,
+            username: "albin_royson",
+            name: "Albin Royson",
+            avatar: "",
+        },
+        {
+            id: 3,
+            username: "david_beckam",
+            name: "David Beckam",
             avatar: "",
         },
     ],

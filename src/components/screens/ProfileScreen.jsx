@@ -16,12 +16,15 @@ import RenderPosts from "../cards/RenderPosts";
 import RenderSavedPosts from "../cards/RenderSavedPosts";
 import RenderTaggedPosts from "../cards/RenderTaggedPosts";
 import RenderVideoPosts from "../cards/RenderVideoPosts";
+import FollowersModal from "../modals/FollowersModal";
 
 export default function ProfileScreen() {
     const { userActions, setUserActions } = useContext(UserContext);
     const ref = useRef(null);
     const [slideLeft, setSlideLeft] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState("posts");
+    const [isFollowersModal, setFollowersModal] = useState(false);
+    const [isFollowingModal, setFollowingModal] = useState(false);
 
     const scroll = (scrollOffset) => {
         ref.current.scrollLeft += scrollOffset;
@@ -59,11 +62,17 @@ export default function ProfileScreen() {
                             <Detail>
                                 {userActions.user.posts.length} posts
                             </Detail>
-                            <Detail>
+                            <Detail
+                                onClick={() => setFollowersModal(true)}
+                                className="follower"
+                            >
                                 {userActions.user.followers.length} followers
                             </Detail>
-                            <Detail>
-                                {userActions.user.following.length} following
+                            <Detail
+                                onClick={() => setFollowingModal(true)}
+                                className="follower"
+                            >
+                                {userActions.user.followings.length} following
                             </Detail>
                         </Details>
                         <Bio>
@@ -171,6 +180,12 @@ export default function ProfileScreen() {
                     ) : null}
                 </PostsDiv>
             </section>
+            <FollowersModal
+                isFollowersModal={isFollowersModal}
+                setFollowersModal={setFollowersModal}
+                isFollowingModal={isFollowingModal}
+                setFollowingModal={setFollowingModal}
+            />
         </Container>
     );
 }
@@ -232,6 +247,10 @@ const Details = styled.div`
 const Detail = styled.p`
     color: #262626;
     font-size: 16px;
+
+    &.follower {
+        cursor: pointer;
+    }
 `;
 const Bio = styled.div``;
 const Name = styled.h4`
