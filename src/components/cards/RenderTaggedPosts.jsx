@@ -1,6 +1,7 @@
 import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
@@ -10,7 +11,10 @@ export default function RenderTaggedPosts() {
     return (
         <Container>
             {userActions.user.tagged.map((post) => (
-                <Post key={post.id}>
+                <Post
+                    key={post.id}
+                    to={`/${userActions.user.username}/tagged/single/${post.id}`}
+                >
                     <img src={post.post} alt="Post" />
                     <Overlay className="overlay">
                         <CountDiv>
@@ -40,7 +44,7 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
 `;
-const Post = styled.div`
+const Post = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;

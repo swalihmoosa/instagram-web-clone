@@ -10,11 +10,12 @@ import {
     faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 import useWindowDimensions from "../hooks/UseWindowDimensions";
+import posts from "../../assets/json/posts";
 
 export default function PostSingleScreen() {
     const { id } = useParams();
@@ -27,6 +28,12 @@ export default function PostSingleScreen() {
     const [isSaved, setIsSaved] = useState(false);
     const [newComment, setNewComment] = useState("");
     const [newComments, setNewComments] = useState([]);
+    const [savedPosts, setSavedPosts] = useState([]);
+
+    useEffect(() => {
+        setSavedPosts(posts.filter((post) => post.isSaved === true));
+    }, []);
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", savedPosts[id - 1]);
 
     const newCommentPost = () => {
         setNewComments([
@@ -47,7 +54,29 @@ export default function PostSingleScreen() {
         <Container style={{ minHeight: height }}>
             <section className="wrapper">
                 <Left style={{ maxHeight: height - 60, height: height }}>
-                    <img src={userActions.user.posts[id - 1].post} alt="Post" />
+                    {window.location.pathname.includes(
+                        `/${userActions.user.username}/posts/single/`
+                    ) ? (
+                        <img
+                            src={userActions.user.posts[id - 1].post}
+                            alt="Post"
+                        />
+                    ) : window.location.pathname.includes(
+                          `/${userActions.user.username}/saved/single/`
+                      ) ? (
+                        savedPosts.length > 0 && (
+                            <img src={savedPosts[id - 1].post} alt="Post" />
+                        )
+                    ) : window.location.pathname.includes(
+                          `/${userActions.user.username}/tagged/single/`
+                      ) ? (
+                        <img
+                            src={userActions.user.tagged[id - 1].post}
+                            alt="Post"
+                        />
+                    ) : (
+                        ""
+                    )}
                 </Left>
                 <Right style={{ maxHeight: height - 60 }}>
                     <Head>
@@ -199,24 +228,98 @@ export default function PostSingleScreen() {
             <Close to={`/${userActions.user.username}`}>
                 <FontAwesomeIcon icon={faClose} className="icon" />
             </Close>
-            {id > 1 && (
-                <Prev
-                    to={`/${userActions.user.username}/posts/single/${
-                        urlId - 1
-                    }`}
-                >
-                    <FontAwesomeIcon icon={faAngleLeft} className="icon" />
-                </Prev>
-            )}
-            {id < userActions.user.posts.length && (
-                <Next
-                    to={`/${userActions.user.username}/posts/single/${
-                        urlId + 1
-                    }`}
-                >
-                    <FontAwesomeIcon icon={faAngleRight} className="icon" />
-                </Next>
-            )}
+            {window.location.pathname.includes(
+                `/${userActions.user.username}/posts/single/`
+            )
+                ? id > 1 && (
+                      <Prev
+                          to={`/${userActions.user.username}/posts/single/${
+                              urlId - 1
+                          }`}
+                      >
+                          <FontAwesomeIcon
+                              icon={faAngleLeft}
+                              className="icon"
+                          />
+                      </Prev>
+                  )
+                : window.location.pathname.includes(
+                      `/${userActions.user.username}/saved/single/`
+                  )
+                ? id > 1 && (
+                      <Prev
+                          to={`/${userActions.user.username}/saved/single/${
+                              urlId - 1
+                          }`}
+                      >
+                          <FontAwesomeIcon
+                              icon={faAngleLeft}
+                              className="icon"
+                          />
+                      </Prev>
+                  )
+                : window.location.pathname.includes(
+                      `/${userActions.user.username}/tagged/single/`
+                  )
+                ? id > 1 && (
+                      <Prev
+                          to={`/${userActions.user.username}/tagged/single/${
+                              urlId - 1
+                          }`}
+                      >
+                          <FontAwesomeIcon
+                              icon={faAngleLeft}
+                              className="icon"
+                          />
+                      </Prev>
+                  )
+                : ""}
+            {window.location.pathname.includes(
+                `/${userActions.user.username}/posts/single/`
+            )
+                ? id < userActions.user.posts.length && (
+                      <Next
+                          to={`/${userActions.user.username}/posts/single/${
+                              urlId + 1
+                          }`}
+                      >
+                          <FontAwesomeIcon
+                              icon={faAngleRight}
+                              className="icon"
+                          />
+                      </Next>
+                  )
+                : window.location.pathname.includes(
+                      `/${userActions.user.username}/saved/single/`
+                  )
+                ? id < savedPosts.length && (
+                      <Next
+                          to={`/${userActions.user.username}/saved/single/${
+                              urlId + 1
+                          }`}
+                      >
+                          <FontAwesomeIcon
+                              icon={faAngleRight}
+                              className="icon"
+                          />
+                      </Next>
+                  )
+                : window.location.pathname.includes(
+                      `/${userActions.user.username}/tagged/single/`
+                  )
+                ? id < userActions.user.tagged.length && (
+                      <Next
+                          to={`/${userActions.user.username}/tagged/single/${
+                              urlId + 1
+                          }`}
+                      >
+                          <FontAwesomeIcon
+                              icon={faAngleRight}
+                              className="icon"
+                          />
+                      </Next>
+                  )
+                : ""}
         </Container>
     );
 }

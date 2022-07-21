@@ -42,6 +42,14 @@ export default function AppRouter() {
                     element={<PostSingleScreen />}
                 />
                 <Route
+                    path="/:name/saved/single/:id"
+                    element={<PostSingleScreen />}
+                />
+                <Route
+                    path="/:name/tagged/single/:id"
+                    element={<PostSingleScreen />}
+                />
+                <Route
                     path="/:name/channel/single/:id"
                     element={<VideoSingleScreen />}
                 />
