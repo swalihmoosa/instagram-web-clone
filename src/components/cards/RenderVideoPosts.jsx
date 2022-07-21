@@ -1,6 +1,7 @@
 import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
@@ -10,7 +11,10 @@ export default function RenderVideoPosts() {
     return (
         <Container>
             {userActions.user.videos.map((video) => (
-                <Post key={video.id} >
+                <Post
+                    key={video.id}
+                    to={`/${userActions.user.username}/channel/single/${video.id}`}
+                >
                     <img src={video.cover} alt="Post" />
                     <Overlay className="overlay">
                         <CountDiv>
@@ -41,7 +45,7 @@ const Container = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
 `;
-const Post = styled.div`
+const Post = styled(Link)`
     width: 32%;
     display: flex;
     justify-content: center;

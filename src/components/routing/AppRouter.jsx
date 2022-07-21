@@ -13,6 +13,7 @@ const StoryScreen = lazy(() => import("../screens/StoryScreen"));
 const ProfileScreen = lazy(() => import("../screens/ProfileScreen"));
 const HighlightScreen = lazy(() => import("../screens/HighlightScreen"));
 const PostSingleScreen = lazy(() => import("../screens/PostSingleScreen"));
+const VideoSingleScreen = lazy(() => import("../screens/VideoSingleScreen"));
 
 export default function AppRouter() {
     return (
@@ -32,10 +33,17 @@ export default function AppRouter() {
                 <Route path="/:name/channel" element={<ProfileScreen />} />
                 <Route path="/:name/saved" element={<ProfileScreen />} />
                 <Route path="/:name/tagged" element={<ProfileScreen />} />
-                <Route path="/stories/highlights/" element={<HighlightScreen />} />
+                <Route
+                    path="/stories/highlights/"
+                    element={<HighlightScreen />}
+                />
                 <Route
                     path="/:name/posts/single/:id"
                     element={<PostSingleScreen />}
+                />
+                <Route
+                    path="/:name/channel/single/:id"
+                    element={<VideoSingleScreen />}
                 />
             </Routes>
         </Suspense>
