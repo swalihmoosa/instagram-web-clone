@@ -11,6 +11,11 @@ export default function FollowersModal({
 }) {
     const { height } = useWindowDimensions();
     const { userActions } = useContext(UserContext);
+    const [usernames, setUsernames] = useState([]);
+
+    useEffect(() => {
+        userActions.user.followings.map(item=>setUsernames([...usernames,item.username]))
+    }, []);
 
     return (
         <Container
