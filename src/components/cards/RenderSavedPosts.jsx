@@ -72,6 +72,16 @@ const Post = styled(Link)`
     &:nth-child(3n) {
         margin-right: 0;
     }
+
+    @media all and (max-width: 980px) {
+        min-height: auto;
+    }
+
+    @media all and (max-width: 768px) {
+        margin-bottom: 5px;
+        margin-right: 5px;
+        width: calc((100% - 10px) / 3);
+    }
 `;
 const Overlay = styled.div`
     position: absolute;

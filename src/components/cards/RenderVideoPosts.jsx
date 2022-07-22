@@ -61,6 +61,15 @@ const Post = styled(Link)`
     &:hover .overlay {
         opacity: 1;
     }
+
+    @media all and (max-width: 980px) {
+        min-height: auto;
+        width: 33.33%;
+    }
+
+    @media all and (max-width: 768px) {
+        margin-bottom: 5px;
+    }
 `;
 const Overlay = styled.div`
     position: absolute;

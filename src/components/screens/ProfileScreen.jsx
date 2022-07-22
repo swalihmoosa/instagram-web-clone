@@ -60,19 +60,23 @@ export default function ProfileScreen() {
                         </Top>
                         <Details>
                             <Detail>
-                                {userActions.user.posts.length} posts
+                                {userActions.user.posts.length} <br />
+                                posts
                             </Detail>
                             <Detail
                                 onClick={() => setFollowersModal(true)}
                                 className="follower"
                             >
-                                {userActions.user.followers.length} followers
+                                {userActions.user.followers.length} <br />
+                                followers
                             </Detail>
                             <Detail
                                 onClick={() => setFollowingModal(true)}
                                 className="follower"
                             >
-                                {userActions.user.followings[0].data.length} following
+                                {userActions.user.followings[0].data.length}{" "}
+                                <br />
+                                following
                             </Detail>
                         </Details>
                         <Bio>
@@ -137,7 +141,7 @@ export default function ProfileScreen() {
                         onClick={() => setSelectedCategory("posts")}
                     >
                         <FontAwesomeIcon icon={faTableCells} className="icon" />
-                        POSTS
+                        <p>POSTS</p>
                     </PostsHeadLi>
                     <PostsHeadLi
                         to={`/${userActions.user.username}/channel`}
@@ -145,7 +149,8 @@ export default function ProfileScreen() {
                         className={selectedCategory === "videos" && "active"}
                     >
                         <FontAwesomeIcon icon={faCirclePlay} className="icon" />
-                        VIDEOS
+
+                        <p>VIDEOS</p>
                     </PostsHeadLi>
                     <PostsHeadLi
                         to={`/${userActions.user.username}/saved`}
@@ -153,7 +158,8 @@ export default function ProfileScreen() {
                         className={selectedCategory === "saved" && "active"}
                     >
                         <FontAwesomeIcon icon={faBookmark} className="icon" />
-                        SAVED
+
+                        <p>SAVED</p>
                     </PostsHeadLi>
                     <PostsHeadLi
                         to={`/${userActions.user.username}/tagged`}
@@ -161,7 +167,8 @@ export default function ProfileScreen() {
                         className={selectedCategory === "tagged" && "active"}
                     >
                         <FontAwesomeIcon icon={faIdBadge} className="icon" />
-                        TAGGED
+
+                        <p>TAGGED</p>
                     </PostsHeadLi>
                 </PostsHead>
                 <PostsDiv>
@@ -193,6 +200,10 @@ const Container = styled.section`
     background-color: #fafafa;
     & .wrapper {
         padding: 115px 20px;
+
+        @media all and (max-width: 640px) {
+            padding: 115px 0;
+        }
     }
 `;
 const ProfileDiv = styled.div`
@@ -201,6 +212,13 @@ const ProfileDiv = styled.div`
     align-items: flex-start;
     width: 75%;
     margin-bottom: 30px;
+
+    @media all and (max-width: 980px) {
+        width: 100%;
+    }
+    @media all and (max-width: 640px) {
+        flex-wrap: wrap;
+    }
 `;
 const Left = styled.div`
     max-width: 150px;
@@ -211,9 +229,20 @@ const Left = styled.div`
     align-items: center;
     border-radius: 50%;
     margin-right: 130px;
+
+    @media all and (max-width: 768px) {
+        margin-right: 30px;
+    }
 `;
 const Right = styled.div`
     width: calc(100% - 280px);
+
+    @media all and (max-width: 768px) {
+        width: calc(100% - 30px);
+    }
+    @media all and (max-width: 480px) {
+        width: 100%;
+    }
 `;
 const Top = styled.div`
     display: flex;
@@ -224,10 +253,19 @@ const Top = styled.div`
         font-size: 18px;
         color: #262626;
     }
+
+    @media all and (max-width: 480px) {
+        flex-wrap: wrap;
+    }
 `;
 const Username = styled.h4`
     font-size: 28px;
     color: #262626;
+
+    @media all and (max-width: 480px) {
+        margin-bottom: 10px;
+        width: 100%;
+    }
 `;
 const Edit = styled.p`
     border: 1px solid #dbdbdb;
@@ -237,6 +275,10 @@ const Edit = styled.p`
     margin-left: auto;
     margin-right: 15px;
     color: #262626;
+
+    @media all and (max-width: 480px) {
+        margin-left: 0;
+    }
 `;
 const Details = styled.div`
     display: flex;
@@ -248,8 +290,22 @@ const Detail = styled.p`
     color: #262626;
     font-size: 16px;
 
+    @media all and (max-width: 480px) {
+        text-align: center;
+    }
+    @media all and (max-width: 360px) {
+        font-size: 15px;
+    }
+
     &.follower {
         cursor: pointer;
+    }
+
+    & br {
+        display: none;
+        @media all and (max-width: 480px) {
+            display: block;
+        }
     }
 `;
 const Bio = styled.div``;
@@ -354,9 +410,24 @@ const PostsHeadLi = styled(Link)`
     font-size: 12px;
     margin-right: 25px;
     position: relative;
+    display: flex;
+    align-items: center;
 
     & .icon {
         margin-right: 7px;
+
+        @media all and (max-width: 480px) {
+            font-size: 16px;
+        }
+    }
+
+    & p {
+        color: #7d7d7d;
+        font-size: 12px;
+
+        @media all and (max-width: 480px) {
+            display: none;
+        }
     }
 
     &.active::before {

@@ -13,7 +13,7 @@ function App() {
     const [userActions, setUserActions] = useState({
         user: userData,
         clickedStory: 1,
-        isActivityModal : true,
+        isActivityModal : false,
         isProfileModal : false,
     });
     return (
