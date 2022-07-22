@@ -10,12 +10,12 @@ export default function ActivitiesModal() {
             className={userActions.isActivityModal ? "activity-modal-true" : ""}
         >
             {activities.map((activity) => (
-                <ActivityCard key={activity.id} >
+                <ActivityCard key={activity.id}>
                     <Avatar>
                         <img src={activity.profile_image} alt="Avatar" />
                     </Avatar>
                     <Details>
-                        <b>{activity.username}</b>  {activity.activity}
+                        <b>{activity.username}</b> {activity.activity}
                     </Details>
                     <ActivityImage>
                         <img src={activity.activity_image} alt="Activity Pic" />
@@ -42,6 +42,13 @@ const Container = styled.div`
     z-index: -1;
     display: none;
 
+    @media all and (max-width: 560px) {
+        width: 100%;
+    }
+    @media all and (max-width: 480px) {
+        top: 57px;
+    }
+
     &.activity-modal-true {
         display: block;
     }
@@ -51,7 +58,7 @@ const ActivityCard = styled.div`
     align-items: center;
     margin-bottom: 20px;
 
-    &:last-child{
+    &:last-child {
         margin-bottom: 0;
     }
 `;
@@ -72,7 +79,7 @@ const Details = styled.p`
     font-size: 12px;
     text-align: left;
 
-    & b{
+    & b {
         font-weight: 600;
         font-size: 13px;
     }

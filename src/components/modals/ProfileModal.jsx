@@ -119,6 +119,10 @@ const Container = styled.div`
     display: none;
     padding: 10px 0 0 0;
 
+    @media all and (max-width: 480px) {
+        top: 57px;
+    }
+
     &.activity-modal-true {
         display: block;
     }
