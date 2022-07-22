@@ -34,6 +34,13 @@ export default function FollowersModal({
             ></Overlay>
             <CardContainer>
                 <Head>{isFollowersModal ? "Followers" : "Following"}</Head>
+                {isFollowingModal && (
+                    <FollowingHead>
+                        {userActions.user.followings.map((following) => (
+                            <Li>{following.title}</Li>
+                        ))}
+                    </FollowingHead>
+                )}
                 {isFollowersModal
                     ? userActions.user.followers.map((follower) => (
                           <Card key={follower.id}>
@@ -51,13 +58,25 @@ export default function FollowersModal({
                               {userExists(follower.username) ? null : (
                                   <Follow>Follow</Follow>
                               )}
-                              {/* <Follow>Follow</Follow> */}
                               <Remove>Remove</Remove>
                           </Card>
                       ))
                     : isFollowingModal
-                    ? userActions.user.followings.map((following) => (
-                          <Card key={following.id}>hyyy</Card>
+                    ? userActions.user.followings[0].data.map((following) => (
+                          <Card key={following.id}>
+                              <Avatar>
+                                  <img
+                                      src={following.profile_image}
+                                      alt="Avatar"
+                                  />
+                              </Avatar>
+                              <Name>
+                                  <b>{following.username}</b>
+                                  <br />
+                                  {following.name}
+                              </Name>
+                              <Remove>Remove</Remove>
+                          </Card>
                       ))
                     : null}
             </CardContainer>
@@ -151,4 +170,21 @@ const Remove = styled.div`
     border-radius: 5px;
     cursor: pointer;
     margin-left: auto;
+`;
+const FollowingHead = styled.div`
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    position: sticky;
+    top: 42px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+`;
+const Li = styled.div`
+    width: 50%;
+    text-align: center;
+    font-size: 15px;
+    color: #00376b;
+    color: #8e8e8e;
 `;

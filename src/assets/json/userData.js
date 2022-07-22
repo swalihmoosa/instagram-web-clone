@@ -75,7 +75,7 @@ const userData = {
     followings: [
         {
             id: 1,
-            title: "Peaople",
+            title: "People",
             data: [
                 {
                     id: 1,
