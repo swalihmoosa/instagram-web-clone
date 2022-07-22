@@ -75,24 +75,35 @@ const userData = {
     followings: [
         {
             id: 1,
-            username: "varsha_varsha",
-            name: "Varsha",
-            profile_image:
-                "https://thumbs.dreamstime.com/b/woman-feeling-free-beautiful-natural-setting-what-field-sunset-chains-175907923.jpg",
+            title: "Peaople",
+            data: [
+                {
+                    id: 1,
+                    username: "varsha_varsha",
+                    name: "Varsha",
+                    profile_image:
+                        "https://thumbs.dreamstime.com/b/woman-feeling-free-beautiful-natural-setting-what-field-sunset-chains-175907923.jpg",
+                },
+                {
+                    id: 2,
+                    username: "albin_royson",
+                    name: "Albin Royson",
+                    profile_image:
+                        "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
+                },
+                {
+                    id: 3,
+                    username: "david_beckam",
+                    name: "David Beckam",
+                    profile_image:
+                        "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
+                },
+            ],
         },
         {
             id: 2,
-            username: "albin_royson",
-            name: "Albin Royson",
-            profile_image:
-                "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
-        },
-        {
-            id: 3,
-            username: "david_beckam",
-            name: "David Beckam",
-            profile_image:
-                "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
+            title: "Hashtags",
+            data: [],
         },
     ],
     bio: "Software Engineer @Steyp\nEveryone Who Starts has a Dream about the End 💫\nJunior Moosa ✌️\nPeacefull Life\nKarma ✡️\nMuziC 🎧",

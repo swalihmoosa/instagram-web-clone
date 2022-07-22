@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import useWindowDimensions from "../hooks/UseWindowDimensions";
 import { UserContext } from "../../App";
@@ -11,11 +11,12 @@ export default function FollowersModal({
 }) {
     const { height } = useWindowDimensions();
     const { userActions } = useContext(UserContext);
-    const [usernames, setUsernames] = useState([]);
 
-    useEffect(() => {
-        userActions.user.followings.map(item=>setUsernames([...usernames,item.username]))
-    }, []);
+    function userExists(username) {
+        return userActions.user.followings[0].data.some(function (el) {
+            return el.username === username;
+        });
+    }
 
     return (
         <Container
@@ -47,6 +48,9 @@ export default function FollowersModal({
                                   <br />
                                   {follower.name}
                               </Name>
+                              {userExists(follower.username) ? null : (
+                                  <Follow>Follow</Follow>
+                              )}
                               {/* <Follow>Follow</Follow> */}
                               <Remove>Remove</Remove>
                           </Card>

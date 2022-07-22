@@ -72,7 +72,7 @@ export default function ProfileScreen() {
                                 onClick={() => setFollowingModal(true)}
                                 className="follower"
                             >
-                                {userActions.user.followings.length} following
+                                {userActions.user.followings[0].data.length} following
                             </Detail>
                         </Details>
                         <Bio>
