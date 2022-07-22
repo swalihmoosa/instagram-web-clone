@@ -13,9 +13,13 @@ import styled from "styled-components";
 import { UserContext } from "../../App";
 import ActivitiesModal from "../modals/ActivitiesModal";
 import ProfileModal from "../modals/ProfileModal";
+import chats from "../../assets/json/chats";
 
 export default function Header() {
     const { userActions, setUserActions } = useContext(UserContext);
+
+    let filteredArray = chats.filter((chat) => chat.is_seen === false);
+
     return (
         <Container>
             <section className="wrapper">
@@ -49,6 +53,9 @@ export default function Header() {
                                 icon={faFacebookMessenger}
                                 className="icon"
                             />
+                            {
+                                filteredArray.length > 0 && <Count>{filteredArray.length}</Count>
+                            }
                         </IconLink>
                         <IconLink to="/new-post">
                             <FontAwesomeIcon
@@ -198,6 +205,7 @@ const ArrowUp = styled.div`
 `;
 const IconLink = styled(NavLink)`
     margin-right: 15px;
+    position: relative;
 
     &:last-child {
         margin-right: 0;
@@ -216,4 +224,19 @@ const UserDiv = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+`;
+const Count = styled.p`
+    background-color: rgb(255, 48, 65);
+    height: 18px;
+    width: 18px;
+    font-size: 10px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -8px;
+    right: -8px;
 `;
