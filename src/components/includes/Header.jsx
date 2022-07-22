@@ -53,9 +53,9 @@ export default function Header() {
                                 icon={faFacebookMessenger}
                                 className="icon"
                             />
-                            {
-                                filteredArray.length > 0 && <Count>{filteredArray.length}</Count>
-                            }
+                            {filteredArray.length > 0 && (
+                                <Count>{filteredArray.length}</Count>
+                            )}
                         </IconLink>
                         <IconLink to="/new-post">
                             <FontAwesomeIcon
@@ -146,12 +146,20 @@ const HeaderSection = styled.div`
 `;
 const InstaText = styled.h1`
     width: 100px;
+
+    @media all and (max-width: 480px) {
+        width: 80px;
+    }
 `;
 const InputDiv = styled.div`
     background-color: #efefef;
     border-radius: 8px;
     width: 270px;
     padding: 8px 20px;
+
+    @media all and (max-width: 700px) {
+        display: none;
+    }
 
     & .icon {
         width: 16px;
@@ -173,6 +181,10 @@ const Nav = styled.nav`
         width: 22px;
         height: 22px;
         color: #8e8e8e;
+        @media all and (max-width: 1280px) {
+            width: 20px;
+            height: 20px;
+        }
 
         &.activity {
             cursor: pointer;
@@ -185,6 +197,11 @@ const ActivityLink = styled.div`
         width: 22px;
         height: 22px;
         color: #8e8e8e;
+
+        @media all and (max-width: 1280px) {
+            width: 20px;
+            height: 20px;
+        }
     }
 `;
 const ArrowUp = styled.div`
@@ -206,6 +223,10 @@ const ArrowUp = styled.div`
 const IconLink = styled(NavLink)`
     margin-right: 15px;
     position: relative;
+
+    @media all and (max-width: 1280px) {
+        margin-right: 10px;
+    }
 
     &:last-child {
         margin-right: 0;

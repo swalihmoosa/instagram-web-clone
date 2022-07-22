@@ -100,11 +100,24 @@ const Container = styled.section`
         display: flex;
         justify-content: space-between;
         position: relative;
+        @media all and (max-width: 640px) {
+            padding: 100px 0;
+        }
+    }
+
+    @media all and (max-width: 1280px) {
     }
 `;
 const HomeLeft = styled.div`
     width: 58%;
     position: relative;
+    @media all and (max-width: 980px) {
+        width: 75%;
+        margin: 0 auto;
+    }
+    @media all and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 const StoryUl = styled.div`
     border: 1px solid #dbdbdb;
@@ -155,6 +168,10 @@ const HomeRight = styled.div`
     position: sticky;
     top: 115px;
     height: 100%;
+
+    @media all and (max-width: 980px) {
+        display: none;
+    }
 `;
 const MyHeader = styled.div`
     display: flex;
