@@ -50,7 +50,7 @@ export default function ExploreScreen() {
                                 />
                             ) : null}
                             {renderExploreThumbs(explore)}
-                            <Overlay className="overlay" >
+                            <Overlay className="overlay">
                                 <CountDiv>
                                     {" "}
                                     <LikeCount>
@@ -67,7 +67,7 @@ export default function ExploreScreen() {
                                         />
                                         {explore.comments.length}
                                     </CommentCount>
-                               </CountDiv>
+                                </CountDiv>
                             </Overlay>
                         </ExploreLi>
                     ))}
@@ -83,6 +83,10 @@ const Container = styled.section`
         display: flex;
         justify-content: space-between;
         position: relative;
+
+        @media all and (max-width: 640px) {
+            padding: 100px 0;
+        }
     }
 `;
 const ExploreUl = styled.div`
@@ -96,6 +100,10 @@ const ExploreUl = styled.div`
         "ten eleven twelve";
     gap: 10px;
     padding: 10px;
+
+    @media all and (max-width: 768px) {
+        gap: 5px;
+    }
 `;
 const ExploreLi = styled(Link)`
     background-color: #fff;
@@ -104,7 +112,7 @@ const ExploreLi = styled(Link)`
     align-items: center;
     position: relative;
 
-    &:hover .overlay{
+    &:hover .overlay {
         opacity: 1;
     }
 
@@ -165,7 +173,7 @@ const Overlay = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
