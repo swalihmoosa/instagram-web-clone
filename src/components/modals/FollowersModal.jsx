@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import useWindowDimensions from "../hooks/UseWindowDimensions";
 import { UserContext } from "../../App";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 
 export default function FollowersModal({
     isFollowersModal,
@@ -11,12 +14,67 @@ export default function FollowersModal({
 }) {
     const { height } = useWindowDimensions();
     const { userActions } = useContext(UserContext);
+    const [selectedFollowing, setSelectedFollowing] = useState("People");
 
     function userExists(username) {
         return userActions.user.followings[0].data.some(function (el) {
             return el.username === username;
         });
     }
+
+    const renderFollowing = () => {
+        if (selectedFollowing === "People") {
+            if (userActions.user.followings[0].data.length > 0) {
+                return userActions.user.followings[0].data.map((following) => (
+                    <Card key={following.id}>
+                        <Avatar>
+                            <img src={following.profile_image} alt="Avatar" />
+                        </Avatar>
+                        <Name>
+                            <b>{following.username}</b>
+                            <br />
+                            {following.name}
+                        </Name>
+                        <Remove>Remove</Remove>
+                    </Card>
+                ));
+            } else {
+                return <div>nottt</div>;
+            }
+        }
+        if (selectedFollowing === "Hashtags") {
+            if (userActions.user.followings[1].data.length > 0) {
+                return userActions.user.followings[1].data.map((following) => (
+                    <Card key={following.id}>
+                        <Avatar>
+                            <img src={following.profile_image} alt="Avatar" />
+                        </Avatar>
+                        <Name>
+                            <b>{following.username}</b>
+                            <br />
+                            {following.name}
+                        </Name>
+                        <Remove>Remove</Remove>
+                    </Card>
+                ));
+            } else {
+                return (
+                    <Empty>
+                        <Hash>
+                            <FontAwesomeIcon
+                                icon={faHashtag}
+                                className="icon"
+                            />
+                        </Hash>
+                        <HashTitle>Hashtags you follow</HashTitle>
+                        <HashDetail>
+                            When you follow hashtags, you'll see them here.
+                        </HashDetail>
+                    </Empty>
+                );
+            }
+        }
+    };
 
     return (
         <Container
@@ -37,7 +95,17 @@ export default function FollowersModal({
                 {isFollowingModal && (
                     <FollowingHead>
                         {userActions.user.followings.map((following) => (
-                            <Li>{following.title}</Li>
+                            <Li
+                                onClick={() =>
+                                    setSelectedFollowing(following.title)
+                                }
+                                className={
+                                    selectedFollowing === following.title &&
+                                    "active"
+                                }
+                            >
+                                {following.title}
+                            </Li>
                         ))}
                     </FollowingHead>
                 )}
@@ -62,22 +130,7 @@ export default function FollowersModal({
                           </Card>
                       ))
                     : isFollowingModal
-                    ? userActions.user.followings[0].data.map((following) => (
-                          <Card key={following.id}>
-                              <Avatar>
-                                  <img
-                                      src={following.profile_image}
-                                      alt="Avatar"
-                                  />
-                              </Avatar>
-                              <Name>
-                                  <b>{following.username}</b>
-                                  <br />
-                                  {following.name}
-                              </Name>
-                              <Remove>Remove</Remove>
-                          </Card>
-                      ))
+                    ? renderFollowing()
                     : null}
             </CardContainer>
         </Container>
@@ -111,8 +164,8 @@ const Overlay = styled.div`
 const CardContainer = styled.div`
     max-width: 400px;
     min-width: 400px;
-    min-height: 250px;
-    max-height: 250px;
+    min-height: 330px;
+    max-height: 330px;
     background-color: #fff;
     z-index: 1;
     border-radius: 10px;
@@ -173,7 +226,7 @@ const Remove = styled.div`
 `;
 const FollowingHead = styled.div`
     text-align: center;
-    padding: 10px;
+    padding: 10px 0;
     border-bottom: 1px solid rgb(219, 219, 219);
     position: sticky;
     top: 42px;
@@ -185,6 +238,47 @@ const Li = styled.div`
     width: 50%;
     text-align: center;
     font-size: 15px;
-    color: #00376b;
+    cursor: pointer;
     color: #8e8e8e;
+
+    &.active {
+        color: #00376b;
+        position: relative;
+    }
+    &.active::before {
+        content: "";
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        bottom: -10px;
+        left: 0px;
+        background-color: rgb(38, 38, 38);
+    }
+`;
+const Empty = styled.div`
+    max-height: calc(330px - 82px);
+    padding: 20px;
+`;
+const Hash = styled.div`
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1.5px solid #262626;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin: 0 auto 20px;
+`;
+const HashTitle = styled.p`
+    color: #262626;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+`;
+const HashDetail = styled.p`
+    color: #262626;
+    font-size: 13px;
+    text-align:center;
 `;

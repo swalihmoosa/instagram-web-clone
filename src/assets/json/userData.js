@@ -71,6 +71,34 @@ const userData = {
             profile_image:
                 "https://images.unsplash.com/photo-1531945086322-64e2ffae14a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8OXx8fGVufDB8fHx8&w=1000&q=80",
         },
+        {
+            id: 7,
+            username: "_kattappa_",
+            name: "Kattappa",
+            profile_image:
+                "https://images.unsplash.com/photo-1595702419689-b64c73d36481?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80",
+        },
+        {
+            id: 8,
+            username: "mahendra_bahubali",
+            name: "Mahendra Bahubali",
+            profile_image:
+                "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
+        },
+        {
+            id: 9,
+            username: "palval_devan",
+            name: "Palval Devan",
+            profile_image:
+                "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
+        },
+        {
+            id: 10,
+            username: "bhavani_",
+            name: "Bhavani",
+            profile_image:
+                "https://images.unsplash.com/photo-1531945086322-64e2ffae14a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8OXx8fGVufDB8fHx8&w=1000&q=80",
+        },
     ],
     followings: [
         {
@@ -93,8 +121,36 @@ const userData = {
                 },
                 {
                     id: 3,
+                    username: "__bunk_hairy",
+                    name: "Bunk Hairy",
+                    profile_image:
+                        "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
+                },
+                {
+                    id: 4,
+                    username: "_dark_devil",
+                    name: "David Dark",
+                    profile_image:
+                        "https://thumbs.dreamstime.com/b/woman-feeling-free-beautiful-natural-setting-what-field-sunset-chains-175907923.jpg",
+                },
+                {
+                    id: 5,
+                    username: "johnson",
+                    name: "Johnson",
+                    profile_image:
+                        "https://images.unsplash.com/photo-1610222034376-8dd1149e0e60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZCUyMGxvb2tpbmd8ZW58MHx8MHx8&w=1000&q=80",
+                },
+                {
+                    id: 6,
                     username: "david_beckam",
                     name: "David Beckam",
+                    profile_image:
+                        "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
+                },
+                {
+                    id: 7,
+                    username: "salman_salu",
+                    name: "Salman",
                     profile_image:
                         "https://images.unsplash.com/photo-1630481698276-300986062f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5hbmR8ZW58MHx8MHx8&w=1000&q=80",
                 },
