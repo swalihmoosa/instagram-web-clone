@@ -53,8 +53,10 @@ const Activity = styled.p`
 `;
 const Unseen = styled.div`
     margin-left: auto;
-    width: 8px;
-    height: 8px;
+    max-width: 8px;
+    max-height: 8px;
+    min-width: 8px;
+    min-height: 8px;
     background-color: #0095f6;
     border-radius: 50%;
 `;

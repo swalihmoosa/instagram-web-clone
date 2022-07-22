@@ -60,6 +60,10 @@ const Left = styled.div`
     width: 400px;
     border: 1px solid #dbdbdb;
     overflow-y: scroll;
+    
+    @media all and (max-width:  480px) {
+        margin: 0 auto;
+    }
 `;
 const ChatHead = styled.div`
     display: flex;
@@ -115,6 +119,10 @@ const Right = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media all and (max-width: 800px) {
+        display: none;
+    }
 `;
 const Center = styled.div``;
 const Share = styled.div`
