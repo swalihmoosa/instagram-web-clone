@@ -71,34 +71,100 @@ const Container = styled.div`
         &.next {
             &:nth-child(3) {
                 left: 57%;
+                @media all and (max-width: 1800px) {
+                    left: 59%;
+                }
+                @media all and (max-width: 1280px) {
+                    left: 66%;
+                }
+                @media all and (max-width: 1050px) {
+                    transform: scale(0.3);
+                }
+                @media all and (max-width: 980px) {
+                    display: none;
+                }
             }
             &:nth-child(4) {
                 left: 69%;
+                @media all and (max-width: 1800px) {
+                    left: 75%;
+                }
+                @media all and (max-width: 1500px) {
+                    display: none;
+                }
             }
         }
         &.next.prev-one {
             &:nth-child(2) {
                 left: 16%;
+                @media all and (max-width: 1800px) {
+                    left: 8%;
+                }
+                @media all and (max-width: 1500px) {
+                    left: -5%;
+                }
+                @media all and (max-width: 1120px) {
+                    left: -12%;
+                }
+                @media all and (max-width: 1050px) {
+                    transform: scale(0.3);
+                }
+                @media all and (max-width: 980px) {
+                    display: none;
+                }
             }
             &:nth-child(4) {
                 left: 57%;
+                @media all and (max-width: 1800px) {
+                    left: 59%;
+                }
+                @media all and (max-width: 1500px) {
+                    display: flex;
+                }
+                @media all and (max-width: 1280px) {
+                    left: 66%;
+                }
+                @media all and (max-width: 1050px) {
+                    transform: scale(0.3);
+                }
+                @media all and (max-width: 980px) {
+                    display: none;
+                }
             }
             &:nth-child(5) {
                 left: 69%;
+                @media all and (max-width: 1800px) {
+                    left: 75%;
+                }
+                @media all and (max-width: 1500px) {
+                    display: none;
+                }
             }
         }
         &.next.prev {
             &:nth-child(2) {
                 left: 4%;
+                @media all and (max-width: 1800px) {
+                    left: -8%;
+                }
             }
             &:nth-child(3) {
                 left: 16%;
+                @media all and (max-width: 1800px) {
+                    left: 8%;
+                }
             }
             &:nth-child(5) {
                 left: 57%;
+                @media all and (max-width: 1800px) {
+                    left: 59%;
+                }
             }
             &:nth-child(6) {
                 left: 69%;
+                @media all and (max-width: 1800px) {
+                    left: 75%;
+                }
             }
         }
     }
