@@ -14,7 +14,7 @@ export default function StoryScreen() {
     const { userActions } = useContext(UserContext);
     const [currentStoryNumber, setCurrentStoryNumber] = useState(
         // userActions.clickedStory - 1
-        1
+        10
     );
     const navigate = useNavigate();
     const isfutured = true;
@@ -94,6 +94,9 @@ const Logo = styled.div`
     left: 20px;
     top: 20px;
     width: 100px;
+    @media all and (max-width: 768px) {
+        display: none;
+    }
 `;
 const Close = styled(Link)`
     & .icon {
