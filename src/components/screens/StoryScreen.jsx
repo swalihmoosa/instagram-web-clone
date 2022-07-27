@@ -13,26 +13,25 @@ export default function StoryScreen() {
     const { height } = useWindowDimensions();
     const { userActions } = useContext(UserContext);
     const [currentStoryNumber, setCurrentStoryNumber] = useState(
-        // userActions.clickedStory - 1
-        10
+        userActions.clickedStory - 1
     );
     const navigate = useNavigate();
     const isfutured = true;
 
-    // useEffect(() => {
-    //     if (currentStoryNumber < stories.length - 1) {
-    //         const story = setInterval(
-    //             () => setCurrentStoryNumber((oldCount) => oldCount + 1),
-    //             5000
-    //         );
-    //         return () => {
-    //             clearInterval(story);
-    //         };
-    //     }
-    //     if (currentStoryNumber === stories.length - 1) {
-    //         setTimeout(() => navigate("/"), 5000);
-    //     }
-    // }, [currentStoryNumber, navigate]);
+    useEffect(() => {
+        if (currentStoryNumber < stories.length - 1) {
+            const story = setInterval(
+                () => setCurrentStoryNumber((oldCount) => oldCount + 1),
+                5000
+            );
+            return () => {
+                clearInterval(story);
+            };
+        }
+        if (currentStoryNumber === stories.length - 1) {
+            setTimeout(() => navigate("/"), 5000);
+        }
+    }, [currentStoryNumber, navigate]);
 
     return (
         <Container style={{ height: height }}>
@@ -94,9 +93,6 @@ const Logo = styled.div`
     left: 20px;
     top: 20px;
     width: 100px;
-    @media all and (max-width: 768px) {
-        display: none;
-    }
 `;
 const Close = styled(Link)`
     & .icon {
