@@ -252,6 +252,57 @@ export default function ExploreSingleScreen() {
                         <Post onClick={newCommentPost}>Post</Post>
                     </CommentDiv>
                 </Right>
+                <ResponsiveDiv className="responsive-div">
+                    <Head>
+                        <Avatar>
+                            <img
+                                src={explores[id - 1].profile_image}
+                                alt="Avatar"
+                            />
+                        </Avatar>
+                        <Name>{explores[id - 1].username} . </Name>
+                        <Follow>Follow</Follow>
+                        <FontAwesomeIcon icon={faEllipsis} className="icon" />
+                    </Head>
+                    <Left
+                        className="responsive-div"
+                        style={{ maxHeight: height - 60, height: "500px" }}
+                    >
+                        {exploreRender()}
+                    </Left>
+                    <ExploreFooter className="responsive-div">
+                        <FontAwesomeIcon
+                            icon={faHeart}
+                            className={isLiked ? "icon liked" : "icon"}
+                            onClick={() => setIsLiked(!isLiked)}
+                        />
+                        <FontAwesomeIcon icon={faComment} className="icon" />
+                        <FontAwesomeIcon icon={faShare} className="icon" />
+                        <FontAwesomeIcon
+                            icon={faBookmark}
+                            className={
+                                isSaved ? "icon share shared" : "icon share"
+                            }
+                            onClick={() => setIsSaved(!isSaved)}
+                        />
+                    </ExploreFooter>
+                    <Likes className="responsive-div">
+                        {isLiked
+                            ? explores[id - 1].likes + 1
+                            : explores[id - 1].likes}{" "}
+                        likes
+                    </Likes>
+                    <CommentDiv className="responsive-div">
+                        <FontAwesomeIcon icon={faFaceSmile} className="icon" />
+                        <input
+                            type="text"
+                            placeholder="Add a comment..."
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                        />
+                        <Post onClick={newCommentPost}>Post</Post>
+                    </CommentDiv>
+                </ResponsiveDiv>
             </section>
             <Close to="/explore">
                 <FontAwesomeIcon icon={faClose} className="icon" />
@@ -299,6 +350,13 @@ const Container = styled.section`
         display: flex;
         justify-content: space-between;
         max-width: 60%;
+
+        @media all and (max-width: 1280px) {
+            max-width: 80%;
+        }
+        @media all and (max-width: 768px) {
+            max-width: 90%;
+        }
     }
 `;
 const Left = styled.div`
@@ -308,12 +366,33 @@ const Left = styled.div`
     align-items: center;
     background-color: #000;
     overflow: hidden;
+
+    @media all and (max-width: 980px) {
+        width: 50%;
+    }
+    @media all and (max-width: 768px) {
+        display: none;
+    }
+
+    &.responsive-div {
+        @media all and (max-width: 768px) {
+            width: 100%;
+            display: flex;
+        }
+    }
 `;
 const Right = styled.div`
     width: 39%;
     background-color: #fff;
     padding: 15px;
     position: relative;
+
+    @media all and (max-width: 980px) {
+        width: 50%;
+    }
+    @media all and (max-width: 768px) {
+        display: none;
+    }
 `;
 const Head = styled.div`
     border-bottom: 1px solid #dbdbdb;
@@ -422,6 +501,12 @@ const ExploreFooter = styled.div`
     transform: translate(-50%);
     background-color: #fff;
 
+    &.responsive-div {
+        position: static;
+        transform: translate(0);
+        margin: 0 auto;
+    }
+
     & .icon {
         width: 25px;
         height: 25px;
@@ -439,6 +524,11 @@ const ExploreFooter = styled.div`
         &.shared {
             color: #000;
         }
+    }
+    &.responsive-div {
+        position: static;
+        transform: translate(0);
+        margin: 0 auto;
     }
 `;
 const Likes = styled.p`
@@ -520,4 +610,13 @@ const Reply = styled.p`
     color: #8e8e8e !important;
     font-size: 11px;
     cursor: pointer;
+`;
+const ResponsiveDiv = styled.div`
+    display: none;
+    background-color: #fff;
+    padding: 15px 0;
+
+    @media all and (max-width: 768px) {
+        display: block;
+    }
 `;
