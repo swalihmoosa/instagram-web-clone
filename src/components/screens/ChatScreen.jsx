@@ -61,8 +61,13 @@ const Left = styled.div`
     border: 1px solid #dbdbdb;
     overflow-y: scroll;
     
-    @media all and (max-width:  480px) {
+    @media all and (max-width:  800px) {
         margin: 0 auto;
+        /* width: 100%; */
+    }
+    @media all and (max-width:  640px) {
+        margin: 0 auto;
+        width: 100%;
     }
 `;
 const ChatHead = styled.div`
