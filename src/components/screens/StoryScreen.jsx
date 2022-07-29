@@ -95,11 +95,9 @@ const Logo = styled.div`
     width: 100px;
 `;
 const Close = styled(Link)`
-    & .icon {
-        color: #fff;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
-    }
+    color: #8e8e8e;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
 `;
