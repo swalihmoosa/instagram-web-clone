@@ -84,7 +84,6 @@ export default function PostSingleScreen() {
                             <img src={userActions.user.avatar} alt="Avatar" />
                         </Avatar>
                         <Name>{userActions.user.username} . </Name>
-                        <Follow>Follow</Follow>
                         <FontAwesomeIcon icon={faEllipsis} className="icon" />
                     </Head>
                     <CommentsUl>
@@ -499,11 +498,6 @@ const NameComment = styled.div`
             color: #262626;
         }
     }
-`;
-const Follow = styled.p`
-    color: #0095f6;
-    font-size: 14px;
-    font-weight: 600;
 `;
 const CommentsUl = styled.div`
     overflow-y: scroll;
