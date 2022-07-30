@@ -224,6 +224,75 @@ export default function PostSingleScreen() {
                         <Post onClick={newCommentPost}>Post</Post>
                     </CommentDiv>
                 </Right>
+                <ResponsiveDiv className="responsive-div">
+                    <Head>
+                        <Avatar>
+                            <img src={userActions.user.avatar} alt="Avatar" />
+                        </Avatar>
+                        <Name>{userActions.user.username} . </Name>
+                        <FontAwesomeIcon icon={faEllipsis} className="icon" />
+                    </Head>
+                    <Left
+                        className="responsive-div"
+                        style={{ maxHeight: height - 60, height: "500px" }}
+                    >
+                        {window.location.pathname.includes(
+                            `/${userActions.user.username}/posts/single/`
+                        ) ? (
+                            <img
+                                src={userActions.user.posts[id - 1].post}
+                                alt="Post"
+                            />
+                        ) : window.location.pathname.includes(
+                              `/${userActions.user.username}/saved/single/`
+                          ) ? (
+                            savedPosts.length > 0 && (
+                                <img src={savedPosts[id - 1].post} alt="Post" />
+                            )
+                        ) : window.location.pathname.includes(
+                              `/${userActions.user.username}/tagged/single/`
+                          ) ? (
+                            <img
+                                src={userActions.user.tagged[id - 1].post}
+                                alt="Post"
+                            />
+                        ) : (
+                            ""
+                        )}
+                    </Left>
+                    <ExploreFooter className="responsive-div">
+                        <FontAwesomeIcon
+                            icon={faHeart}
+                            className={isLiked ? "icon liked" : "icon"}
+                            onClick={() => setIsLiked(!isLiked)}
+                        />
+                        <FontAwesomeIcon icon={faComment} className="icon" />
+                        <FontAwesomeIcon icon={faShare} className="icon" />
+                        <FontAwesomeIcon
+                            icon={faBookmark}
+                            className={
+                                isSaved ? "icon share shared" : "icon share"
+                            }
+                            onClick={() => setIsSaved(!isSaved)}
+                        />
+                    </ExploreFooter>
+                    <Likes className="responsive-div" >
+                        {isLiked
+                            ? userActions.user.posts[id - 1].likes + 1
+                            : userActions.user.posts[id - 1].likes}{" "}
+                        likes
+                    </Likes>
+                    <CommentDiv className="responsive-div">
+                        <FontAwesomeIcon icon={faFaceSmile} className="icon" />
+                        <input
+                            type="text"
+                            placeholder="Add a comment..."
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                        />
+                        <Post onClick={newCommentPost}>Post</Post>
+                    </CommentDiv>
+                </ResponsiveDiv>
             </section>
             <Close to={`/${userActions.user.username}`}>
                 <FontAwesomeIcon icon={faClose} className="icon" />
@@ -331,11 +400,23 @@ const Container = styled.section`
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     padding: 30px 0;
+    @media all and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     & .wrapper {
         display: flex;
         justify-content: space-between;
         max-width: 60%;
+
+        @media all and (max-width: 1280px) {
+            max-width: 80%;
+        }
+        @media all and (max-width: 768px) {
+            max-width: 90%;
+        }
     }
 `;
 const Left = styled.div`
@@ -345,6 +426,21 @@ const Left = styled.div`
     align-items: center;
     background-color: #000;
     overflow: hidden;
+
+    @media all and (max-width: 980px) {
+        width: 50%;
+    }
+    @media all and (max-width: 768px) {
+        display: none;
+    }
+
+    &.responsive-div {
+        background-color: #fff;
+        @media all and (max-width: 768px) {
+            width: 100%;
+            display: flex;
+        }
+    }
 `;
 const Right = styled.div`
     width: 39%;
@@ -352,6 +448,13 @@ const Right = styled.div`
     padding: 15px;
     position: relative;
     border-left: 1px solid rgb(239, 239, 239);
+
+    @media all and (max-width: 980px) {
+        width: 50%;
+    }
+    @media all and (max-width: 768px) {
+        display: none;
+    }
 `;
 const Head = styled.div`
     border-bottom: 1px solid #dbdbdb;
@@ -443,6 +546,12 @@ const CommentDiv = styled.div`
     & input {
         width: 90%;
     }
+
+    &.responsive-div {
+        position: static;
+        transform: translate(0);
+        margin: 0 auto;
+    }
 `;
 const Post = styled.span`
     color: #0095f6;
@@ -459,6 +568,12 @@ const ExploreFooter = styled.div`
     left: 50%;
     transform: translate(-50%);
     background-color: #fff;
+
+    &.responsive-div {
+        position: static;
+        transform: translate(0);
+        margin: 0 auto;
+    }
 
     & .icon {
         width: 25px;
@@ -490,6 +605,11 @@ const Likes = styled.p`
     transform: translate(-50%);
     background-color: #fff;
     height: 23px;
+
+    &.responsive-div {
+        position: static;
+        transform: translate(0);
+    }
 `;
 const Close = styled(Link)`
     font-size: 20px;
@@ -558,4 +678,15 @@ const Reply = styled.p`
     color: #8e8e8e !important;
     font-size: 11px;
     cursor: pointer;
+`;
+const ResponsiveDiv = styled.div`
+    display: none;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px 0;
+    width: 100%;
+
+    @media all and (max-width: 768px) {
+        display: block;
+    }
 `;

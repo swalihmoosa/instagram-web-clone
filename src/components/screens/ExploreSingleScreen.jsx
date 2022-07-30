@@ -536,11 +536,6 @@ const ExploreFooter = styled.div`
             color: #000;
         }
     }
-    &.responsive-div {
-        position: static;
-        transform: translate(0);
-        margin: 0 auto;
-    }
 `;
 const Likes = styled.p`
     font-size: 14px;
