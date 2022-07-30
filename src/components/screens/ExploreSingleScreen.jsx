@@ -359,6 +359,9 @@ const Container = styled.section`
         @media all and (max-width: 1280px) {
             max-width: 80%;
         }
+        @media all and (max-width: 1000px) {
+            max-width: 90%;
+        }
         @media all and (max-width: 768px) {
             max-width: 90%;
         }
