@@ -15,6 +15,7 @@ export default function StoryCard({
     setCurrentStoryNumber,
     storiesLength,
 }) {
+    
     return (
         <Container
             className={

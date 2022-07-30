@@ -2,6 +2,10 @@
     animation: story-background-color 5s infinite ;
     animation-timing-function: linear;
 }
+#is-story-bg {
+    animation: story-background-color 5s infinite ;
+    animation-timing-function: linear;
+}
 @keyframes story-background-color {
     0% {
         width: 0%;
