@@ -1,10 +1,20 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faShare } from "@fortawesome/free-solid-svg-icons";
+import {
+    faAngleLeft,
+    faAngleRight,
+    faShare,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 
-export default function StoryCard({ story, isfutured, currentStoryNumber }) {
+export default function StoryCard({
+    story,
+    isfutured,
+    currentStoryNumber,
+    setCurrentStoryNumber,
+    storiesLength,
+}) {
     return (
         <Container
             className={
@@ -50,6 +60,41 @@ export default function StoryCard({ story, isfutured, currentStoryNumber }) {
                     </StoryLi>
                 </Overlay>
             ) : null}
+            {!isfutured && (
+                <>
+                    {!currentStoryNumber < 1 && (
+                        <Prev
+                            onClick={() =>
+                                setCurrentStoryNumber(currentStoryNumber - 1)
+                            }
+                        >
+                            <FontAwesomeIcon
+                                icon={faAngleLeft}
+                                className="icon"
+                            />
+                        </Prev>
+                    )}
+                    {console.log(
+                        "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+                        currentStoryNumber
+                    )}
+                    {currentStoryNumber > -1 &&
+                        currentStoryNumber < storiesLength - 1 && (
+                            <Next
+                                onClick={() =>
+                                    setCurrentStoryNumber(
+                                        currentStoryNumber + 1
+                                    )
+                                }
+                            >
+                                <FontAwesomeIcon
+                                    icon={faAngleRight}
+                                    className="icon"
+                                />
+                            </Next>
+                        )}
+                </>
+            )}
         </Container>
     );
 }
@@ -522,4 +567,43 @@ const StoryDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+`;
+const Prev = styled.div`
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    & .icon {
+        font-size: 17px;
+    }
+`;
+const Next = styled.div`
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    & .icon {
+        font-size: 17px;
+    }
 `;

@@ -55,6 +55,8 @@ export default function StoryScreen() {
             <StoryCard
                 story={stories[currentStoryNumber]}
                 currentStoryNumber={currentStoryNumber}
+                setCurrentStoryNumber={setCurrentStoryNumber}
+                storiesLength={stories.length}
             />
             {currentStoryNumber < stories.length - 1 ? (
                 <StoryCard

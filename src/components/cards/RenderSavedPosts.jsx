@@ -66,6 +66,10 @@ const Post = styled(Link)`
     cursor: pointer;
     background-color: #fff;
 
+    & img{
+        height: 100%;
+    }
+
     &:hover .overlay {
         opacity: 1;
     }
