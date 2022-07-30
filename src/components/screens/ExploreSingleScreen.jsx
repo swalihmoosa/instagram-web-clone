@@ -345,6 +345,11 @@ const Container = styled.section`
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
     padding: 30px 0;
+    @media all and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     & .wrapper {
         display: flex;
@@ -475,6 +480,12 @@ const CommentDiv = styled.div`
     background-color: #fff;
     height: 50px;
 
+    &.responsive-div {
+        position: static;
+        transform: translate(0);
+        margin: 0 auto;
+    }
+
     & .icon {
         width: 25px;
         height: 25px;
@@ -542,6 +553,11 @@ const Likes = styled.p`
     transform: translate(-50%);
     background-color: #fff;
     height: 23px;
+
+    &.responsive-div {
+        position: static;
+        transform: translate(0);
+    }
 `;
 const Close = styled(Link)`
     font-size: 20px;
@@ -614,7 +630,9 @@ const Reply = styled.p`
 const ResponsiveDiv = styled.div`
     display: none;
     background-color: #fff;
+    border-radius: 10px;
     padding: 15px 0;
+    width: 100%;
 
     @media all and (max-width: 768px) {
         display: block;
