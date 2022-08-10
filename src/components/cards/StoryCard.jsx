@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 export default function StoryCard({
@@ -15,7 +16,7 @@ export default function StoryCard({
     setCurrentStoryNumber,
     storiesLength,
 }) {
-    
+    const [isClicked, setClicked] = useState(false);
     return (
         <Container
             className={
@@ -31,7 +32,7 @@ export default function StoryCard({
             <StoryHead>
                 {isfutured ? null : (
                     <Timing>
-                        <Bg id="story-bg"></Bg>
+                        <Bg id={isClicked ? "story-clicked" : "story-bg"}></Bg>
                     </Timing>
                 )}
                 <Avatar>
@@ -75,18 +76,15 @@ export default function StoryCard({
                             />
                         </Prev>
                     )}
-                    {console.log(
-                        "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
-                        currentStoryNumber
-                    )}
                     {currentStoryNumber > -1 &&
                         currentStoryNumber < storiesLength - 1 && (
                             <Next
-                                onClick={() =>
+                                onClick={() => {
                                     setCurrentStoryNumber(
                                         currentStoryNumber + 1
-                                    )
-                                }
+                                    );
+                                    setClicked(!isClicked);
+                                }}
                             >
                                 <FontAwesomeIcon
                                     icon={faAngleRight}

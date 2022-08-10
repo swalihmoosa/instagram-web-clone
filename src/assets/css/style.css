@@ -1,9 +1,9 @@
 #story-bg {
-    animation: story-background-color 5s infinite ;
+    animation: story-background-color 5s infinite;
     animation-timing-function: linear;
 }
-#is-story-bg {
-    animation: story-background-color 5s infinite ;
+#story-clicked {
+    animation: story-clicked-color 5s infinite;
     animation-timing-function: linear;
 }
 @keyframes story-background-color {
@@ -41,7 +41,42 @@
         width: 100%;
     }
 }
+@keyframes story-clicked-color {
+    0% {
+        width: 0%;
+    }
+    10% {
+        width: 10%;
+    }
+    20% {
+        width: 20%;
+    }
+    30% {
+        width: 30%;
+    }
+    40% {
+        width: 40%;
+    }
+    150% {
+        width: 150%;
+    }
+    60% {
+        width: 60%;
+    }
+    70% {
+        width: 70%;
+    }
+    80% {
+        width: 80%;
+    }
+    90% {
+        width: 90%;
+    }
+    100% {
+        width: 100%;
+    }
+}
 
-button{
+button {
     display: none !important;
 }
