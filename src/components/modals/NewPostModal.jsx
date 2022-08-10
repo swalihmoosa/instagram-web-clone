@@ -1,14 +1,32 @@
 import { faPhotoFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../App";
+import ConfirmNewPostModal from "./ConfirmNewPostModal";
 
 export default function NewPostModal() {
-    const { userActions } = useContext(UserContext);
+    const { userActions, setUserActions } = useContext(UserContext);
+    const [isConfirmModal, setConfirmModal] = useState(false);
+    const [newPostImage, setPostImage] = useState("");
+
+    useEffect(() => {
+        if (newPostImage !== "") {
+            setConfirmModal(true);
+            setUserActions({
+                ...userActions,
+                isNewPostModal: false,
+            });
+        }
+    }, [newPostImage, userActions]);
 
     return (
         <>
+            <ConfirmNewPostModal
+                isConfirmModal={isConfirmModal}
+                setConfirmModal={setConfirmModal}
+            />
             <Overlay
                 className={
                     userActions.isNewPostModal ? "new-post-modal-true" : ""
@@ -26,7 +44,10 @@ export default function NewPostModal() {
                         <Description>Drag photos and videos here</Description>
                         <Button>
                             Select From Computer
-                            <input type="file" />
+                            <input
+                                type="file"
+                                onChange={(e) => setPostImage(e.target.value)}
+                            />
                         </Button>
                     </Middle>
                 </Modal>
