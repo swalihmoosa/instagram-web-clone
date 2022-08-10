@@ -1,3 +1,5 @@
+import { faPhotoFilm } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../App";
@@ -20,11 +22,12 @@ export default function NewPostModal() {
                 <Modal>
                     <Top>Create new post</Top>
                     <Middle>
-                        <ImageContainer>
-                            <img src="" alt="Upload" />
-                        </ImageContainer>
+                        <FontAwesomeIcon icon={faPhotoFilm} className="icon" />
                         <Description>Drag photos and videos here</Description>
-                        <Button>Select From Computer</Button>
+                        <Button>
+                            Select From Computer
+                            <input type="file" />
+                        </Button>
                     </Middle>
                 </Modal>
             </Container>
@@ -66,10 +69,48 @@ const Overlay = styled.div`
 const Modal = styled.div`
     background-color: #fff;
     width: 550px;
-    height: 70%;
+    height: 300px;
+    border-radius: 20px;
 `;
-const Top = styled.div``;
-const Middle = styled.div``;
-const ImageContainer = styled.div``;
-const Description = styled.div``;
-const Button = styled.div``;
+const Top = styled.div`
+    text-align: center;
+    color: #262626;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(219, 219, 219);
+`;
+const Middle = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 42px);
+
+    & .icon {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+`;
+const Description = styled.div`
+    font-size: 18px;
+    color: #262626;
+    margin-bottom: 10px;
+`;
+const Button = styled.div`
+    background-color: #0095f6;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    position: relative;
+    cursor: pointer;
+
+    & input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+`;
