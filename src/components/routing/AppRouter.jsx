@@ -8,7 +8,6 @@ const ExploreSingleScreen = lazy(() =>
     import("../screens/ExploreSingleScreen")
 );
 const HomeScreen = lazy(() => import("../screens/HomeScreen"));
-const NewPost = lazy(() => import("../screens/NewPost"));
 const StoryScreen = lazy(() => import("../screens/StoryScreen"));
 const ProfileScreen = lazy(() => import("../screens/ProfileScreen"));
 const HighlightScreen = lazy(() => import("../screens/HighlightScreen"));
@@ -23,7 +22,6 @@ export default function AppRouter() {
                 <Route path="/" element={<HomeScreen />} />
                 <Route path="/inbox" element={<ChatScreen />} />
                 <Route path="/explore" element={<ExploreScreen />} />
-                <Route path="/new-post" element={<NewPost />} />
                 <Route path="/stories" element={<StoryScreen />} />
                 <Route
                     path="/explore/single/:name/:id"

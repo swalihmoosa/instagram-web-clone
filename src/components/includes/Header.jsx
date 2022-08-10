@@ -57,12 +57,32 @@ export default function Header() {
                                 <Count>{filteredArray.length}</Count>
                             )}
                         </IconLink>
-                        <IconLink to="/new-post">
+                        <ActivityLink
+                            className={
+                                userActions.isNewPostModal &&
+                                "new-post modal-active"
+                            }
+                            onClick={() => {
+                                userActions.isNewPostModal
+                                    ? setUserActions({
+                                          ...userActions,
+                                          isNewPostModal: false,
+                                          isActivityModal: false,
+                                          isProfileModal: false,
+                                      })
+                                    : setUserActions({
+                                          ...userActions,
+                                          isNewPostModal: true,
+                                          isActivityModal: false,
+                                          isProfileModal: false,
+                                      });
+                            }}
+                        >
                             <FontAwesomeIcon
                                 icon={faSquarePlus}
                                 className="icon"
                             />
-                        </IconLink>
+                        </ActivityLink>
                         <IconLink to="/explore">
                             <FontAwesomeIcon
                                 icon={faCompass}
@@ -70,15 +90,22 @@ export default function Header() {
                             />
                         </IconLink>
                         <ActivityLink
+                            className={
+                                userActions.isActivityModal && "modal-active"
+                            }
                             onClick={() => {
                                 userActions.isActivityModal
                                     ? setUserActions({
                                           ...userActions,
                                           isActivityModal: false,
+                                          isNewPostModal: false,
+                                          isProfileModal: false,
                                       })
                                     : setUserActions({
                                           ...userActions,
                                           isActivityModal: true,
+                                          isNewPostModal: false,
+                                          isProfileModal: false,
                                       });
                             }}
                         >
@@ -101,10 +128,14 @@ export default function Header() {
                                 ? setUserActions({
                                       ...userActions,
                                       isProfileModal: false,
+                                      isActivityModal: false,
+                                      isNewPostModal: false,
                                   })
                                 : setUserActions({
                                       ...userActions,
                                       isProfileModal: true,
+                                      isActivityModal: false,
+                                      isNewPostModal: false,
                                   });
                         }}
                     >
@@ -193,6 +224,19 @@ const Nav = styled.nav`
 `;
 const ActivityLink = styled.div`
     cursor: pointer;
+    margin-right: 15px;
+
+    @media all and (max-width: 1280px) {
+        margin-right: 10px;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &.modal-active .icon {
+        color: #000;
+    }
     & .icon {
         width: 22px;
         height: 22px;
