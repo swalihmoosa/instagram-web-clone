@@ -16,7 +16,7 @@ export default function StoryCard({
     setCurrentStoryNumber,
     storiesLength,
 }) {
-    const [isClicked, setClicked] = useState(false);
+    const [isStoryClicked, setStoryClicked] = useState(false);
     return (
         <Container
             className={
@@ -32,7 +32,9 @@ export default function StoryCard({
             <StoryHead>
                 {isfutured ? null : (
                     <Timing>
-                        <Bg id={isClicked ? "story-clicked" : "story-bg"}></Bg>
+                        <Bg
+                            id={isStoryClicked ? "story-clicked" : "story-bg"}
+                        ></Bg>
                     </Timing>
                 )}
                 <Avatar>
@@ -66,9 +68,10 @@ export default function StoryCard({
                 <>
                     {!currentStoryNumber < 1 && (
                         <Prev
-                            onClick={() =>
-                                setCurrentStoryNumber(currentStoryNumber - 1)
-                            }
+                            onClick={() => {
+                                setCurrentStoryNumber(currentStoryNumber - 1);
+                                setStoryClicked(!isStoryClicked);
+                            }}
                         >
                             <FontAwesomeIcon
                                 icon={faAngleLeft}
@@ -83,7 +86,7 @@ export default function StoryCard({
                                     setCurrentStoryNumber(
                                         currentStoryNumber + 1
                                     );
-                                    setClicked(!isClicked);
+                                    setStoryClicked(!isStoryClicked);
                                 }}
                             >
                                 <FontAwesomeIcon
