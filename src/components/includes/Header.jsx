@@ -14,6 +14,7 @@ import { UserContext } from "../../App";
 import ActivitiesModal from "../modals/ActivitiesModal";
 import ProfileModal from "../modals/ProfileModal";
 import chats from "../../assets/json/chats";
+import NewPostModal from "../modals/NewPostModal";
 
 export default function Header() {
     const { userActions, setUserActions } = useContext(UserContext);
@@ -23,8 +24,10 @@ export default function Header() {
     return (
         <Container>
             <section className="wrapper">
+                <NewPostModal />
                 <ActivitiesModal />
                 <ProfileModal />
+
                 <HeaderSection>
                     <InstaText>
                         <Link to="/">
