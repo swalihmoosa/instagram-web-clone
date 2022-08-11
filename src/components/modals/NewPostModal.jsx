@@ -19,13 +19,19 @@ export default function NewPostModal() {
                 isNewPostModal: false,
             });
         }
-    }, [newPostImage, userActions]);
+    }, [newPostImage]);
+
+    const onImageChange = (e) => {
+        const [file] = e.target.files;
+        setPostImage(URL.createObjectURL(file));
+    };
 
     return (
         <>
             <ConfirmNewPostModal
                 isConfirmModal={isConfirmModal}
                 setConfirmModal={setConfirmModal}
+                newPostImage={newPostImage}
             />
             <Overlay
                 className={
@@ -44,10 +50,7 @@ export default function NewPostModal() {
                         <Description>Drag photos and videos here</Description>
                         <Button>
                             Select From Computer
-                            <input
-                                type="file"
-                                onChange={(e) => setPostImage(e.target.value)}
-                            />
+                            <input type="file" onChange={onImageChange} />
                         </Button>
                     </Middle>
                 </Modal>

@@ -1,14 +1,42 @@
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 
 export default function ConfirmNewPostModal({
     isConfirmModal,
     setConfirmModal,
+    newPostImage,
 }) {
     const { userActions } = useContext(UserContext);
+    const [newPosts, setNewPosts] = useState([]);
+    const [caption, setCaption] = useState("");
+    const [location, setLocation] = useState("");
+
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem("new_posts"));
+        if (items && items !== []) {
+            setNewPosts(items);
+        }
+    }, [isConfirmModal]);
+
+    const postImage = () => {
+        localStorage.setItem(
+            "new_posts",
+            JSON.stringify([
+                ...newPosts,
+                {
+                    id: newPosts.length + 1,
+                    post: newPostImage,
+                    caption: caption,
+                    location: location,
+                },
+            ])
+        );
+        setConfirmModal(false);
+    };
 
     return (
         <>
@@ -19,10 +47,13 @@ export default function ConfirmNewPostModal({
                 className={isConfirmModal ? "confirm-new-post-modal-true" : ""}
             >
                 <Modal>
-                    <Top>Create new post</Top>
+                    <Top>
+                        <span>Create new post</span>
+                        <span onClick={postImage}>share</span>
+                    </Top>
                     <Middle>
                         <Left>
-                            <img src="" alt="New Post" />
+                            <img src={newPostImage} alt="New Post" />
                         </Left>
                         <Right>
                             <Head>
@@ -34,9 +65,18 @@ export default function ConfirmNewPostModal({
                                 </Avatar>
                                 <Name>{userActions.user.username} . </Name>
                             </Head>
-                            <Caption placeholder="Write a caption..."></Caption>
+                            <Caption
+                                placeholder="Write a caption..."
+                                onChange={(e) => setCaption(e.target.value)}
+                            ></Caption>
                             <Location>
-                                <input type="text" placeholder="Add Location" />
+                                <input
+                                    type="text"
+                                    placeholder="Add Location"
+                                    onChange={(e) =>
+                                        setLocation(e.target.value)
+                                    }
+                                />
                                 <FontAwesomeIcon
                                     icon={faLocationDot}
                                     className="icon"
@@ -89,8 +129,19 @@ const Modal = styled.div`
 const Top = styled.div`
     text-align: center;
     color: #262626;
-    padding: 10px 0;
+    padding: 10px;
     border-bottom: 1px solid rgb(219, 219, 219);
+    display: flex;
+    justify-content: center;
+
+    span {
+        margin-left: auto;
+
+        &:last-child {
+            color: #0095f6;
+            cursor: pointer;
+        }
+    }
 `;
 const Middle = styled.div`
     display: flex;
@@ -104,6 +155,9 @@ const Middle = styled.div`
 const Left = styled.div`
     width: 50%;
     border-right: 1px solid rgb(219, 219, 219);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 const Right = styled.div`
     width: 50%;
