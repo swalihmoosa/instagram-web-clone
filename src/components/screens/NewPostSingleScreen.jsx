@@ -10,14 +10,13 @@ import {
     faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 import useWindowDimensions from "../hooks/UseWindowDimensions";
-import posts from "../../assets/json/posts";
 
-export default function PostSingleScreen() {
+export default function NewPostSingleScreen() {
     const { id } = useParams();
     const urlId = parseInt(id);
     const { height } = useWindowDimensions();
@@ -28,11 +27,7 @@ export default function PostSingleScreen() {
     const [isSaved, setIsSaved] = useState(false);
     const [newComment, setNewComment] = useState("");
     const [newComments, setNewComments] = useState([]);
-    const [savedPosts, setSavedPosts] = useState([]);
 
-    useEffect(() => {
-        setSavedPosts(posts.filter((post) => post.isSaved === true));
-    }, []);
     const newPosts = JSON.parse(localStorage.getItem("new_posts"));
 
     const newCommentPost = () => {
@@ -54,29 +49,7 @@ export default function PostSingleScreen() {
         <Container style={{ minHeight: height }}>
             <section className="wrapper">
                 <Left style={{ maxHeight: height - 60, height: height }}>
-                    {window.location.pathname.includes(
-                        `/${userActions.user.username}/posts/single/`
-                    ) ? (
-                        <img
-                            src={userActions.user.posts[id - 1].post}
-                            alt="Post"
-                        />
-                    ) : window.location.pathname.includes(
-                          `/${userActions.user.username}/saved/single/`
-                      ) ? (
-                        savedPosts.length > 0 && (
-                            <img src={savedPosts[id - 1].post} alt="Post" />
-                        )
-                    ) : window.location.pathname.includes(
-                          `/${userActions.user.username}/tagged/single/`
-                      ) ? (
-                        <img
-                            src={userActions.user.tagged[id - 1].post}
-                            alt="Post"
-                        />
-                    ) : (
-                        ""
-                    )}
+                    <img src={newPosts[id - 1].post} alt="Post" />
                 </Left>
                 <Right style={{ maxHeight: height - 60 }}>
                     <Head>
@@ -133,62 +106,53 @@ export default function PostSingleScreen() {
                                   </CommentLi>
                               ))
                             : ""}
-                        {userActions.user.posts[id - 1].comments.map(
-                            (comment) => (
-                                <CommentLi key={comment.id}>
-                                    <Avatar>
-                                        <img
-                                            src={comment.avatar}
-                                            alt="Avatar"
-                                        />
-                                    </Avatar>
-                                    <NameComment>
-                                        <p>
-                                            <b>{comment.name}</b> {comment.body}
-                                        </p>
-                                        <LikeContainer>
-                                            <Like>
-                                                {likedComments.includes(
-                                                    comment.id
-                                                )
-                                                    ? comment.likes + 1
-                                                    : comment.likes}{" "}
-                                                likes
-                                            </Like>
-                                            <Reply>Reply</Reply>
-                                        </LikeContainer>
-                                    </NameComment>
-                                    <FontAwesomeIcon
-                                        icon={faHeart}
-                                        onClick={() => {
-                                            if (
-                                                likedComments.includes(
-                                                    comment.id
-                                                )
-                                            ) {
-                                                let filteredArray =
-                                                    likedComments.filter(
-                                                        (likedComment) =>
-                                                            likedComment !==
-                                                            comment.id
-                                                    );
-                                                setLikedComments(filteredArray);
-                                            } else {
-                                                setLikedComments([
-                                                    ...likedComments,
-                                                    comment.id,
-                                                ]);
-                                            }
-                                        }}
-                                        className={
+                        {newPosts[id - 1].comments.map((comment) => (
+                            <CommentLi key={comment.id}>
+                                <Avatar>
+                                    <img src={comment.avatar} alt="Avatar" />
+                                </Avatar>
+                                <NameComment>
+                                    <p>
+                                        <b>{comment.name}</b> {comment.body}
+                                    </p>
+                                    <LikeContainer>
+                                        <Like>
+                                            {likedComments.includes(comment.id)
+                                                ? comment.likes + 1
+                                                : comment.likes}{" "}
+                                            likes
+                                        </Like>
+                                        <Reply>Reply</Reply>
+                                    </LikeContainer>
+                                </NameComment>
+                                <FontAwesomeIcon
+                                    icon={faHeart}
+                                    onClick={() => {
+                                        if (
                                             likedComments.includes(comment.id)
-                                                ? "icon liked"
-                                                : "icon"
+                                        ) {
+                                            let filteredArray =
+                                                likedComments.filter(
+                                                    (likedComment) =>
+                                                        likedComment !==
+                                                        comment.id
+                                                );
+                                            setLikedComments(filteredArray);
+                                        } else {
+                                            setLikedComments([
+                                                ...likedComments,
+                                                comment.id,
+                                            ]);
                                         }
-                                    />
-                                </CommentLi>
-                            )
-                        )}
+                                    }}
+                                    className={
+                                        likedComments.includes(comment.id)
+                                            ? "icon liked"
+                                            : "icon"
+                                    }
+                                />
+                            </CommentLi>
+                        ))}
                     </CommentsUl>
                     <ExploreFooter>
                         <FontAwesomeIcon
@@ -208,8 +172,8 @@ export default function PostSingleScreen() {
                     </ExploreFooter>
                     <Likes>
                         {isLiked
-                            ? userActions.user.posts[id - 1].likes + 1
-                            : userActions.user.posts[id - 1].likes}{" "}
+                            ? newPosts[id - 1].likes + 1
+                            : newPosts[id - 1].likes}{" "}
                         likes
                     </Likes>
                     <CommentDiv>
@@ -235,29 +199,7 @@ export default function PostSingleScreen() {
                         className="responsive-div"
                         style={{ maxHeight: height - 60, height: "500px" }}
                     >
-                        {window.location.pathname.includes(
-                            `/${userActions.user.username}/posts/single/`
-                        ) ? (
-                            <img
-                                src={userActions.user.posts[id - 1].post}
-                                alt="Post"
-                            />
-                        ) : window.location.pathname.includes(
-                              `/${userActions.user.username}/saved/single/`
-                          ) ? (
-                            savedPosts.length > 0 && (
-                                <img src={savedPosts[id - 1].post} alt="Post" />
-                            )
-                        ) : window.location.pathname.includes(
-                              `/${userActions.user.username}/tagged/single/`
-                          ) ? (
-                            <img
-                                src={userActions.user.tagged[id - 1].post}
-                                alt="Post"
-                            />
-                        ) : (
-                            ""
-                        )}
+                        <img src={newPosts[id - 1].post} alt="Post" />
                     </Left>
                     <ExploreFooter className="responsive-div">
                         <FontAwesomeIcon
@@ -277,8 +219,8 @@ export default function PostSingleScreen() {
                     </ExploreFooter>
                     <Likes className="responsive-div">
                         {isLiked
-                            ? userActions.user.posts[id - 1].likes + 1
-                            : userActions.user.posts[id - 1].likes}{" "}
+                            ? newPosts[id - 1].likes + 1
+                            : newPosts[id - 1].likes}{" "}
                         likes
                     </Likes>
                     <CommentDiv className="responsive-div">
@@ -296,110 +238,29 @@ export default function PostSingleScreen() {
             <Close to={`/${userActions.user.username}`}>
                 <FontAwesomeIcon icon={faClose} className="icon" />
             </Close>
-            {window.location.pathname.includes(
-                `/${userActions.user.username}/posts/single/`
-            ) &&
-                parseInt(id) === 1 &&
-                newPosts &&
-                newPosts.length > 0 && (
-                    <Prev
-                        to={`/${userActions.user.username}/new-posts/single/${newPosts.length}`}
-                    >
-                        <FontAwesomeIcon icon={faAngleLeft} className="icon" />
-                    </Prev>
-                )}
-            {window.location.pathname.includes(
-                `/${userActions.user.username}/posts/single/`
-            )
-                ? id > 1 && (
-                      <Prev
-                          to={`/${userActions.user.username}/posts/single/${
-                              urlId - 1
-                          }`}
-                      >
-                          <FontAwesomeIcon
-                              icon={faAngleLeft}
-                              className="icon"
-                          />
-                      </Prev>
-                  )
-                : window.location.pathname.includes(
-                      `/${userActions.user.username}/saved/single/`
-                  )
-                ? id > 1 && (
-                      <Prev
-                          to={`/${userActions.user.username}/saved/single/${
-                              urlId - 1
-                          }`}
-                      >
-                          <FontAwesomeIcon
-                              icon={faAngleLeft}
-                              className="icon"
-                          />
-                      </Prev>
-                  )
-                : window.location.pathname.includes(
-                      `/${userActions.user.username}/tagged/single/`
-                  )
-                ? id > 1 && (
-                      <Prev
-                          to={`/${userActions.user.username}/tagged/single/${
-                              urlId - 1
-                          }`}
-                      >
-                          <FontAwesomeIcon
-                              icon={faAngleLeft}
-                              className="icon"
-                          />
-                      </Prev>
-                  )
-                : ""}
-            {window.location.pathname.includes(
-                `/${userActions.user.username}/posts/single/`
-            )
-                ? id < userActions.user.posts.length && (
-                      <Next
-                          to={`/${userActions.user.username}/posts/single/${
-                              urlId + 1
-                          }`}
-                      >
-                          <FontAwesomeIcon
-                              icon={faAngleRight}
-                              className="icon"
-                          />
-                      </Next>
-                  )
-                : window.location.pathname.includes(
-                      `/${userActions.user.username}/saved/single/`
-                  )
-                ? id < savedPosts.length && (
-                      <Next
-                          to={`/${userActions.user.username}/saved/single/${
-                              urlId + 1
-                          }`}
-                      >
-                          <FontAwesomeIcon
-                              icon={faAngleRight}
-                              className="icon"
-                          />
-                      </Next>
-                  )
-                : window.location.pathname.includes(
-                      `/${userActions.user.username}/tagged/single/`
-                  )
-                ? id < userActions.user.tagged.length && (
-                      <Next
-                          to={`/${userActions.user.username}/tagged/single/${
-                              urlId + 1
-                          }`}
-                      >
-                          <FontAwesomeIcon
-                              icon={faAngleRight}
-                              className="icon"
-                          />
-                      </Next>
-                  )
-                : ""}
+            {id > 1 && (
+                <Prev
+                    to={`/${userActions.user.username}/new-posts/single/${
+                        urlId - 1
+                    }`}
+                >
+                    <FontAwesomeIcon icon={faAngleLeft} className="icon" />
+                </Prev>
+            )}
+            {id < newPosts.length && (
+                <Next
+                    to={`/${userActions.user.username}/new-posts/single/${
+                        urlId + 1
+                    }`}
+                >
+                    <FontAwesomeIcon icon={faAngleRight} className="icon" />
+                </Next>
+            )}
+            {parseInt(id) === newPosts.length && (
+                <Next to={`/${userActions.user.username}/posts/single/1`}>
+                    <FontAwesomeIcon icon={faAngleRight} className="icon" />
+                </Next>
+            )}
         </Container>
     );
 }

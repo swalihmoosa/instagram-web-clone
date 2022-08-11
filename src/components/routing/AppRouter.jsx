@@ -12,6 +12,9 @@ const StoryScreen = lazy(() => import("../screens/StoryScreen"));
 const ProfileScreen = lazy(() => import("../screens/ProfileScreen"));
 const HighlightScreen = lazy(() => import("../screens/HighlightScreen"));
 const PostSingleScreen = lazy(() => import("../screens/PostSingleScreen"));
+const NewPostSingleScreen = lazy(() =>
+    import("../screens/NewPostSingleScreen")
+);
 const VideoSingleScreen = lazy(() => import("../screens/VideoSingleScreen"));
 
 export default function AppRouter() {
@@ -38,6 +41,10 @@ export default function AppRouter() {
                 <Route
                     path="/:name/posts/single/:id"
                     element={<PostSingleScreen />}
+                />
+                <Route
+                    path="/:name/new-posts/single/:id"
+                    element={<NewPostSingleScreen />}
                 />
                 <Route
                     path="/:name/saved/single/:id"

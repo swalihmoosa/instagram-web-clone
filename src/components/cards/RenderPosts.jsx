@@ -16,10 +16,10 @@ export default function RenderPosts() {
     const renderNewPosts = () =>
         newPosts &&
         newPosts !== [] &&
-        newPosts.reverse().map((newpost) => (
+        newPosts.map((newpost) => (
             <Post
                 key={newpost.id}
-                to={`/${userActions.user.username}/posts/single/${newpost.id}`}
+                to={`/${userActions.user.username}/new-posts/single/${newpost.id}`}
             >
                 <img src={newpost.post} alt="Post" />
                 <Overlay className="overlay">
