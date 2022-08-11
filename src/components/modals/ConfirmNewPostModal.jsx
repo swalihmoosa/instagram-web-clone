@@ -2,8 +2,10 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
+import Lottie from "react-lottie";
 import styled from "styled-components";
 import { UserContext } from "../../App";
+import animationData from "../../assets/lotties/insta-logo-json.json";
 
 export default function ConfirmNewPostModal({
     isConfirmModal,
@@ -14,6 +16,15 @@ export default function ConfirmNewPostModal({
     const [newPosts, setNewPosts] = useState([]);
     const [caption, setCaption] = useState("");
     const [location, setLocation] = useState("");
+    const [isLoading, setLoading] = useState(false);
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
 
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem("new_posts"));
@@ -23,6 +34,7 @@ export default function ConfirmNewPostModal({
     }, [isConfirmModal]);
 
     const postImage = () => {
+        setLoading(true);
         localStorage.setItem(
             "new_posts",
             JSON.stringify([
@@ -37,14 +49,21 @@ export default function ConfirmNewPostModal({
                 },
             ])
         );
+        setTimeout(() => {
+            setConfirmModal(false);
+            setLoading(false);
+        }, 5000);
         setUserActions({
             ...userActions,
             shareNewPost: !userActions.shareNewPost,
         });
         setCaption("");
         setLocation("");
-        setConfirmModal(false);
     };
+
+    const style = {
+        margin: 'auto',
+    }
 
     return (
         <>
@@ -60,39 +79,54 @@ export default function ConfirmNewPostModal({
                         <span onClick={postImage}>share</span>
                     </Top>
                     <Middle>
-                        <Left>
-                            <img src={newPostImage} alt="New Post" />
-                        </Left>
-                        <Right>
-                            <Head>
-                                <Avatar>
-                                    <img
-                                        src={userActions.user.avatar}
-                                        alt="Avatar"
-                                    />
-                                </Avatar>
-                                <Name>{userActions.user.username} . </Name>
-                            </Head>
-                            <Caption
-                                placeholder="Write a caption..."
-                                value={caption}
-                                onChange={(e) => setCaption(e.target.value)}
-                            ></Caption>
-                            <Location>
-                                <input
-                                    type="text"
-                                    placeholder="Add Location"
-                                    value={location}
-                                    onChange={(e) =>
-                                        setLocation(e.target.value)
-                                    }
-                                />
-                                <FontAwesomeIcon
-                                    icon={faLocationDot}
-                                    className="icon"
-                                />
-                            </Location>
-                        </Right>
+                        {isLoading ? (
+                            <Lottie
+                                options={defaultOptions}
+                                height={200}
+                                width={200}
+                                style={style}
+                            />
+                        ) : (
+                            <>
+                                <Left>
+                                    <img src={newPostImage} alt="New Post" />
+                                </Left>
+                                <Right>
+                                    <Head>
+                                        <Avatar>
+                                            <img
+                                                src={userActions.user.avatar}
+                                                alt="Avatar"
+                                            />
+                                        </Avatar>
+                                        <Name>
+                                            {userActions.user.username} .{" "}
+                                        </Name>
+                                    </Head>
+                                    <Caption
+                                        placeholder="Write a caption..."
+                                        value={caption}
+                                        onChange={(e) =>
+                                            setCaption(e.target.value)
+                                        }
+                                    ></Caption>
+                                    <Location>
+                                        <input
+                                            type="text"
+                                            placeholder="Add Location"
+                                            value={location}
+                                            onChange={(e) =>
+                                                setLocation(e.target.value)
+                                            }
+                                        />
+                                        <FontAwesomeIcon
+                                            icon={faLocationDot}
+                                            className="icon"
+                                        />
+                                    </Location>
+                                </Right>
+                            </>
+                        )}
                     </Middle>
                 </Modal>
             </Container>
