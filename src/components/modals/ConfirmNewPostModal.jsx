@@ -10,7 +10,7 @@ export default function ConfirmNewPostModal({
     setConfirmModal,
     newPostImage,
 }) {
-    const { userActions } = useContext(UserContext);
+    const { userActions, setUserActions } = useContext(UserContext);
     const [newPosts, setNewPosts] = useState([]);
     const [caption, setCaption] = useState("");
     const [location, setLocation] = useState("");
@@ -30,11 +30,19 @@ export default function ConfirmNewPostModal({
                 {
                     id: newPosts.length + 1,
                     post: newPostImage,
+                    likes: 0,
+                    comments: [],
                     caption: caption,
                     location: location,
                 },
             ])
         );
+        setUserActions({
+            ...userActions,
+            shareNewPost: !userActions.shareNewPost,
+        });
+        setCaption("");
+        setLocation("");
         setConfirmModal(false);
     };
 
@@ -67,12 +75,14 @@ export default function ConfirmNewPostModal({
                             </Head>
                             <Caption
                                 placeholder="Write a caption..."
+                                value={caption}
                                 onChange={(e) => setCaption(e.target.value)}
                             ></Caption>
                             <Location>
                                 <input
                                     type="text"
                                     placeholder="Add Location"
+                                    value={location}
                                     onChange={(e) =>
                                         setLocation(e.target.value)
                                     }
@@ -158,6 +168,7 @@ const Left = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 `;
 const Right = styled.div`
     width: 50%;

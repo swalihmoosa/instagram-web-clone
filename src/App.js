@@ -13,9 +13,10 @@ function App() {
     const [userActions, setUserActions] = useState({
         user: userData,
         clickedStory: 1,
-        isActivityModal : false,
-        isProfileModal : false,
-        isNewPostModal : false,
+        isActivityModal: false,
+        isProfileModal: false,
+        isNewPostModal: false,
+        shareNewPost: false,
     });
     return (
         <UserContext.Provider value={{ userActions, setUserActions }}>
