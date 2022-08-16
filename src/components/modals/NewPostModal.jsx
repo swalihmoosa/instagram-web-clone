@@ -95,6 +95,10 @@ const Modal = styled.div`
     width: 550px;
     height: 300px;
     border-radius: 20px;
+
+    @media all and (max-width: 640px) {
+        width: 90%;
+    }
 `;
 const Top = styled.div`
     text-align: center;
@@ -118,6 +122,10 @@ const Description = styled.div`
     font-size: 18px;
     color: #262626;
     margin-bottom: 10px;
+
+    @media all and (max-width: 400px) {
+        font-size: 16px;
+    }
 `;
 const Button = styled.div`
     background-color: #0095f6;
@@ -136,5 +144,9 @@ const Button = styled.div`
         left: 0;
         opacity: 0;
         cursor: pointer;
+    }
+
+    @media all and (max-width: 400px) {
+        font-size: 13px;
     }
 `;

@@ -62,8 +62,8 @@ export default function ConfirmNewPostModal({
     };
 
     const style = {
-        margin: 'auto',
-    }
+        margin: "auto",
+    };
 
     return (
         <>
@@ -169,6 +169,10 @@ const Modal = styled.div`
     width: 550px;
     height: 300px;
     border-radius: 20px;
+
+    @media all and (max-width: 640px) {
+        width: 90%;
+    }
 `;
 const Top = styled.div`
     text-align: center;
@@ -236,6 +240,10 @@ const Name = styled.h5`
     font-weight: 600;
     margin-right: 5px;
     color: #262626;
+
+    @media all and (max-width: 400px) {
+        font-size: 11px;
+    }
 `;
 const Caption = styled.textarea`
     border-bottom: 1px solid rgb(219, 219, 219);
