@@ -20,7 +20,7 @@ function App() {
     });
     return (
         <UserContext.Provider value={{ userActions, setUserActions }}>
-            <Router>{isLoggedIn ? <AppRouter /> : <AuthRouter />}</Router>
+            <Router basename="/instagram-web-clone" >{isLoggedIn ? <AppRouter /> : <AuthRouter />}</Router>
         </UserContext.Provider>
     );
 }
