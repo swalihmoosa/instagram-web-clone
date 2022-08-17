@@ -32,15 +32,19 @@ export default function ProfileScreen() {
     };
 
     useEffect(() => {
-        window.location.pathname === `/${userActions.user.username}`
+        window.location.pathname.includes(`/${userActions.user.username}/posts`)
             ? setSelectedCategory("posts")
-            : window.location.pathname ===
-              `/${userActions.user.username}/channel`
+            : window.location.pathname.includes(
+                  `/${userActions.user.username}/channel`
+              )
             ? setSelectedCategory("videos")
-            : window.location.pathname === `/${userActions.user.username}/saved`
+            : window.location.pathname.includes(
+                  `/${userActions.user.username}/saved`
+              )
             ? setSelectedCategory("saved")
-            : window.location.pathname ===
-              `/${userActions.user.username}/tagged`
+            : window.location.pathname.includes(
+                  `/${userActions.user.username}/tagged`
+              )
             ? setSelectedCategory("tagged")
             : setSelectedCategory("");
     }, [userActions.user.username, window.location.pathname]);
@@ -136,7 +140,7 @@ export default function ProfileScreen() {
                 </HighlightsUlContainer>
                 <PostsHead>
                     <PostsHeadLi
-                        to={`/${userActions.user.username}`}
+                        to={`/${userActions.user.username}/posts`}
                         className={selectedCategory === "posts" && "active"}
                         onClick={() => setSelectedCategory("posts")}
                     >
@@ -172,17 +176,21 @@ export default function ProfileScreen() {
                     </PostsHeadLi>
                 </PostsHead>
                 <PostsDiv>
-                    {window.location.pathname ===
-                    `/${userActions.user.username}` ? (
+                    {window.location.pathname.includes(
+                        `/${userActions.user.username}/posts`
+                    ) ? (
                         <RenderPosts />
-                    ) : window.location.pathname ===
-                      `/${userActions.user.username}/channel` ? (
+                    ) : window.location.pathname.includes(
+                          `/${userActions.user.username}/channel`
+                      ) ? (
                         <RenderVideoPosts />
-                    ) : window.location.pathname ===
-                      `/${userActions.user.username}/saved` ? (
+                    ) : window.location.pathname.includes(
+                          `/${userActions.user.username}/saved`
+                      ) ? (
                         <RenderSavedPosts />
-                    ) : window.location.pathname ===
-                      `/${userActions.user.username}/tagged` ? (
+                    ) : window.location.pathname.includes(
+                          `/${userActions.user.username}/tagged`
+                      ) ? (
                         <RenderTaggedPosts />
                     ) : null}
                 </PostsDiv>

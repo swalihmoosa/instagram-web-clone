@@ -293,7 +293,7 @@ export default function PostSingleScreen() {
                     </CommentDiv>
                 </ResponsiveDiv>
             </section>
-            <Close to={`/${userActions.user.username}`}>
+            <Close to={`/${userActions.user.username}/posts`}>
                 <FontAwesomeIcon icon={faClose} className="icon" />
             </Close>
             {window.location.pathname.includes(

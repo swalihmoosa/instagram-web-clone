@@ -28,7 +28,7 @@ export default function ProfileModal() {
                               isProfileModal: true,
                           });
                 }}
-                to={`/${userActions.user.username}`}
+                to={`/${userActions.user.username}/posts`}
             >
                 <FontAwesomeIcon icon={faUser} className="icon" />
                 <Details>Profile</Details>

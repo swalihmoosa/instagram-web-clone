@@ -30,7 +30,7 @@ export default function AppRouter() {
                     path="/explore/single/:name/:id"
                     element={<ExploreSingleScreen />}
                 />
-                <Route path="/:name" element={<ProfileScreen />} />
+                <Route path="/:name/posts" element={<ProfileScreen />} />
                 <Route path="/:name/channel" element={<ProfileScreen />} />
                 <Route path="/:name/saved" element={<ProfileScreen />} />
                 <Route path="/:name/tagged" element={<ProfileScreen />} />

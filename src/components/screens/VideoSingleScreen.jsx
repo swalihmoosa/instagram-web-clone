@@ -251,7 +251,7 @@ export default function VideoSingleScreen() {
                     </CommentDiv>
                 </ResponsiveDiv>
             </section>
-            <Close to={`/${userActions.user.username}`}>
+            <Close to={`/${userActions.user.username}/posts`}>
                 <FontAwesomeIcon icon={faClose} className="icon" />
             </Close>
             {id > 1 && (
