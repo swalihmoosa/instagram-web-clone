@@ -20,7 +20,7 @@ import postTwentyOne from "../images/my-posts/post-21-min.jpg";
 import postTwentyFour from "../images/my-posts/post-24-min.jpg";
 import postTwentySix from "../images/my-posts/post-26-min.jpg";
 import postTwentySeven from "../images/my-posts/post-27-min.jpg";
-import reelOne from "../images/my-posts/videos/reel-1.mp4";
+import reelOne from "../videos/my-posts/reel-1.mp4";
 import reelCoverOne from "../images/my-posts/videos/reel-cover-1.png";
 
 const userData = {
