@@ -20,11 +20,11 @@ import FollowersModal from "../modals/FollowersModal";
 
 export default function ProfileScreen() {
     const { userActions, setUserActions } = useContext(UserContext);
-    const ref = useRef(null);
     const [slideLeft, setSlideLeft] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState("posts");
     const [isFollowersModal, setFollowersModal] = useState(false);
     const [isFollowingModal, setFollowingModal] = useState(false);
+    const ref = useRef(null);
 
     const scroll = (scrollOffset) => {
         ref.current.scrollLeft += scrollOffset;
